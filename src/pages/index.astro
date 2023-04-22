@@ -1,0 +1,49 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+
+
+
+---
+
+<MainLayout title="Welcome to Flow">
+	<main>
+	  
+	  <div class="welcome">
+		<div>Restez informé sur l'actualité de la <span>Tech</span>, du <span>développement web</span> et de l'<span>animation</span>.</div>
+		<div>Découvrez de nouveaux articles et shows tous les lundis et jeudis, gratuitement.</div>
+		
+	  </div>
+	  <a href="/blog/post-1">POST 1</a>
+	  <a href="blog"><button class="access">Accédez au site</button></a>
+
+	  
+	 
+	  
+	</main>
+  </MainLayout>
+  
+  <style>
+	.welcome {
+	  display: flex;
+	  flex-direction: column;
+	  margin-top: 10vh;
+	  margin-left: 10vh;
+	  height: 50%;
+	  font-size: xx-large;
+	  color: rgb(210, 198, 255);
+	  
+	}
+  
+	
+  
+	.welcome span {
+	  font-weight: bold;
+	  font-style: italic;
+	}
+	.access {
+		padding: 10px;
+		margin-top: 5vh;
+	}
+  </style>
+  
+  
