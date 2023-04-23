@@ -1,5 +1,8 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import CardPost from '../components/CardPost.astro';
+
+const  allPosts = await Astro.glob("./blog/*.mdx")
 
 
 
@@ -13,7 +16,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 		<div>Découvrez de nouveaux articles et shows tous les lundis et jeudis, gratuitement.</div>
 		
 	  </div>
-	  <a href="/blog/post-1">POST 1</a>
+	  <CardPost post = {allPosts[0]}></CardPost>
 	  <a href="blog"><button class="access">Accédez au site</button></a>
 
 	  
