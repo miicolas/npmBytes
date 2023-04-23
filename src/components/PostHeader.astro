@@ -4,11 +4,12 @@ import { Image } from "@astrojs/image/components";
 import { slugify, formatDate } from "../js/utils";
 
 const { category, title, author, date, image } = Astro.props;
+const categories = category.split(',')
 ---
 
 <header>
   <div class="container">
-    
+    <img src={image.src} alt={image.alt}>
     <h1 class="h2">{title}</h1>
     
     <p>
@@ -16,11 +17,13 @@ const { category, title, author, date, image } = Astro.props;
         formatDate(date)
       }
     </p>
-    <small>
-        <a href={`/category/${slugify(category)}/`} class="badge">{category}</a>
+    {categories.map((cat) => (
+      <small>
+        <a href={`/category/${slugify}/`} class="badge">{cat.trim()}</a>
       </small>
+    ))}
   </div>
-  <img src={image.src} alt={image.alt}>
+  
   
 </header>
 

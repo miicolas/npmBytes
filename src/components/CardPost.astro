@@ -4,17 +4,20 @@ const { post } = Astro.props;
 import { Image } from "@astrojs/image/components";
 // utils imports
 import { slugify, formatDate } from "../js/utils";
-
 const { category, title, author, date, image, description } = post.frontmatter;
 const postUrl = `/blog/${slugify(title)}`;
+const categories = category.split(',')
+
 ---
 <article class="card">
   <div class="container">
-    <small>
-      <a href={`/category/${slugify(category)}/`} class="badge">{category}</a>
-    </small>
+    {categories.map((cat) => (
+      <small>
+        <a href={`/category/${slugify}/`} class="badge">{cat.trim()}</a>
+      </small>
+    ))}
     <img src={image.src} alt={image.alt} />
-    <a href={postUrl}><h1 class="h2">{title}</h1></a>
+    <a href={postUrl}><h1 class="title">{title}</h1></a>
     <p class="description">{description}</p>
     <p class="author-date">
       by <a href={`/author/${slugify(author)}/`}> {author}</a> • {
@@ -63,7 +66,7 @@ const postUrl = `/blog/${slugify(title)}`;
     background-color: #260a96a9;
   }
 
-  h1 {
+  .title {
     font-size: 24px;
     font-weight: 600;
     margin-top: 8px;
@@ -75,15 +78,6 @@ const postUrl = `/blog/${slugify(title)}`;
     margin-top: 0;
     margin-bottom: 16px;
     color: #6c757d;
-  }
-
-  a {
-    color: #007bff;
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
   }
 
   img {
