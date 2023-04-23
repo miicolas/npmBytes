@@ -57,11 +57,56 @@ code {
 }
 
 a {
-    text-decoration:none;
-    color: white;
-    
+  color: #562bff;
+  text-decoration: none;
 }
-/* width */
+a:hover {
+  text-decoration: underline;
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10vh;
+  margin-left: 10vh;
+  height: 50%;
+  font-size: xx-large;
+  color: rgb(210, 198, 255);
+}
+
+.magic {
+  display: inline-block;
+  position: relative;
+}
+.magic-text {
+  animation: background-pan 10s linear;
+  font-weight: bold;
+
+  background: linear-gradient(to right, #562bff, violet, pink, #562bff);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+.magic-star {
+  --size: clamp(20px, 1.5vw, 30px);
+
+  animation: scale 700ms ease forwards;
+  display: block;
+  height: var(--size);
+  left: var(--star-left);
+  position: absolute;
+  top: var(--star-top);
+  width: var(--size);
+}
+.title {
+  color : white;
+  cursor : pointer;
+}
+
+
+
+/* ScrollBar */
 ::-webkit-scrollbar {
     width: 10px;
   }
