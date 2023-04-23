@@ -94,6 +94,7 @@ const allPosts = await Astro.glob("./blog/*.mdx");
     to {
       background-position: -200% center;
     }
+    animation-iteration-count: infinite;
   }
 
   @keyframes scale {
@@ -116,41 +117,7 @@ const allPosts = await Astro.glob("./blog/*.mdx");
       transform: rotate(180deg);
     }
   }
-  .welcome {
-    display: flex;
-    flex-direction: column;
-    margin-top: 10vh;
-    margin-left: 10vh;
-    height: 50%;
-    font-size: xx-large;
-    color: rgb(210, 198, 255);
-  }
 
-  .magic {
-    display: inline-block;
-    position: relative;
-  }
-  .magic-text {
-    animation: background-pan 10s linear;
-    font-weight: bold;
-
-    background: linear-gradient(to right, purple, violet, pink, purple);
-    background-size: 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    white-space: nowrap;
-  }
-  .magic-star {
-    --size: clamp(20px, 1.5vw, 30px);
-
-    animation: scale 700ms ease forwards;
-    display: block;
-    height: var(--size);
-    left: var(--star-left);
-    position: absolute;
-    top: var(--star-top);
-    width: var(--size);
-  }
   svg {
     animation: rotate 1000ms linear infinite;
     display: block;
