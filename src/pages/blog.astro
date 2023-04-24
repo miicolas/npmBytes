@@ -1,11 +1,15 @@
 ---
+import CardPost from "../components/CardPost.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+const allPosts = await Astro.glob("./blog/*.mdx");
 ---
-
 <MainLayout title = "Myblog">
-    <ul>
-        <li>
-            <a href="/blog/post-1">Post 1</a>
-        </li>
-    </ul>
+  <section class="container" aria-label="New Blog Posts">
+    <h1 class="h1">New Blog Posts</h1>
+    <div class="post-container">
+        {allPosts.map((post) => (
+            <CardPost key={post.url} post={post} />
+          ))}
+    </div>
+  </section>
 </MainLayout>
