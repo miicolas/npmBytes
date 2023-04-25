@@ -2,6 +2,8 @@
 import { Image } from "@astrojs/image/components";
 // utils imports
 import { slugify, formatDate } from "../js/utils";
+import Separation from "./Separation.astro";
+import LikeButton from "./LikeButton.astro";
 
 const { category, title, author, date, image } = Astro.props;
 const categories = category.split(',')
@@ -22,10 +24,14 @@ const categories = category.split(',')
         <a href={`/category/${slugify}/`} class="badge">{cat.trim()}</a>
       </small>
     ))}
+    <br><br>
+  <Separation/>
   </div>
   
   
+  
 </header>
+
 
 
 <style>
@@ -74,4 +80,11 @@ const categories = category.split(',')
     a:hover {
     text-decoration: underline;
     }
+    img{
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+    }
+    
 </style>
