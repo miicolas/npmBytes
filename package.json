@@ -16,5 +16,8 @@
     "astro-icon": "^0.8.0",
     "postcss": "^8.4.23",
     "postcss-preset-env": "^8.3.2"
+  },
+  "devDependencies": {
+    "markdown-toc": "^1.2.0"
   }
 }
