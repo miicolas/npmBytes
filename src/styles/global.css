@@ -1,59 +1,64 @@
 :root {
-    --accent: 124, 58, 237;
-    --accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+  --accent: 124, 58, 237;
+  --accent-gradient: linear-gradient(
+    45deg,
+    rgb(var(--accent)),
+    #da62c4 30%,
+    white 60%
+  );
 }
 @font-face {
-  font-family: 'Space Grotesk';
-  src: url('/font/SpaceGrotesk-SemiBold.woff2') format('woff2'),
-      url('/font/SpaceGrotesk-SemiBold.woff') format('woff');
+  font-family: "Space Grotesk";
+  src: url("/font/SpaceGrotesk-SemiBold.woff2") format("woff2"),
+    url("/font/SpaceGrotesk-SemiBold.woff") format("woff");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Space Grotesk';
-  src: url('/font/SpaceGrotesk-Light.woff2') format('woff2'),
-      url('/font/SpaceGrotesk-Light.woff') format('woff');
+  font-family: "Space Grotesk";
+  src: url("/font/SpaceGrotesk-Light.woff2") format("woff2"),
+    url("/font/SpaceGrotesk-Light.woff") format("woff");
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Space Grotesk';
-  src: url('/font/SpaceGrotesk-Regular.woff2') format('woff2'),
-      url('/font/SpaceGrotesk-Regular.woff') format('woff');
+  font-family: "Space Grotesk";
+  src: url("/font/SpaceGrotesk-Regular.woff2") format("woff2"),
+    url("/font/SpaceGrotesk-Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Space Grotesk';
-  src: url('/font/SpaceGrotesk-Medium.woff2') format('woff2'),
-      url('/font/SpaceGrotesk-Medium.woff') format('woff');
+  font-family: "Space Grotesk";
+  src: url("/font/SpaceGrotesk-Medium.woff2") format("woff2"),
+    url("/font/SpaceGrotesk-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Space Grotesk';
-  src: url('/font/SpaceGrotesk-Bold.woff2') format('woff2'),
-      url('/font/SpaceGrotesk-Bold.woff') format('woff');
+  font-family: "Space Grotesk";
+  src: url("/font/SpaceGrotesk-Bold.woff2") format("woff2"),
+    url("/font/SpaceGrotesk-Bold.woff") format("woff");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 html {
-    font-family: 'Space Grotesk';
-    background-color: #111111;
-    color: white;
+  font-family: "Space Grotesk";
+  background-color: #111111;
+  color: white;
 }
 code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-        Bitstream Vera Sans Mono, Courier New, monospace;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
 a {
@@ -67,11 +72,12 @@ a:hover {
 .welcome {
   display: flex;
   flex-direction: column;
-  margin-top: 10vh;
-  margin-left: 10vh;
-  height: 50%;
+  max-width: 200rem;
+  margin-top: 5rem;
+  margin-left: 10%;
   font-size: xx-large;
   color: rgb(210, 198, 255);
+  padding-bottom: 5rem;
 }
 
 .magic {
@@ -81,7 +87,6 @@ a:hover {
 .magic-text {
   animation: background-pan 10s linear;
   font-weight: bold;
-
   background: linear-gradient(to right, #562bff, violet, pink, #562bff);
   background-size: 200%;
   -webkit-background-clip: text;
@@ -100,29 +105,36 @@ a:hover {
   width: var(--size);
 }
 .title {
-  color : white;
-  cursor : pointer;
+  color: white;
+  cursor: pointer;
 }
-
-
 
 /* ScrollBar */
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f100;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+/*Responsive */ 
+
+@media only screen and (min-width: 400px) {
+  .welcome{
+    margin-left: 8%;
   }
   
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #f1f1f100;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #888;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555;
-  }
-  
+}
