@@ -7,7 +7,7 @@ const allPosts = await Astro.glob("./blog/*.mdx");
   <section class="container" aria-label="New Blog Posts">
     <h1 class="h1">New Blog Posts</h1>
     <div class="post-container">
-        {allPosts.map((post) => (
+        {allPosts.slice(1).map((post) => (
             <CardPost key={post.url} post={post} />
           ))}
     </div>
