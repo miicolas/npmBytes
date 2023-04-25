@@ -3,6 +3,9 @@ import MainLayout from "../layouts/MainLayout.astro";
 import CardPost from "../components/CardPost.astro";
 
 const allPosts = await Astro.glob("./blog/*.mdx");
+const post = allPosts.find(post => post.url === '/blog/what-is-flow');
+
+
 ---
 
 <MainLayout title="Welcome to Flow">
@@ -80,7 +83,7 @@ const allPosts = await Astro.glob("./blog/*.mdx");
         Discover new articles and shows every Monday, for free.
       </div>
     </div>
-    <CardPost post={allPosts[0]} />
+    <CardPost {post} />
     <a href="blog"><button class="access">Accédez au site</button></a>
   </main>
 </MainLayout>
