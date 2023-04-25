@@ -1,0 +1,71 @@
+---
+const { post } = Astro.props;
+
+// utils imports
+import { slugify } from "../js/utils";
+const { title, image } = post.frontmatter;
+const postUrl = `/blog/${slugify(title)}`;
+---
+
+<article class="card">
+  <div class="container">
+    <a href={postUrl}><h1 class="title">{title}</h1></a>
+    <img class="main-image" src={image.src} alt={image.alt} />
+    
+  </div>
+</article>
+
+<style>
+  .card {
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    max-width: 90%;
+    margin: 16px auto;
+    padding: 5px;
+    background-color: rgb(134, 134, 134);
+  }
+
+  .card:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  }
+
+  .container {
+    text-align: center;
+    height: 20rem; 
+    overflow: hidden;
+  }
+
+  .small {
+    font-size: 80%;
+  }
+
+  .title {
+    position: absolute;
+    font-size: 24px;
+    font-weight: 600;
+    margin-left: 2rem;
+  }
+
+  p {
+    font-size: 15px;
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: #6c757d;
+  }
+
+  .main-image {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 5px;
+  }
+
+  .description {
+    text-align: left;
+  }
+
+  .author-date {
+    text-align: left;
+  }
+</style>
