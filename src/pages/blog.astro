@@ -1,15 +1,64 @@
 ---
 import CardPost from "../components/CardPost.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+import MainPost from "../components/MainPost.astro";
 const allPosts = await Astro.glob("./blog/*.mdx");
 ---
-<MainLayout title = "Myblog">
-  <section class="container" aria-label="New Blog Posts">
-    <h1 class="h1">New Blog Posts</h1>
-    <div class="post-container">
-        {allPosts.slice(1).map((post) => (
-            <CardPost key={post.url} post={post} />
-          ))}
+
+<MainLayout title="Myblog">
+  <section class="container">
+    <div class="main-post">
+      <MainPost post={allPosts[0]} />
+    </div>
+    <div class="page">
+      <div class="post-container">
+        {
+          allPosts
+            .slice(1)
+            .map((post) => <CardPost key={post.url} post={post} />)
+        }
+      </div>
+      <div class="last-update">
+        <p>Last</p>
+      </div>
     </div>
   </section>
 </MainLayout>
+
+<style>
+
+  .page{
+    display: flex;
+    flex-direction: row;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .post-container {
+
+    display: flex;
+    flex-direction: row;
+    max-width: 100rem;
+    flex-wrap: wrap;
+  }
+  .last-update {
+    display: flex;
+    flex-direction: column;
+    max-height: 20rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .page {
+      flex-direction: column;
+    }
+
+    .last-update {
+      margin: 2rem auto;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .post-container {
+      justify-content: space-between;
+    }
+  }
+</style>
