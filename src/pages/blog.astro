@@ -3,7 +3,10 @@ import CardPost from "../components/CardPost.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import MainPost from "../components/MainPost.astro";
 const allPosts = await Astro.glob("./blog/*.mdx");
+const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
 ---
+
+
 
 <MainLayout title="Myblog">
   <section class="container">
