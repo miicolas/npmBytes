@@ -4,14 +4,18 @@ import PostHeader from "../components/PostHeader.astro";
 import MainLayout from "./MainLayout.astro";
 
 const { frontmatter } = Astro.props;
-
-const { title, description, date, category, author, image } = frontmatter;
+const { title, description, date, category, author, image, minutesRead } =
+  frontmatter;
 ---
 
 <MainLayout {title} {description}>
   <PostHeader {title} {description} {date} {category} {image} {author} />
   <div class="post-content">
     <div class="content">
+      <div class="reading-time">
+        <i class="fa-sharp fa-regular fa-clock" style="color: #ffffff;"></i>
+        <p>{minutesRead}</p>
+      </div>
       <slot />
     </div>
     <div class="sidebar"></div>
@@ -19,17 +23,26 @@ const { title, description, date, category, author, image } = frontmatter;
 </MainLayout>
 
 <style>
-.post-content {
-  display: flex;
-  justify-content: center;
-}
+  .post-content {
+    display: flex;
+    justify-content: center;
+  }
 
-.content {
-  width: 100%;
-  max-width: 100vh; 
-  margin: 0 auto;
-  word-wrap: break-word;
-  overflow-x: auto;
-}
+  .content {
+    width: 100%;
+    max-width: 100vh;
+    margin: 0 auto;
+    word-wrap: break-word;
+    overflow-x: auto;
+  }
 
+  .reading-time {
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+
+  .reading-time i {
+    margin-right: 0.5rem;
+  }
 </style>
