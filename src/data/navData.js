@@ -1,9 +1,9 @@
-const navData = [
-    {
-        name : "Blog",
-        path : "/blog",
-    }
+// const navData = [
+//     {
+//         name : "Blog",
+//         path : "/blog",
+//     }
     
-]
+// ]
 
-export default navData;
+// export default navData;
