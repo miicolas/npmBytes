@@ -108,6 +108,9 @@ a:hover {
   color: white;
   cursor: pointer;
 }
+.author {
+  color :  #562bff
+}
 
 /* ScrollBar */
 ::-webkit-scrollbar {
@@ -128,6 +131,7 @@ a:hover {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
 
 
 /*Responsive */ 
