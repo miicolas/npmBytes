@@ -1,0 +1,42 @@
+---
+---
+
+<div class="like-button">
+    <i class="fa-sharp fa-solid fa-heart"></i>
+</div>
+
+
+
+<style>
+
+    
+    i{
+        color : white;
+        transition :ease-in-out .5s;
+        box-shadow: none;
+    }
+    i:hover{
+        color : red;
+        transition :ease-in-out .5s;
+    }
+    i:active {
+  
+    transform: translateY(3px);
+    }
+
+    .filled {
+    color: red;
+    
+    }
+
+</style>
+
+<script> 
+const likeButton = document.querySelector('.like-button');
+const heartIcon = document.querySelector('.fa-heart');
+
+likeButton.addEventListener('click', function() {
+  heartIcon.classList.toggle('filled');
+});
+
+</script>

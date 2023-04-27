@@ -2,7 +2,7 @@
 // component import
 import PostHeader from "../components/PostHeader.astro";
 import MainLayout from "./MainLayout.astro";
-
+import EndPost from "../components/EndPost.astro";
 const { frontmatter } = Astro.props;
 const { title, description, date, category, author, image, minutesRead } =
   frontmatter;
@@ -18,8 +18,10 @@ const { title, description, date, category, author, image, minutesRead } =
       </div>
       <slot />
     </div>
+
     <div class="sidebar"></div>
   </div>
+  <EndPost />
 </MainLayout>
 
 <style>
