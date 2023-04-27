@@ -6,30 +6,31 @@ import { Image } from "@astrojs/image/components";
 import { slugify, formatDate } from "../js/utils";
 const { category, title, author, date, image, description } = post.frontmatter;
 const postUrl = `/blog/${slugify(title)}`;
-const categories = category.split(',')
-
+const categories = category.split(",");
 ---
+
 <article class="card">
   <div class="container">
-    {categories.map((cat) => (
-      <small>
-        <a href={`/category/${slugify}/`} class="badge">{cat.trim()}</a>
-      </small>
-    ))}
+    {
+      categories.map((cat) => (
+        <small>
+          <a href={`/category/${slugify}/`} class="badge">
+            {cat.trim()}
+          </a>
+        </small>
+      ))
+    }
     <img src={image.src} alt={image.alt} />
     <a href={postUrl}><h1 class="title">{title}</h1></a>
     <p class="description">{description}</p>
     <p class="author-date">
-      by <a href={`/author/${slugify(author)}/`}> {author}</a> • {
-        formatDate(date)
-      }
+      by {author} • {formatDate(date)}
     </p>
   </div>
 </article>
 
 <style>
   .card {
-  
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -83,7 +84,7 @@ const categories = category.split(',')
   img {
     height: 300px;
     max-width: 250px;
-    object-fit: cover ;
+    object-fit: cover;
     object-position: center;
     overflow: hidden;
     border-radius: 5px;
@@ -97,9 +98,8 @@ const categories = category.split(',')
     text-align: left;
   }
   @media only screen and (min-width: 400px) {
-  .card {
-    max-width: 300px;
+    .card {
+      max-width: 300px;
+    }
   }
-  
-}
 </style>

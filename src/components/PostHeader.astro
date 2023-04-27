@@ -3,88 +3,83 @@
 import { slugify, formatDate } from "../js/utils";
 import Separation from "./Separation.astro";
 
-const { category, title, author, date, image} = Astro.props;
-const categories = category.split(',')
+const { category, title, author, date, image } = Astro.props;
+const categories = category.split(",");
 ---
 
 <header>
   <div class="container">
-    
-    <img src={image.src} alt={image.alt}>
+    <img src={image.src} alt={image.alt} />
     <h1 class="h2">{title}</h1>
-    
+
     <p>
-      by <a href={`/author/${slugify(author)}/`}>{author}</a> • {
-        formatDate(date)
-      }
+      by <span class="author">{author}</span> • {formatDate(date)}
     </p>
-    {categories.map((cat) => (
-      <small>
-        <a href={`/category/${slugify}/`} class="badge">{cat.trim()}</a>
-      </small>
-    ))}
-    
-    <br><br>
-  <Separation/>
+    {
+      categories.map((cat) => (
+        <small>
+          <a href={`/category/${slugify}/`} class="badge">
+            {cat.trim()}
+          </a>
+        </small>
+      ))
+    }
+
+    <br /><br />
+    <Separation />
   </div>
-  
-  
-  
 </header>
 
-
-
 <style>
-    header {
-        padding: 20px;
-    }
+  header {
+    padding: 20px;
+  }
 
-    .container {
+  .container {
     max-width: 960px;
     margin: 0 auto;
-    }
+  }
 
-    .small {
+  .small {
     font-size: 80%;
-    }
+  }
 
-    .badge {
+  .badge {
     display: inline-block;
     background-color: #562bff;
     color: #fff;
     padding: 5px 10px;
     border-radius: 3px;
     text-decoration: none;
-    transition: ease-in-out .5s;
-    }
+    transition: ease-in-out 0.5s;
+  }
 
-    .badge:hover {
+  .badge:hover {
     background-color: #260a96a9;
-    transition: ease-in-out .5s;
-    }
+    transition: ease-in-out 0.5s;
+  }
 
-    h1 {
+  h1 {
     font-size: 36px;
-    }
+  }
 
-    p {
+  p {
     font-size: 18px;
     margin-top: -3%;
-    }
+  }
 
-    a {
+  a {
     color: #007bff;
     text-decoration: none;
-    }
+  }
 
-    a:hover {
+  a:hover {
     text-decoration: underline;
-    }
-    img{
+  }
+  img {
     max-width: 100%;
     object-fit: cover;
     object-position: center;
     border-radius: 5px;
-    }
-    
+  }
 </style>
