@@ -111,6 +111,15 @@ a:hover {
 .author {
   color :  #562bff
 }
+.badge {
+  display: inline-block;
+  background-color: #562bff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: ease-in-out 0.5s;
+}
 
 /* ScrollBar */
 ::-webkit-scrollbar {

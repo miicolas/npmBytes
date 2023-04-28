@@ -3,41 +3,46 @@ import CardPost from "../components/CardPost.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import MainPost from "../components/MainPost.astro";
 const allPosts = await Astro.glob("./blog/*.mdx");
-const nonDraftPosts = allPosts.filter((post) => !post.frontmatter.draft);
+import CategoryCloud from "../components/CategoryCloud.astro";
+import { formatBlogPosts } from "../js/utils";
+const formattedPosts = formatBlogPosts(allPosts, {
+  filterOutDrafts: true,
+  filterOutFuturePosts: true,
+  sortByDate: true,
+  limit: null,
+});
+const latestPost = formattedPosts[0];
 ---
-
-
 
 <MainLayout title="Myblog">
   <section class="container">
     <div class="main-post">
-      <MainPost post={allPosts[0]} />
+      <MainPost post={latestPost} />
     </div>
     <div class="page">
       <div class="post-container">
         {
-          allPosts
+          formattedPosts
             .slice(1)
             .map((post) => <CardPost key={post.url} post={post} />)
         }
       </div>
-      <div class="last-update">
-        <p>Last</p>
-      </div>
     </div>
   </section>
+  <aside class="container" aria-label="Blog categories">
+    <h2 class="h3">Blog Categories</h2>
+    <CategoryCloud showCount={true} />
+  </aside>
 </MainLayout>
 
 <style>
-
-  .page{
+  .page {
     display: flex;
     flex-direction: row;
     max-width: 90%;
     margin: 0 auto;
   }
   .post-container {
-
     display: flex;
     flex-direction: row;
     max-width: 100rem;

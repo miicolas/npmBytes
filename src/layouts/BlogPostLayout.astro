@@ -3,6 +3,7 @@
 import PostHeader from "../components/PostHeader.astro";
 import MainLayout from "./MainLayout.astro";
 import EndPost from "../components/EndPost.astro";
+import CategoryCloud from "../components/CategoryCloud.astro";
 const { frontmatter } = Astro.props;
 const { title, description, date, category, author, image, minutesRead } =
   frontmatter;
@@ -21,6 +22,7 @@ const { title, description, date, category, author, image, minutesRead } =
 
     <div class="sidebar"></div>
   </div>
+  <CategoryCloud/>
   <EndPost />
 </MainLayout>
 

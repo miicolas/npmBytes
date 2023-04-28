@@ -18,7 +18,7 @@ const categories = category.split(",");
     {
       categories.map((cat) => (
         <small>
-          <a href={`/category/${slugify}/`} class="badge">
+          <a href={`/category/${slugify(cat)}/`} class="badge">
             {cat.trim()}
           </a>
         </small>
