@@ -31,7 +31,7 @@ export function formatBlogPosts(
     if (filterOutDrafts && draft) return acc;
 
     // // filterOutFuturePosts if true
-    if (filterOutFuturePosts && new Date(date) >= new Date()) return acc;
+    if (filterOutFuturePosts && new Date(date) > new Date()) return acc;
 
     // add post to acc
     acc.push(post);
