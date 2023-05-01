@@ -65,9 +65,7 @@ a {
   color: #562bff;
   text-decoration: none;
 }
-a:hover {
-  text-decoration: underline;
-}
+
 
 .welcome {
   display: flex;
@@ -118,6 +116,10 @@ a:hover {
   padding: 5px 10px;
   border-radius: 3px;
   text-decoration: none;
+  transition: ease-in-out 0.5s;
+}
+.badge:hover {
+  background-color: #260a96a9;
   transition: ease-in-out 0.5s;
 }
 

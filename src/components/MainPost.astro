@@ -10,7 +10,7 @@ const postUrl = `/blog/${slugify(title)}`;
 <article class="card">
   <div class="container">
     <a href={postUrl}><h1 class="title">{title}</h1></a>
-    <img class="main-image" src={image.src} alt={image.alt} />
+    <a href={postUrl}><img class="main-image" src={image.src} alt={image.alt} /></a>
     
   </div>
 </article>
@@ -22,8 +22,8 @@ const postUrl = `/blog/${slugify(title)}`;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     max-width: 90%;
     margin: 16px auto;
-    padding: 5px;
-    background-color: rgb(134, 134, 134);
+    padding: 1px;
+    background-color: rgb(184, 156, 255);
   }
 
   .card:hover {

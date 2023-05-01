@@ -1,11 +1,15 @@
 ---
 import { formatBlogPosts, slugify } from "../js/utils";
 
+
 const allPosts = await Astro.glob("../pages/blog/*.mdx");
-const formattedPosts = formatBlogPosts(allPosts);
+const formattedPosts = formatBlogPosts(allPosts).filter(post => {
+  const categories = post.frontmatter.category.split(",");
+  return !categories.includes("Announcment");
+});
 
 const allCategories = formattedPosts
-  .map((cat) => cat.frontmatter.category.toLowerCase().split(","))
+  .map((cat) => cat.frontmatter.category.split(","))
   .flat();
 
 const processedCats = allCategories.reduce((acc, category) => {
@@ -16,18 +20,34 @@ const processedCats = allCategories.reduce((acc, category) => {
     [category]: value + 1,
   };
 }, {});
-
-const { showCount } = Astro.props;
 ---
 
 <ul class="categories">
   {
-    Object.entries(processedCats).map(([key, val]) => (
+    Object.entries(processedCats).map(([key]) => (
       <li>
         <a class="badge" href={`/category/${slugify(key)}/`}>
-          {key} {showCount && `(${val})`}
+          {key}
         </a>
       </li>
     ))
   }
 </ul>
+
+<style> 
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.categories li {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+
+
+</style>

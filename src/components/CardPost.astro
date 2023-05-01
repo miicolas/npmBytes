@@ -14,7 +14,7 @@ const categories = category.split(",");
     {
       categories.map((cat) => (
         <small>
-          <a href={`/category/${slugify}/`} class="badge">
+          <a href={`/category/${slugify(cat)}/`} class="badge">
             {cat.trim()}
           </a>
         </small>
@@ -24,7 +24,7 @@ const categories = category.split(",");
     <a href={postUrl}><h1 class="title">{title}</h1></a>
     <p class="description">{description}</p>
     <p class="author-date">
-      by {author} • {formatDate(date)}
+      by <span class="author">{author}</span> • {formatDate(date)}
     </p>
   </div>
 </article>
@@ -96,6 +96,7 @@ const categories = category.split(",");
   }
   .author-date {
     text-align: left;
+    
   }
   @media only screen and (min-width: 400px) {
     .card {
