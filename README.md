@@ -1,16 +1,6 @@
-## 🧞 Commands
+### USEFLOW 
+>UseFlow is media on social networks and the web that offers news on Tech topics. Whether you are a gamer, developer or a professional in one of the tech fields, you will learn and be informed about the latest trends.
 
-All commands are run from the root of the project, from a terminal:
+## Astro Project
 
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
-| `npm run build`        | Build your production site to `./dist/`          |
-| `npm run preview`      | Preview your build locally, before deploying     |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+I used Astro to do this project. I used the documentation that you can find below. Feel free to check [documentation](https://docs.astro.build).
