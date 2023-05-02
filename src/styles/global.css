@@ -122,6 +122,15 @@ a {
   background-color: #260a96a9;
   transition: ease-in-out 0.5s;
 }
+.reading-time {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.reading-time i {
+  margin-right: 0.5rem;
+}
 
 /* ScrollBar */
 ::-webkit-scrollbar {

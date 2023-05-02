@@ -14,7 +14,7 @@ const { title, description, date, category, author, image, minutesRead } =
   <div class="post-content">
     <div class="content">
       <div class="reading-time">
-        <i class="fa-sharp fa-regular fa-clock" style="color: #ffffff;"></i>
+        <i class="fa-solid fa-book-open-reader" style="color: #ffffff;"></i>
         <p>{minutesRead}</p>
       </div>
       <slot />
@@ -40,13 +40,5 @@ const { title, description, date, category, author, image, minutesRead } =
     overflow-x: auto;
   }
 
-  .reading-time {
-    display: flex;
-    align-items: center;
-    color: white;
-  }
 
-  .reading-time i {
-    margin-right: 0.5rem;
-  }
 </style>
