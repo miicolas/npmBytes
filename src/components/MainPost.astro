@@ -3,69 +3,112 @@ const { post } = Astro.props;
 
 // utils imports
 import { slugify } from "../js/utils";
-const { title, image } = post.frontmatter;
+const { title, image, description, minutesRead } = post.frontmatter;
 const postUrl = `/blog/${slugify(title)}`;
 ---
 
-<article class="card">
-  <div class="container">
+<div class="main-post">
+  <article class="card">
+    <div class="container-left">
+      
+      <a href={postUrl}
+        ><img class="main-image" src={image.src} alt={image.alt} /></a
+      >
+    </div>
+  </article>
+  <div class="out-card">
+    <div class="title-time">
     <a href={postUrl}><h1 class="title">{title}</h1></a>
-    <a href={postUrl}><img class="main-image" src={image.src} alt={image.alt} /></a>
+    <div class="reading-time">
+      <i class="fa-solid fa-book-open-reader" style="color: #6c757d;"></i> 
+      <p>{minutesRead} read</p>
+    </div>
+  </div>
+     <p class="description">{description}</p>
     
   </div>
-</article>
-
+</div>
 <style>
-  .card {
-    border-radius: 5px 5px 0px 0px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    max-width: 90%;
-    margin: 16px auto;
-    padding: 1px;
-    background-color: rgb(184, 156, 255);
-  }
+  .main-post {
+  display: flex;
+  flex-direction: column;
+  margin: 50px auto;
+  max-width: 120vh;
+}
 
-  .card:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  }
+.card {
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  max-width: 120vh;
+  max-height: 34vh;
+  margin: 16px auto;
+  padding: 1px;
+  background-color: rgb(184, 156, 255);
+}
 
-  .container {
-    text-align: center;
-    height: 20rem; 
-    overflow: hidden;
-  }
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
 
-  .small {
-    font-size: 80%;
-  }
+.container-left {
+  text-align: center;
+  height: 20rem;
+  overflow: hidden;
+}
 
-  .title {
-    position: absolute;
-    font-size: 24px;
-    font-weight: 600;
-    margin-left: 2rem;
-  }
+.container-right {
+  text-align: center;
+  height: 20rem;
+  overflow: hidden;
+}
 
-  p {
-    font-size: 15px;
-    margin-top: 0;
-    margin-bottom: 16px;
-    color: #6c757d;
-  }
+.small {
+  font-size: 80%;
+}
 
-  .main-image {
-    width: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 5px;
-  }
+.title {
+  font-size: 24px;
+  font-weight: 600;
+}
 
-  .description {
-    text-align: left;
-  }
+p {
+  font-size: 15px;
+  margin-bottom: 16px;
+  color: #6c757d;
+}
 
-  .author-date {
-    text-align: left;
-  }
+.main-image {
+  max-width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 5px;
+}
+.title-time{
+  display: flex; 
+  flex: 1
+}
+.description {
+  text-align: left;
+  margin-top: -1rem;
+}
+
+.reading-time {
+  margin-left: auto ;
+  padding: 10px;
+}
+
+.fa-sharp {
+  font-size: 15px;
+  margin-right: 5px;
+  color: #ffffff;
+}
+
+.out-card {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: -1rem;
+}
+
 </style>
