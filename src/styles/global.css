@@ -71,11 +71,10 @@ a {
   display: flex;
   flex-direction: column;
   max-width: 200rem;
-  margin-top: 5rem;
   margin-left: 10%;
   font-size: xx-large;
   color: rgb(210, 198, 255);
-  padding-bottom: 5rem;
+
 }
 
 .magic {

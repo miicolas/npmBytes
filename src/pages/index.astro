@@ -1,13 +1,25 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import CardPost from "../components/CardPost.astro";
+import MainPost from "../components/MainPost.astro";
 
 const allPosts = await Astro.glob("./blog/*.mdx");
+import CategoryCloud from "../components/CategoryCloud.astro";
+import { formatBlogPosts } from "../js/utils";
+const formattedPosts = formatBlogPosts(allPosts, {
+  filterOutDrafts: true,
+  filterOutFuturePosts: true,
+  sortByDate: true,
+  limit: null,
+});
+const latestPost = formattedPosts[0];
+
 const post = allPosts.find((post) => post.url === "/blog/what-is-useflow");
 ---
 
 <MainLayout title="Welcome to Flow">
   <main>
+    <section class="welcome-flow">
     <div class="welcome">
       <div>
         Stay informed on the news of <span class="magic">
@@ -81,6 +93,29 @@ const post = allPosts.find((post) => post.url === "/blog/what-is-useflow");
       </div>
       <div>Discover new articles and shows every Monday, for free.</div>
     </div>
+  </section>
+    <section class="container">
+      <div class="top-post">
+        <div class="main-post">
+          <MainPost post={latestPost} />
+        </div>
+        <div class="mini-post">
+        </div>
+      </div>
+      <div class="page">
+        <div class="post-container">
+          {
+            formattedPosts
+              .slice(1)
+              .map((post) => <CardPost key={post.url} post={post} />)
+          }
+        </div>
+      </div>
+    </section>
+    <aside class="container-categories">
+      <h2 class="categories">Blog Categories</h2>
+      <CategoryCloud/>
+    </aside>
     <CardPost {post} />
   </main>
 </MainLayout>
@@ -130,7 +165,67 @@ const post = allPosts.find((post) => post.url === "/blog/what-is-useflow");
   .access {
     padding: 10px;
     margin-top: 5vh;
+  
   }
+  .page {
+    display: flex;
+    flex-direction: row;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  .post-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 100rem;
+    flex-wrap: wrap;
+  }
+  .last-update {
+    display: flex;
+    flex-direction: column;
+    max-height: 20rem;
+  }
+  .container-categories{
+    margin-left: 5rem;
+
+  }
+  .welcome-flow{
+    height: 50vh;
+    width: 100%;
+    background: linear-gradient(90deg, #111111, #000000);
+	  background-size: 500% 500%;
+	  animation: gradient 25s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  @keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+  @media screen and (max-width: 768px) {
+    .page {
+      flex-direction: column;
+    }
+
+    .last-update {
+      margin: 2rem auto;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .post-container {
+      justify-content: space-between;
+    }
+  }
+
 </style>
 
 <script>
