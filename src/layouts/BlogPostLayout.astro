@@ -9,7 +9,7 @@ const { title, description, date, category, author, image, minutesRead } =
   frontmatter;
 ---
 
-<MainLayout {title} {description}>
+<MainLayout {title}>
   <PostHeader {title} {description} {date} {category} {image} {author} />
   <div class="post-content">
     <div class="content">
@@ -19,11 +19,13 @@ const { title, description, date, category, author, image, minutesRead } =
       </div>
       <slot />
     </div>
-
     <div class="sidebar"></div>
   </div>
   <EndPost />
-  <CategoryCloud/>
+  <aside class="container-categories">
+    <h2 class="categories">Blog Categories</h2>
+    <CategoryCloud/>
+  </aside>
 </MainLayout>
 
 <style>
@@ -38,7 +40,12 @@ const { title, description, date, category, author, image, minutesRead } =
     margin: 0 auto;
     word-wrap: break-word;
     overflow-x: auto;
+    padding-left: 20px;
+    padding-right: 20px;
   }
+  .container-categories{
+    margin-left: 5rem;
 
+  }
 
 </style>
