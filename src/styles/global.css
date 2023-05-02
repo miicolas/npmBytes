@@ -151,7 +151,9 @@ a {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
+::selection {
+  background: grey;
+}
 
 
 /*Responsive */ 
