@@ -1,8 +1,8 @@
 const navData = [
-    {
-        name : "Blog",
-        path : "/blog",
-    }
+    // {
+    //     name : "Blog",
+    //     path : "/blog",
+    // }
     
 ]
 

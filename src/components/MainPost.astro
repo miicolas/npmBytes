@@ -29,22 +29,21 @@ const postUrl = `/blog/${slugify(title)}`;
   </div>
 </div>
 <style>
-  .main-post {
+.main-post {
   display: flex;
   flex-direction: column;
-  margin: 50px auto;
-  max-width: 120vh;
+  margin: 0 auto;
+  max-width: 80vw;
+
 }
 
 .card {
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  max-width: 120vh;
-  height: auto;
+  max-width: 80vw;
   margin: 16px auto;
   padding: 1px;
-  background-color: rgb(184, 156, 255);
 }
 
 .card:hover {
@@ -52,8 +51,16 @@ const postUrl = `/blog/${slugify(title)}`;
 }
 
 .container-left {
+  max-height: 50vh;
+  min-height: 30vh;
+  border : 1px solid;
+  border-color: #df75ff;
+  border-radius: 5px;
   text-align: center;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .container-right {
@@ -77,8 +84,11 @@ p {
 }
 
 .main-image {
+  display: block;
+  margin: 0 auto;
   max-width: 100%;
-  object-fit: cover;
+  max-height: 100%;
+  object-fit: contain;
   object-position: center;
   border-radius: 5px;
 }
