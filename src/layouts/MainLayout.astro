@@ -27,14 +27,13 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<NavBar />
-		<div class="where">
+		<div class="path">
 			<div class="useflow">
-				<p>/Use<span class="magic-text">Flow</span></p><div
-					class="link"
-				>
+				/Use<span class="magic-text">Flow</span></div>
+			<div class="onpage">
 					/{title}
-				</div>
 			</div>
+			
 		</div>
 		<slot />
 	</body>
@@ -42,15 +41,18 @@ const { title } = Astro.props;
 </html>
 
 <style>
-	.where {
-		display: flex;
-		flex-direction: row;
-	}
-	.useflow {
-		font-weight: 600;
-	}
-	.link {
-		display: flex;
-		align-items: center;
-	}
+.path {
+  display: flex;
+  flex-direction: row;
+}
+
+.useflow {
+  font-weight: 600;
+}
+
+.onpage {
+  display: flex;
+  align-items: center;
+}
+
 </style>
