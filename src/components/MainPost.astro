@@ -18,7 +18,7 @@ const postUrl = `/blog/${slugify(title)}`;
   </article>
   <div class="out-card">
     <div class="title-time">
-    <a href={postUrl}><h1 class="title">{title}</h1></a>
+    <a href={postUrl}><p class="title">{title}</p></a>
     <div class="reading-time">
       <i class="fa-solid fa-book-open-reader" style="color: #6c757d;"></i> 
       <p>{minutesRead}</p>
@@ -72,10 +72,6 @@ const postUrl = `/blog/${slugify(title)}`;
   font-size: 80%;
 }
 
-.title {
-  font-size: 24px;
-  font-weight: 600;
-}
 
 p {
   font-size: 15px;
@@ -104,6 +100,10 @@ p {
 .reading-time {
   margin-left: auto ;
   padding: 10px;
+
+}
+.reading-time p {
+  font-size: 14px;
 }
 
 .fa-sharp {
@@ -118,5 +118,13 @@ p {
   flex-direction: column;
   margin-top: -1rem;
 }
+/*Responsive*/
+
+
+@media screen and (max-width: 768px) {
+  .reading-time p {
+  font-size: 12px;
+}
+  }
 
 </style>

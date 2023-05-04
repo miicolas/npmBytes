@@ -99,8 +99,6 @@ const post = allPosts.find((post) => post.url === "/blog/what-is-useflow");
         <div class="main-post">
           <MainPost post={latestPost} />
         </div>
-        <div class="mini-post">
-        </div>
       </div>
       <div class="page">
         <div class="post-container">
@@ -164,7 +162,6 @@ const post = allPosts.find((post) => post.url === "/blog/what-is-useflow");
   .access {
     padding: 10px;
     margin-top: 5vh;
-  
   }
   .page {
     display: flex;
@@ -178,17 +175,12 @@ const post = allPosts.find((post) => post.url === "/blog/what-is-useflow");
     max-width: 100rem;
     flex-wrap: wrap;
   }
-  .last-update {
-    display: flex;
-    flex-direction: column;
-    max-height: 20rem;
-  }
   .container-categories{
     margin-left: 5rem;
 
   }
   .welcome-flow{
-    height: 50vh;
+    min-height: 50vh;
     width: 100%;
     background: linear-gradient(90deg, #111111, #000000);
 	  background-size: 500% 500%;
@@ -196,8 +188,19 @@ const post = allPosts.find((post) => post.url === "/blog/what-is-useflow");
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: x-large;
 
   }
+  .welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 4.5%;
+  max-width: 200rem;
+  font-size: 32px;
+  color: rgb(210, 198, 255);
+
+}
   @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
@@ -209,13 +212,15 @@ const post = allPosts.find((post) => post.url === "/blog/what-is-useflow");
 		background-position: 0% 50%;
 	}
 }
+
+/*Responsive */ 
   @media screen and (max-width: 768px) {
     .page {
       flex-direction: column;
     }
 
-    .last-update {
-      margin: 2rem auto;
+    .welcome {
+      font-size: 24px;
     }
   }
 

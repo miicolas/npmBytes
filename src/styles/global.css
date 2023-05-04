@@ -67,15 +67,7 @@ a {
 }
 
 
-.welcome {
-  display: flex;
-  flex-direction: column;
-  max-width: 200rem;
-  margin-left: 10%;
-  font-size: xx-large;
-  color: rgb(210, 198, 255);
 
-}
 
 .magic {
   display: inline-block;
@@ -104,6 +96,8 @@ a {
 .title {
   color: white;
   cursor: pointer;
+  font-size: 24px;
+  font-weight: 600;
 }
 .author {
   color :  #562bff
@@ -156,10 +150,14 @@ a {
 
 
 /*Responsive */ 
+@media only screen and (max-width: 900px) {
+  .title {
+    font-size: 18px;
+  }
+  
+}
 
 @media only screen and (min-width: 400px) {
-  .welcome{
-    margin-left: 8%;
-  }
+
   
 }
