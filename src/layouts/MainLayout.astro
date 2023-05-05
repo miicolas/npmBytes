@@ -22,37 +22,55 @@ const { title } = Astro.props;
 			src="https://kit.fontawesome.com/d67384fb0f.js"
 			crossorigin="anonymous"
 		></script>
+		<script defer src="../../src/js/script.js"></script>
+
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
 		<NavBar />
-		<div class="path">
-			<div class="useflow">
-				/Use<span class="magic-text">Flow</span></div>
-			<div class="onpage">
-					/{title}
-			</div>
-			
-		</div>
+		<button onclick="topFunction()" id="myBtn" title="Top"
+			><i class="fa-solid fa-caret-up" style="color: #ffffff;"
+			></i></button
+		>
 		<slot />
+		<Footer />
 	</body>
-	<Footer />
 </html>
 
 <style>
-.path {
-  display: flex;
-  flex-direction: row;
-}
+	.path {
+		display: flex;
+		flex-direction: row;
+	}
 
-.useflow {
-  font-weight: 600;
-}
+	.useflow {
+		font-weight: 600;
+	}
 
-.onpage {
-  display: flex;
-  align-items: center;
-}
+	.onpage {
+		display: flex;
+		align-items: center;
+	}
+	#myBtn {
+		display: none;
+		position: fixed;
+		bottom: 5rem;
+		right: 2rem; 
+		z-index: 99; 
+		border: none; 
+		outline: none; 
+		background-color: #552bff; 
+		color: white;
+		cursor: pointer;
+		padding: 10px;
+		border-radius: 10px;
+		font-size: 12px;
+		transition: ease-in-out .2s;
+	}
 
+	#myBtn:hover {
+		background-color: #341d9074; 
+		transition: ease-in-out .2s;
+	}
 </style>
