@@ -23,17 +23,16 @@ const { title } = Astro.props;
 			src="https://kit.fontawesome.com/d67384fb0f.js"
 			crossorigin="anonymous"
 		></script>
-		<script defer src="../pages/script.js"></script>
-
+		<script defer src="src/layouts/script.js"></script>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
 		<NavBar />
-		<button onclick="topFunction()" id="myBtn" title="Top"
-			><i class="fa-solid fa-caret-up" style="color: #ffffff;"
-			></i></button
-		>
+		<button onclick="topFunction()" id="myBtn" title="Top">
+			<i class="fa-solid fa-caret-up" style="color: #ffffff;">
+			</i>
+		</button>
 		<slot />
 		<Footer />
 	</body>
