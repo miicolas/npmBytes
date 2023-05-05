@@ -3,6 +3,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 import CardPost from "../components/CardPost.astro";
 import MainPost from "../components/MainPost.astro";
 
+
 const allPosts = await Astro.glob("./blog/*.mdx");
 import CategoryCloud from "../components/CategoryCloud.astro";
 import { formatBlogPosts } from "../js/utils";
@@ -95,6 +96,7 @@ const post = allPosts.find((post) => post.url === "/blog/what-is-useflow");
     </div>
   </section>
     <section class="container">
+
       <div class="top-post">
         <div class="main-post">
           <MainPost post={latestPost} />
@@ -180,11 +182,12 @@ const post = allPosts.find((post) => post.url === "/blog/what-is-useflow");
 
   }
   .welcome-flow{
+    
     min-height: 50vh;
     width: 100%;
-    background: linear-gradient(90deg, #111111, #000000);
+    background: linear-gradient(90deg, #111111, #552bff, #111111);
 	  background-size: 500% 500%;
-	  animation: gradient 25s ease infinite;
+	  animation: gradient 30s ease infinite;
     display: flex;
     justify-content: center;
     align-items: center;
