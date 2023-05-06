@@ -17,7 +17,7 @@ const categories = category.split(",");
     </div>
   </article>
   <div class="out-card">
-    <a href={postUrl}><p class="title">{title}</p></a>
+    <a href={postUrl}><p class="title">{title.length > 20 ? `${title.slice(0, 20)}...` : title}</p></a>
     <div class="categories-time">
       {
         categories.map((cat) => (
@@ -118,11 +118,36 @@ const categories = category.split(",");
   }
 
   .out-card {
-    max-width: 45vh;
+    max-width: 50vh;
     display: flex;
     flex-direction: column;
     margin-top: -1rem;
     flex: 1;
     min-width: 0;
   }
+
+@media screen and (max-width: 768px) {
+
+
+
+  .title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .badge {
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+  }
+
+  .reading-time p {
+    font-size: 1rem;
+  }
+
+  .fa-sharp {
+    font-size: 1rem;
+    margin-right: 0.5rem;
+  }
+}
+
 </style>
