@@ -3,7 +3,7 @@ const { post } = Astro.props;
 
 // utils imports
 import { slugify, formatDate } from "../js/utils";
-const { category, title, date, image,minutesRead } = post.frontmatter;
+const { category, title, description, image,minutesRead } = post.frontmatter;
 const postUrl = `/blog/${slugify(title)}`;
 const categories = category.split(",");
 ---
@@ -15,9 +15,10 @@ const categories = category.split(",");
         ><img class="main-image" src={image.src} alt={image.alt} /></a
       >
     </div>
-  </article>
+  
   <div class="out-card">
-    <a href={postUrl}><p class="title">{title.length > 50 ? `${title.slice(0, 50)}...` : title}</p></a>
+    <a href={postUrl}><p class="title">{title.length > 60 ? `${title.slice(0, 60)}...` : title}</p></a>
+    
     <div class="categories-time">
       {
         categories.map((cat) => (
@@ -28,13 +29,15 @@ const categories = category.split(",");
           </small>
         ))
       }
+      
       <div class="reading-time">
         <i class="fa-solid fa-book-open-reader" style="color: #6c757d;"></i>
         <p>{minutesRead} min</p>
       </div>
     </div>
-    
+  
   </div>
+</article>
 </div>
 <style>
     .post {
@@ -49,16 +52,16 @@ const categories = category.split(",");
 
   .card {
     border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
     max-width: 25vw;
     margin: 16px auto;
     padding: 1px;
     min-width: 40vh;
   }
 
-  .card:hover {
+  .container:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
 
   .container {
@@ -73,6 +76,7 @@ const categories = category.split(",");
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
 
   .small {
@@ -95,22 +99,21 @@ const categories = category.split(",");
     border-radius: 5px;
   }
 
-  .description {
-    text-align: left;
-    margin-top: -1rem;
-  }
   .categories-time {
     display: flex;
-    flex: 1;
+    align-items : center;
+    margin-top : auto;
   }
   .reading-time {
     margin-left: auto;
-    margin-top: -1rem;
   }
   .reading-time p {
     font-size: 14px;
   }
-
+  .description {
+    text-align: left;
+    overflow: hidden;
+  }
   .fa-sharp {
     font-size: 15px;
     margin-right: 5px;
@@ -119,9 +122,9 @@ const categories = category.split(",");
 
   .out-card {
     max-width: 50vh;
+    height : 20vh;
     display: flex;
     flex-direction: column;
-    margin-top: -1rem;
     flex: 1;
     min-width: 0;
   }
