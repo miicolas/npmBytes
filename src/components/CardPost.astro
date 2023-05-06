@@ -17,7 +17,7 @@ const categories = category.split(",");
     </div>
   </article>
   <div class="out-card">
-    <a href={postUrl}><p class="title">{title.length > 30 ? `${title.slice(0, 30)}...` : title}</p></a>
+    <a href={postUrl}><p class="title">{title.length > 50 ? `${title.slice(0, 50)}...` : title}</p></a>
     <div class="categories-time">
       {
         categories.map((cat) => (
