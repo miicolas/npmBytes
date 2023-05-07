@@ -17,7 +17,7 @@ const categories = category.split(",");
     </div>
   
   <div class="out-card">
-    <a href={postUrl}><p class="title">{title.length > 60 ? `${title.slice(0, 60)}...` : title}</p></a>
+    <a href={postUrl}><p class="title">{title.length > 50 ? `${title.slice(0, 50)}...` : title}</p></a>
     
     <div class="categories-time">
       {
@@ -52,7 +52,6 @@ const categories = category.split(",");
 
   .card {
     border-radius: 5px;
-
     max-width: 25vw;
     margin: 16px auto;
     padding: 1px;
