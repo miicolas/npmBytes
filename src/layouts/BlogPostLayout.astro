@@ -4,6 +4,7 @@ import PostHeader from "../components/PostHeader.astro";
 import MainLayout from "./MainLayout.astro";
 import EndPost from "../components/EndPost.astro";
 import CategoryCloud from "../components/CategoryCloud.astro";
+import RecommandationPost from "../components/RecommandationPost.astro"
 const { frontmatter } = Astro.props;
 const { title, description, date, category, author, image, minutesRead } =
   frontmatter;
@@ -15,13 +16,14 @@ const { title, description, date, category, author, image, minutesRead } =
     <div class="content">
       <div class="reading-time">
         <i class="fa-solid fa-book-open-reader" style="color: #ffffff;"></i>
-        <p>{minutesRead}</p>
+        <p>{minutesRead} minutes read</p>
       </div>
       <slot />
     </div>
     <div class="sidebar"></div>
   </div>
   <EndPost />
+  <RecommandationPost/>
   <aside class="container-categories">
     <h2 class="categories">Blog Categories</h2>
     <CategoryCloud/>

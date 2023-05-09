@@ -20,6 +20,10 @@ export async function getStaticPaths() {
       params: { category: slugify("IA") },
       props: { name: "IA" },
     },
+    {
+      params: { category: slugify("Web") },
+      props: { name: "Web" },
+    },
   ];
 }
 
@@ -38,13 +42,7 @@ const catPosts = formattedPosts.filter(
   <section class="container" aria-label={`Posts about ${name}`}>
     <h1 class="h1">Posts about <span>{name}</span></h1>
     <div class="post-container">
-      {
-        catPosts.map((post) => (
-          <CardPost
-            url={post.url} post={post}
-          />
-        ))
-      }
+      {catPosts.map((post) => <CardPost url={post.url} post={post} />)}
     </div>
   </section>
 </MainLayout>

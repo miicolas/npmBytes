@@ -1,0 +1,51 @@
+---
+import CardPost from "./CardPost.astro";
+import { formatBlogPosts } from "../js/utils";
+
+const allPosts = await Astro.glob("../pages/blog/*.mdx");
+const formattedPosts = formatBlogPosts(allPosts, {
+    filterOutDrafts: true,
+    filterOutFuturePosts: true,
+    sortByDate: true,
+    limit: null,
+});
+
+const shuffledPosts = formattedPosts.sort(() => Math.random() - 0.5); // Mélanger les posts de manière aléatoire
+const randomPosts = shuffledPosts.slice(0, 3); // Récupérer les 3 premiers posts du tableau mélangé
+---
+
+<div class="recommandation-post">
+    <div class="container">
+        Do you want more Post ? 
+        <div class="post-container">
+            {randomPosts.map((post) => <CardPost key={post.url} post={post} />)}
+        </div>
+    </div>
+</div>
+<style>
+    .recommandation-post {
+        display: flex;
+        flex: 1;
+        max-width: 100rem;
+        justify-content: center;
+        padding: 2rem;
+    }
+    .container{
+        font-size: 24px;
+        font-weight: 600;
+    }
+    .post-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        font-weight:400;
+        font-size: 18px;
+    }
+    
+    @media (max-width: 768px) {
+        .post-container {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+</style>
