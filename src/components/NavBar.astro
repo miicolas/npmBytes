@@ -5,21 +5,50 @@ import Separation from "./Separation.astro";
 ---
 
 <nav>
-  <div class="navbar">
-    <a href="/">Use<span class="magic-text">Flow</span></a>
-    {navData.map((item) => <a href={item.path}>{item.name}</a>)}
+  <div class="container">
+    <div class="navbar">
+      <a href="/">Use<span class="magic-text">Flow</span></a>
+      {navData.map((item) => <a href={item.path}>{item.name}</a>)}
+    </div>
+    <div class="follow-button">
+      <div class="badge">Subscribe</div>
+    </div>
   </div>
 </nav>
 
 <style>
-  .navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: larger;
-    padding: 10px;
+  button {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 4px;
+    background-color: #333;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
   }
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .navbar {
 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: larger;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  }
+  .follow-button {
+  margin-right: auto;
+  padding-right: 5vh;
+}
   .navbar a {
     margin-left: 20px;
     margin-right: 20px;
@@ -28,7 +57,6 @@ import Separation from "./Separation.astro";
     transition: ease-in-out 0.5s;
     border-radius: 10px;
   }
-
   .navbar a:hover {
     background-color: rgba(255, 255, 255, 0.225);
     border-radius: 10px;
