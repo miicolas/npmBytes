@@ -10,13 +10,13 @@ const formattedPosts = formatBlogPosts(allPosts, {
     limit: null,
 });
 
-const shuffledPosts = formattedPosts.sort(() => Math.random() - 0.5); // Mélanger les posts de manière aléatoire
-const randomPosts = shuffledPosts.slice(0, 3); // Récupérer les 3 premiers posts du tableau mélangé
+const shuffledPosts = formattedPosts.sort(() => Math.random() - 0.5); 
+const randomPosts = shuffledPosts.slice(0, 3); 
 ---
 
 <div class="recommandation-post">
     <div class="container">
-        Do you want more Post ? 
+        <p class="container-text">Do you want more Post ?</p>
         <div class="post-container">
             {randomPosts.map((post) => <CardPost key={post.url} post={post} />)}
         </div>
@@ -30,7 +30,7 @@ const randomPosts = shuffledPosts.slice(0, 3); // Récupérer les 3 premiers pos
         justify-content: center;
         padding: 2rem;
     }
-    .container{
+    .container-text{
         font-size: 24px;
         font-weight: 600;
     }
