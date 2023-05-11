@@ -1,31 +1,135 @@
 ---
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<div class="container">
-  <div class="container-left">
-    <img src="/images/useflow-logo.png" alt="" />
-  </div>
-  <div class="container-right">
-    <h1>Subscribe</h1>
-    <p>Discover new tools with us</p>
-    <div class="container-form">
-      <div class="content-form">
-        <form action="">
-          <input type="email" />
-          <input type="submit" value="Subscribe!" />
-        </form>
-      </div>
+<MainLayout title="Subscribe">
+    <div class="container">
+        <div class="container-left">
+            <div class="left-content">
+                <a href="/">Use<span class="magic-text">Flow</span></a>
+            </div>
+        </div>
+        <div class="container-right">
+            <h1>Subscribe</h1>
+            <p>Discover new tools with us</p>
+            <div class="container-form">
+                <div class="content-form">
+                    <form action="">
+                        <input type="email" />
+                        <input type="submit" value="Subscribe!" />
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-
-  <style>
+</MainLayout>
+<style>
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
     .container {
-      display: flex;
-      flex-direction: row;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 80vh;
+        padding: ;
     }
+
     .container-left {
-      max-width: 40%;
-      height: auto;
+        max-width: 40%;
+        min-width: 30%;
+        height: 100%;
+        background: linear-gradient(180deg, #111111, #552bff52, #111111);
+        background-size: 100% 100%;
+        animation: gradient 10sec ease infinite;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-  </style>
-</div>
+
+    .left-content {
+        transform: rotate(-90deg);
+        align-items: center;
+        transform-origin: center bottom;
+        display: flex;
+        justify-content: ;
+    }
+    .left-content a {
+        font-size: 5rem;
+    }
+
+    .container-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        text-align: center;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 0.5em;
+    }
+
+    p {
+        font-size: 1.5em;
+        margin-bottom: 1.5em;
+    }
+
+    .container-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 50%;
+        height: auto;
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    input[type="email"] {
+        display: block;
+        width: 100%;
+        font-size: 1em;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+        transition: box-shadow 0.3s ease-in-out;
+    }
+
+    input[type="email"]:focus {
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        outline: none;
+    }
+
+    input[type="submit"] {
+        background-color: #0072c6;
+        color: white;
+        font-size: 1.2em;
+        font-weight: bold;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #005eac;
+        cursor: pointer;
+    }
+</style>
