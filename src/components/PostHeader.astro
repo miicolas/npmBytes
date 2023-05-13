@@ -5,6 +5,7 @@ import Separation from "./Separation.astro";
 
 const { category, title, author, date, image } = Astro.props;
 const categories = category.split(",");
+
 ---
 
 <header>
@@ -27,8 +28,9 @@ const categories = category.split(",");
     <br /><br />
     <Separation />
     <div class="tools-interaction">
-      <div class="share-button">
-        <i class="fa-solid fa-share" style="color: #ffffff;"></i>
+
+      <div class="share-btn">
+        <i class="fa-regular fa-share-from-square" style="color: #ffffff;"></i>
       </div>
     </div>
     <Separation />
@@ -36,6 +38,7 @@ const categories = category.split(",");
 </header>
 
 <style>
+
   .tools-interaction {
     display: flex;
     justify-content: center;
@@ -43,21 +46,25 @@ const categories = category.split(",");
     margin: 2rem 0;
   }
 
-  .share-button {
+  .share-btn {
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
     width: 2.5rem;
     height: 2.5rem;
+    background-color: #705cc0;
     cursor: pointer;
     transition: ease-in-out 0.3s;
   }
-  .share-button:hover {
+  .share-btn:hover {
     background-color: #3b21a1;
     transition: ease-in-out 0.3s;
   }
-
+  .share-btn:active {
+    background-color: #444444;
+    transition: ease-in-out 0.3s;
+  }
   .share-button i {
     font-size: 1.2rem;
   }
@@ -126,10 +133,12 @@ const categories = category.split(",");
   }
 </style>
 <script>
-  const shareButton = document.querySelector(".share-button");
-  const pageUrl = window.location.href;
+const shareButton = document.querySelector(".share-btn");
+const pageUrl = window.location.href;
 
-  shareButton.addEventListener("click", () => {
-    navigator.clipboard.writeText(pageUrl);
-  });
+shareButton.addEventListener("click", () => {
+  navigator.clipboard.writeText(pageUrl);
+
+});
 </script>
+
