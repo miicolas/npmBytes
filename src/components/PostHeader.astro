@@ -26,10 +26,41 @@ const categories = category.split(",");
 
     <br /><br />
     <Separation />
+    <div class="tools-interaction">
+      <div class="share-button">
+        <i class="fa-solid fa-share" style="color: #ffffff;"></i>
+      </div>
+    </div>
+    <Separation />
   </div>
 </header>
 
 <style>
+  .tools-interaction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+  }
+
+  .share-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+  }
+  .share-button:hover {
+    background-color: #3b21a1;
+    transition: ease-in-out 0.3s;
+  }
+
+  .share-button i {
+    font-size: 1.2rem;
+  }
   header {
     padding: 20px;
   }
@@ -58,7 +89,6 @@ const categories = category.split(",");
     transition: ease-in-out 0.5s;
   }
 
-
   h1 {
     font-size: 36px;
   }
@@ -80,16 +110,26 @@ const categories = category.split(",");
     object-fit: cover;
     object-position: center;
     border-radius: 5px;
-    display: block; 
+    display: block;
     margin: 0 auto;
   }
-
-/*Responsive*/
-
-@media screen and (max-width: 768px) {
-  .author-date{
-    font-size: 12px;
-  }
+  .share-button {
+    background-color: gray;
   }
 
+  /*Responsive*/
+
+  @media screen and (max-width: 768px) {
+    .author-date {
+      font-size: 12px;
+    }
+  }
 </style>
+<script>
+  const shareButton = document.querySelector(".share-button");
+  const pageUrl = window.location.href;
+
+  shareButton.addEventListener("click", () => {
+    navigator.clipboard.writeText(pageUrl);
+  });
+</script>
