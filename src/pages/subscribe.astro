@@ -132,4 +132,16 @@ import MainLayout from "../layouts/MainLayout.astro";
         background-color: #005eac;
         cursor: pointer;
     }
+
+
+    @media only screen and (max-width: 768px) {
+        .container {
+            flex-direction: row;
+            padding: 0;
+        }
+        .container-left {
+            display: none;
+        }
+    }
+
 </style>
