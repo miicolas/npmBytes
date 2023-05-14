@@ -28,10 +28,14 @@ const categories = category.split(",");
     <br /><br />
     <Separation />
     <div class="tools-interaction">
-
       <div class="share-btn">
         <i class="fa-solid fa-share" style="color: #ffffff;"></i>
       </div>
+      <div class="like-btn">
+        <i class="fa-solid fa-heart" style="color: #ffffff;"></i>
+      </div>
+    
+      
     </div>
     <Separation />
   </div>
@@ -68,6 +72,31 @@ const categories = category.split(",");
   .share-button i {
     font-size: 1.2rem;
   }
+  .like-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #705cc0;
+    cursor: pointer;
+    transition: ease-in-out 0.3s;
+  }
+  .like-btn:hover {
+    background-color: #3b21a1;
+    transition: ease-in-out 0.3s;
+  }
+  .like-btn:active {
+    background-color: #444444;
+    transition: ease-in-out 0.3s;
+  }
+  .like-button i {
+    font-size: 1.2rem;
+  }
+  .share-btn, .like-btn {
+  margin: 0 0.5rem;
+}
   header {
     padding: 20px;
   }
