@@ -2,6 +2,7 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import CardPost from "../components/CardPost.astro";
 import MainPost from "../components/MainPost.astro";
+import CarousselAutoplay from "../components/CarousselAutoplay.astro"
 
 
 const allPosts = await Astro.glob("./blog/*.mdx");
@@ -100,6 +101,7 @@ const latestPost = formattedPosts[0];
           <MainPost post={latestPost} />
         </div>
       </div>
+      <CarousselAutoplay></CarousselAutoplay>
       <div class="page">
         <div class="post-container">
           {

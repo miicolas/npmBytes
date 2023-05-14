@@ -1,0 +1,58 @@
+---
+import CaroussselSlide from "../data/CarousselSlide"
+---
+<div class="slider">
+    <div class="slide-track">
+      {CaroussselSlide.map((item) => <div class="slide"><img src={item.path} height="100" width="auto" alt={item.description} /></div>)}
+      {CaroussselSlide.map((item) => <div class="slide"><img src={item.path} height="100" width="auto" alt={item.description} /></div>)}
+    </div>
+  </div>
+<style>
+.slider {
+	background: #111111;
+	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+	height: 15vh;
+	margin: auto;
+	overflow:hidden;
+	position: relative;
+	width: 100%;
+}
+
+.slider::before,
+.slider::after {
+	background: linear-gradient(to right,  #111111 0%,rgba(29, 29, 29, 0) 100%);
+	content: "";
+	height: 100px;
+	position: absolute;
+	width: 200px;
+	z-index: 2;
+}
+
+.slider::after {
+	right: 0;
+	top: 0;
+	transform: rotateZ(180deg);
+}
+
+.slider::before {
+	left: 0;
+	top: 0;
+}
+
+.slide-track {
+	animation: scroll 20s linear infinite;
+	display: flex;
+    width: calc(250px * 28); /* double width for duplicate images */
+    margin-right: -250px; /* equal to the width of one image */
+}
+
+.slide {
+	height: 100px;
+	width: 250px;
+}
+
+@keyframes scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-250px * 14))}
+}
+</style>
