@@ -7,7 +7,7 @@ import image from "@astrojs/image";
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'server',
+  //output: 'server',
   integrations: [mdx({
     drafts: true
   }), image()],
