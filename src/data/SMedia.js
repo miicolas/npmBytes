@@ -1,11 +1,11 @@
 const SMedia = [
     {
          name : "Instragram",
-         url: "https://www.instagram.com/useflow.dev",
+         url: "https://www.instagram.com/npmbytes",
     },
     {
         name : "Mail",
-        url: "mailto:contact.useflow@gmail.com",
+        url: "mailto:contact.npmbytes@gmail.com",
    }
     
 ]

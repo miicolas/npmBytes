@@ -70,11 +70,23 @@ a {
   display: inline-block;
   position: relative;
 }
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 .magic-text {
   animation: background-pan 10s linear;
   font-weight: bold;
-  background: linear-gradient(to right, #562bff, violet, pink, #562bff);
-  background-size: 200%;
+  background: linear-gradient(to right, #562bff, violet, pink);
+  background-size: 300% ;
+  animation: gradient 30s ease infinite;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   white-space: nowrap;

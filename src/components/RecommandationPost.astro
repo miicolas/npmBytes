@@ -11,7 +11,7 @@ const formattedPosts = formatBlogPosts(allPosts, {
 });
 
 const shuffledPosts = formattedPosts.sort(() => Math.random() - 0.5); 
-const randomPosts = shuffledPosts.slice(0, 3); 
+const randomPosts = shuffledPosts.slice(0, 1); 
 ---
 
 <div class="recommandation-post">
@@ -29,6 +29,7 @@ const randomPosts = shuffledPosts.slice(0, 3);
         max-width: 100rem;
         justify-content: center;
         padding: 2rem;
+        margin: 0 auto;
     }
     .container-text{
         font-size: 24px;
