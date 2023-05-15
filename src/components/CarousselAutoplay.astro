@@ -22,7 +22,6 @@ import CaroussselSlide from "../data/CarousselSlide"
 .slider::after {
 	background: linear-gradient(to right,  #111111 0%,rgba(29, 29, 29, 0) 100%);
 	content: "";
-
 	position: absolute;
 	width: 200px;
 	z-index: 2;
@@ -40,15 +39,16 @@ import CaroussselSlide from "../data/CarousselSlide"
 }
 
 .slide-track {
-	animation: scroll 50s linear infinite;
+	animation: scroll 70s linear infinite;
 	display: flex;
-    width: calc(250px * 28); /* double width for duplicate images */
-    margin-right: -250px; /* equal to the width of one image */
+    width: calc(250px * 28); 
+
 }
 
 .slide {
 	height: 100px;
-	width: 250px;
+	width: auto;
+	margin-right: 20vh;
 }
 
 @keyframes scroll {
