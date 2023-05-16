@@ -160,36 +160,20 @@ shareButton.addEventListener("click", () => {
 const likeButton = document.querySelector(".like-btn");
 likeButton.addEventListener('click', () => {
   if (getCookie('liked')) {
-    // L'utilisateur a déjà aimé le contenu
-    alert("Vous avez déjà aimé ce contenu.");
     return;
   }
-
-  // Définir le cookie
-  setCookie('liked', 'true', 365); // Le cookie expire dans 365 jours
-
-  // Ajouter la classe .liked à l'icône du cœur
+  setCookie('liked', 'true', 365); 
   const heartIcon = likeButton.querySelector("i");
   heartIcon.classList.add("liked");
-
-  // Modifier la couleur du cœur en utilisant style.color
   heartIcon.style.color = "#bb2626";
 
-  // Effectuer les actions supplémentaires nécessaires
-  // (par exemple, augmenter le compteur de likes, changer l'apparence du bouton, etc.)
-
-  alert("Contenu aimé !");
 });
-
-// Restaurer l'état "liké" lors du chargement de la page
 if (getCookie('liked')) {
   const likeButton = document.querySelector(".like-btn");
   const heartIcon = likeButton.querySelector("i");
   heartIcon.classList.add("liked");
   heartIcon.style.color = "#bb2626";
 }
-
-
 function setCookie(name, value, days) {
   var expires = '';
   if (days) {
@@ -199,7 +183,6 @@ function setCookie(name, value, days) {
   }
   document.cookie = name + '=' + (value || '') + expires + '; path=/';
 }
-
 function getCookie(name) {
   var nameEQ = name + '=';
   var ca = document.cookie.split(';');
@@ -210,7 +193,5 @@ function getCookie(name) {
   }
   return null;
 }
-
-
 </script>
 
