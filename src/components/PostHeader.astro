@@ -31,13 +31,19 @@ const categories = category.split(",");
       <div class="share-btn">
         <i class="fa-solid fa-share" style="color: #ffffff;"></i>
       </div>
+      <div  id="btn" class="like-btn">
+        <i class="fa-solid fa-heart like-button"></i>
+      </div>
+      
     </div>
     <Separation />
   </div>
 </header>
 
 <style>
-
+  .fa-solid {
+    color : white
+  }
   .tools-interaction {
     display: flex;
     justify-content: center;
@@ -149,10 +155,49 @@ shareButton.addEventListener("click", () => {
   navigator.clipboard.writeText(pageUrl);
 });
 
-// const likeButton = document.querySelector(".like-btn");
-// likeButton.addEventListener('click', () =>{
+const likeButton = document.querySelector(".like-btn");
+likeButton.addEventListener('click', () => {
+  if (getCookie('liked')) {
+    // L'utilisateur a déjà aimé le contenu
+    alert("Vous avez déjà aimé ce contenu.");
+    return;
+  }
 
-// })
+  // Définir le cookie
+  setCookie('liked', 'true', 365); // Le cookie expire dans 365 jours
+
+
+  alert("Contenu aimé !");
+});
+const btn = document.getElementById('btn');
+
+btn.addEventListener('click', function onClick() {
+  btn.style.backgroundColor = '#bb2626';
+  btn.style.color = 'white';
+});
+
+
+function setCookie(name, value, days) {
+  var expires = '';
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    expires = '; expires=' + date.toUTCString();
+  }
+  document.cookie = name + '=' + (value || '') + expires + '; path=/';
+}
+
+function getCookie(name) {
+  var nameEQ = name + '=';
+  var ca = document.cookie.split(';');
+  for (var i = 0; i < ca.length; i++) {
+    var c = ca[i];
+    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
+}
+
 
 </script>
 

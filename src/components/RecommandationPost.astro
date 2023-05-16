@@ -1,52 +1,78 @@
 ---
 import CardPost from "./CardPost.astro";
+import CategoryCloud from "./CategoryCloud.astro";
+import Separation from "./Separation.astro"
 import { formatBlogPosts } from "../js/utils";
 
 const allPosts = await Astro.glob("../pages/blog/*.mdx");
 const formattedPosts = formatBlogPosts(allPosts, {
-    filterOutDrafts: true,
-    filterOutFuturePosts: true,
-    sortByDate: true,
-    limit: null,
+  filterOutDrafts: true,
+  filterOutFuturePosts: true,
+  sortByDate: true,
+  limit: null,
 });
 
-const shuffledPosts = formattedPosts.sort(() => Math.random() - 0.5); 
-const randomPosts = shuffledPosts.slice(0, 1); 
+const shuffledPosts = formattedPosts.sort(() => Math.random() - 0.5);
+const randomPosts = shuffledPosts.slice(0, 1);
 ---
-
+<br>
+<br>
+<Separation/>
 <div class="recommandation-post">
     <div class="container">
-        <p class="container-text">Do you want more Post ?</p>
+      <p class="container-text">Do you want more Post ?</p>
+      <div class="container-postcat">
         <div class="post-container">
-            {randomPosts.map((post) => <CardPost key={post.url} post={post} />)}
+          {randomPosts.map((post) => <CardPost key={post.url} post={post} />)}
         </div>
+        <aside class="container-categories">
+          <h2 class="categories">Blog Categories</h2>
+          <CategoryCloud />
+        </aside>
+      </div>
     </div>
-</div>
-<style>
-    .recommandation-post {
-        display: flex;
-        flex: 1;
-        max-width: 100rem;
-        justify-content: center;
-        padding: 2rem;
-        margin: 0 auto;
-    }
-    .container-text{
-        font-size: 24px;
-        font-weight: 600;
-    }
+  </div>
+  <style>
+  
+  .container-postcat {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .recommandation-post {
+    display: flex;
+    padding: 2rem;
+    justify-content: center;
+  }
+  
+  .container-text {
+    padding-left: 10%;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  .post-container {
+    display: flex;
+    font-weight: 400;
+    font-size: 18px;
+    justify-content: center;
+    margin: 0 auto;
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+  @media (max-width: 1028px) {
     .post-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        font-weight:400;
-        font-size: 18px;
+      flex-direction: column;
+      padding-right: 2rem;
     }
-    
-    @media (max-width: 768px) {
-        .post-container {
-            flex-direction: column;
-            align-items: center;
-        }
+  } 
+
+  
+  @media (max-width: 768px) {
+    .container-postcat {
+      flex-direction: column;
+      align-items: center;
     }
-</style>
+  }
+  </style>
+  
