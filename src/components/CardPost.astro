@@ -40,28 +40,6 @@ const categories = category.split(",");
 </article>
 </div>
 <style>
-    .post {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    max-width: 50vw;
-    padding: 2.5vh;
-    min-width: 40vh;
-    
-  }
-
-  .card {
-    border-radius: 5px;
-    max-width: 25vw;
-    margin: 16px auto;
-    padding: 1px;
-    min-width: 40vh;
-  }
-
-  .container:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  }
 
   .container {
     max-height: 50vh;
@@ -80,6 +58,30 @@ const categories = category.split(",");
 
   .small {
     font-size: 80%;
+  }
+
+  .badge {
+    display: inline-block;
+    justify-content: right;
+    background-color: #562bff;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: background-color 0.5s ease-in-out;
+    font-size: 14px;
+    margin-right: 5px;
+  }
+
+  .badge:hover {
+    background-color: #260a96a9;
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 8px;
+    margin-bottom: 8px;
   }
 
   p {
