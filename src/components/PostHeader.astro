@@ -57,12 +57,12 @@ const categories = category.split(",");
     border-radius: 50%;
     width: 2.5rem;
     height: 2.5rem;
-    background-color: #705cc0;
+    background-color: #562bff;
     cursor: pointer;
     transition: ease-in-out 0.3s;
   }
   .share-btn:hover {
-    background-color: #3b21a1;
+    background-color: #260a96a9;
     transition: ease-in-out 0.3s;
   }
   .share-btn:active {
@@ -79,12 +79,12 @@ const categories = category.split(",");
     border-radius: 50%;
     width: 2.5rem;
     height: 2.5rem;
-    background-color: #705cc0;
+    background-color: #562bff;
     cursor: pointer;
     transition: ease-in-out 0.3s;
   }
   .like-btn:hover {
-    background-color: #3b21a1;
+    background-color: #260a96a9;
     transition: ease-in-out 0.3s;
   }
   .like-btn:active {
@@ -108,21 +108,6 @@ const categories = category.split(",");
 
   .small {
     font-size: 80%;
-  }
-
-  .badge {
-    display: inline-block;
-    background-color: #562bff;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 3px;
-    text-decoration: none;
-    transition: ease-in-out 0.5s;
-  }
-
-  .badge:hover {
-    background-color: #260a96a9;
-    transition: ease-in-out 0.5s;
   }
 
   h1 {
@@ -168,6 +153,13 @@ const pageUrl = window.location.href;
 shareButton.addEventListener("click", () => {
   navigator.clipboard.writeText(pageUrl);
 
+
+
 });
+
+// const likeButton = document.querySelector(".like-btn");
+// likeButton.addEventListener('click', () =>{
+
+// })
 </script>
 
