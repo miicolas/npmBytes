@@ -1,5 +1,5 @@
-### USEFLOW 
->UseFlow is media on social networks and the web that offers news on Tech topics. Whether you are a gamer, developer or a professional in one of the tech fields, you will learn and be informed about the latest trends.
+### npmBytes
+>npmBytes is media on social networks and the web that offers news on Tech topics. Whether you are a gamer, developer or a professional in one of the tech fields, you will learn and be informed about the latest trends.
 
 ## Astro Project
 
