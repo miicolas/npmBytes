@@ -3,51 +3,90 @@ const { post } = Astro.props;
 
 // utils imports
 import { slugify, formatDate } from "../js/utils";
-const { category, title, description, image,minutesRead } = post.frontmatter;
+import { getDaysSince } from "../js/utils";
+const { category, title, date, image, minutesRead } = post.frontmatter;
 const postUrl = `/blog/${slugify(title)}`;
 const categories = category.split(",");
+const daysSincePublication = getDaysSince(date);
+const isNewPost = daysSincePublication <= 6;
 ---
 
 <div class="post">
   <article class="card">
     <div class="container">
-      <a href={postUrl}
-        ><img class="main-image" src={image.src} alt={image.alt} /></a
-      >
-    </div>
-  
-  <div class="out-card">
-    <a href={postUrl}><p class="title">{title.length > 50 ? `${title.slice(0, 50)}...` : title}</p></a>
-    
-    <div class="categories-time">
       {
-        categories.map((cat) => (
-          <small>
-            <a href={`/category/${slugify(cat)}/`} class="badge">
-              {cat.trim()}
-            </a>
-          </small>
-        ))
+        isNewPost && (
+          <div class="news-vignette">
+            <span class="news-vignette-text">New!</span>
+          </div>
+        )
       }
-      
-      <div class="reading-time">
-        <i class="fa-solid fa-book-open-reader" style="color: #6c757d;"></i>
-        <p>{minutesRead} min</p>
+      <a href={postUrl}>
+        <img class="main-image" src={image.src} alt={image.alt} />
+      </a>
+    </div>
+    <div class="out-card">
+      <a href={postUrl}
+        ><p class="title">
+          {title.length > 50 ? `${title.slice(0, 50)}...` : title}
+        </p></a
+      >
+
+      <div class="categories-time">
+        {
+          categories.map((cat) => (
+            <small>
+              <a href={`/category/${slugify(cat)}/`} class="badge">
+                {cat.trim()}
+              </a>
+            </small>
+          ))
+        }
+
+        <div class="reading-time">
+          <i class="fa-solid fa-book-open-reader" style="color: #6c757d;"></i>
+          <p>{minutesRead} min</p>
+        </div>
       </div>
     </div>
-  
-  </div>
-</article>
+  </article>
 </div>
 <style>
-    .post {
+.news-vignette {
+  background-color: transparent;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: white;
+  font-size: 12px;
+  z-index: 3;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 3;
+  animation: blink-border 3s ease-in infinite;
+}
+
+@keyframes blink-border {
+  0% {
+    border-color: rgb(255, 255, 255);
+  }
+  50% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: white;
+  }
+}
+
+  .post {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    max-width: 50vh;
+    max-width: 50vw;
     padding: 2.5vh;
     min-width: 40vh;
-    
   }
   .card {
     border-radius: 5px;
@@ -61,11 +100,12 @@ const categories = category.split(",");
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
   .container {
+    position: relative;
     max-height: 50vh;
     min-height: 30vh;
     min-width: 40vh;
     border: 1px solid;
-    border-color: #552BFF;
+    border-color: #552bff;
     border-radius: 5px;
     text-align: center;
     overflow: hidden;
@@ -73,6 +113,7 @@ const categories = category.split(",");
     align-items: center;
     justify-content: center;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    flex-direction: column;
   }
 
   .small {
@@ -121,8 +162,8 @@ const categories = category.split(",");
 
   .categories-time {
     display: flex;
-    align-items : center;
-    margin-top : auto;
+    align-items: center;
+    margin-top: auto;
   }
   .reading-time {
     margin-left: auto;
@@ -142,39 +183,35 @@ const categories = category.split(",");
 
   .out-card {
     max-width: 50vh;
-    height : 10vh;
+    height: 20vh;
     display: flex;
     flex-direction: column;
     flex: 1;
     min-width: 0;
   }
 
-@media screen and (max-width: 768px) {
+  @media screen and (max-width: 768px) {
+    .title {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
 
+    .badge {
+      font-size: 0.8rem;
+      margin-right: 0.5rem;
+    }
 
+    .reading-time p {
+      font-size: 1rem;
+    }
 
-  .title {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+    .fa-sharp {
+      font-size: 1rem;
+      margin-right: 0.5rem;
+    }
+    .post {
+      padding: 0;
+      max-width: 90%;
+    }
   }
-
-  .badge {
-    font-size: 0.8rem;
-    margin-right: 0.5rem;
-  }
-
-  .reading-time p {
-    font-size: 1rem;
-  }
-
-  .fa-sharp {
-    font-size: 1rem;
-    margin-right: 0.5rem;
-  }
-  .post{
-    padding: 0;
-    max-width: 90%;
-  }
-}
-
 </style>

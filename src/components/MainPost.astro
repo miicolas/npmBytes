@@ -3,16 +3,27 @@ const { post } = Astro.props;
 
 // utils imports
 import { slugify } from "../js/utils";
-const { title, image, description, minutesRead } = post.frontmatter;
+import { getDaysSince } from "../js/utils";
+const { title, image, description, minutesRead, date } = post.frontmatter;
 const postUrl = `/blog/${slugify(title)}`;
+
+const daysSincePublication = getDaysSince(date);
+const isNewPost = daysSincePublication <= 6;
 ---
 
 <div class="main-post">
   <article class="card">
     <div class="container">
-      <a href={postUrl}
-        ><img class="main-image" src={image.src} alt={image.alt} /></a
-      >
+      {
+        isNewPost && (
+          <div class="news-vignette">
+            <span class="news-vignette-text">New!</span>
+          </div>
+        )
+      }
+      <a href={postUrl}>
+        <img class="main-image" src={image.src} alt={image.alt} />
+      </a>
     </div>
   </article>
   <div class="out-card">
@@ -25,10 +36,37 @@ const postUrl = `/blog/${slugify(title)}`;
     </div>
     <p class="description">{description}</p>
   </div>
-
 </div>
 <style>
-   .main-post {
+.news-vignette {
+  background-color: transparent;
+  color: #ffffff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: white;
+  font-size: 12px;
+  z-index: 3;
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 3;
+  animation: blink-border 3s ease-in infinite;
+}
+
+@keyframes blink-border {
+  0% {
+    border-color: rgb(255, 255, 255);
+  }
+  50% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: white;
+  }
+}
+
+  .main-post {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -60,9 +98,10 @@ const postUrl = `/blog/${slugify(title)}`;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    position: relative;
   }
-
-  .small {
+  n .small {
     font-size: 80%;
   }
 
@@ -109,9 +148,8 @@ const postUrl = `/blog/${slugify(title)}`;
     display: flex;
     flex-direction: column;
     margin-top: -1rem;
-
   }
-  
+
   /*Responsive*/
   @media screen and (max-width: 768px) {
     .main-post {
@@ -133,4 +171,4 @@ const postUrl = `/blog/${slugify(title)}`;
   }
 </style>
 
-</style>
+<script></script>

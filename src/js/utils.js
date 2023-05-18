@@ -9,6 +9,13 @@ export function slugify(text) {
     .replace(/^-+/, "")
     .replace(/-+$/, "");
 }
+export function getDaysSince(date) {
+  const oneDay = 24 * 60 * 60 * 1000; // Nombre de millisecondes dans une journée
+  const today = new Date();
+  const postDate = new Date(date);
+  const diffDays = Math.floor((today - postDate) / oneDay);
+  return diffDays;
+}
 
 export function formatDate(date) {
   return new Date(date).toLocaleDateString("fr-EU", {
