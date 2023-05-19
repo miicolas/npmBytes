@@ -189,7 +189,11 @@ const isNewPost = daysSincePublication <= 6;
     flex: 1;
     min-width: 0;
   }
-
+	@media screen and (max-width :1024px){
+    .out-card {
+      height: 10vh;
+    }
+  }
   @media screen and (max-width: 768px) {
     .title {
       font-size: 1rem;
@@ -212,6 +216,9 @@ const isNewPost = daysSincePublication <= 6;
     .post {
       padding: 0;
       max-width: 90%;
+    }
+    .out-card {
+      height: 10vh;
     }
   }
 </style>

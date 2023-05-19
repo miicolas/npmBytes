@@ -103,12 +103,19 @@ const latestPost = formattedPosts[0];
       <CarousselAutoplay />
       <div class="page">
         <div class="post-container">
-          {
-            formattedPosts
-              .slice(1)
-              .map((post) => <CardPost key={post.url} post={post} />)
-          }
+          <div class="posts">
+            {
+              formattedPosts
+                .slice(1,9)
+                .map((post) => <CardPost key={post.url} post={post} />)
+            }
+          </div>
+          <!-- <div class="morepost">
+            <a href="/"><div class="badge">More post</div></a>
+          </div> -->
+          
         </div>
+        
       </div>
     </section>
     <aside class="container-categories">
@@ -174,9 +181,18 @@ const latestPost = formattedPosts[0];
   }
   .post-container {
     display: flex;
+    flex-direction: column;
+  }
+  .posts{
+    display: flex;
     flex-direction: row;
     max-width: 100rem;
     flex-wrap: wrap;
+  }
+  .morepost{
+    padding:1rem;
+    display: flex;
+    justify-content: center;
   }
   .container-categories {
     margin-left: 5rem;
