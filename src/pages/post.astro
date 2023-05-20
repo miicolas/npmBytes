@@ -1,0 +1,33 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import CardPost from "../components/CardPost.astro";
+import MainPost from "../components/MainPost.astro";
+import CarousselAutoplay from "../components/CarousselAutoplay.astro";
+
+const allPosts = await Astro.glob("./blog/*.mdx");
+import CategoryCloud from "../components/CategoryCloud.astro";
+import { formatBlogPosts } from "../js/utils";
+const formattedPosts = formatBlogPosts(allPosts, {
+  filterOutDrafts: true,
+  filterOutFuturePosts: true,
+  sortByDate: true,
+  limit: null,  
+});
+---
+<MainLayout title="posts">
+    <section class="container">
+        <div class="page">
+          <div class="post-container">
+            <div class="posts">
+              {
+                formattedPosts
+                  .map((post) => <CardPost key={post.url} post={post} />)
+              }
+            </div>            
+          </div>
+        </div>
+      </section>
+</MainLayout>
+
+
+
