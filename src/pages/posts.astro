@@ -1,8 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import CardPost from "../components/CardPost.astro";
-import MainPost from "../components/MainPost.astro";
-import CarousselAutoplay from "../components/CarousselAutoplay.astro";
 
 const allPosts = await Astro.glob("./blog/*.mdx");
 import CategoryCloud from "../components/CategoryCloud.astro";
@@ -15,8 +13,11 @@ const formattedPosts = formatBlogPosts(allPosts, {
 });
 ---
 <MainLayout title="posts">
-    <section class="container">
-        <div class="page">
+    <section class="page">
+      <div left-container>
+        <CategoryCloud/>
+      </div>
+      <div class="container">
           <div class="post-container">
             <div class="posts">
               {
@@ -25,11 +26,19 @@ const formattedPosts = formatBlogPosts(allPosts, {
               }
             </div>            
           </div>
-        </div>
-      </section>
+      </div>
+    </section>
 </MainLayout>
+
 <style>
-  
+  .page {
+    display : flex
+  }
+  .posts{
+    display : flex;
+    flex-direction : row;
+    flex-wrap: wrap;
+    max-width: 120vw;
+    min-width: 10vw;
+  }
 </style>
-
-
