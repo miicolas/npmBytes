@@ -20,7 +20,8 @@
     "remark-heading-gap": "^5.0.1",
     "remark-toc": "^8.0.1",
     "remark-utf8": "^1.1.0",
-    "to-vfile": "^7.2.4"
+    "to-vfile": "^7.2.4",
+    "trim": "^1.0.1"
   },
   "devDependencies": {
     "markdown-toc": "^1.2.0"
