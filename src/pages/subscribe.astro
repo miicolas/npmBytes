@@ -20,11 +20,13 @@ import MainLayout from "../layouts/MainLayout.astro";
       </div>
       <div class="container-form">
         <div class="content-form">
-          <form action="">
+          <form action="/api/auth/register" method="post">
             <input
               type="email"
               placeholder="Email Address"
               autocomplete="email"
+              id="email"
+              name="email"
             />
             <input type="submit" value="Subscribe!" />
           </form>
