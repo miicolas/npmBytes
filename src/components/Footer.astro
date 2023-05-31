@@ -3,15 +3,10 @@ import SMedia from "../data/SMedia";
 ---
 
 <footer class="footer">
-  
-
   <div class="social-media">
-   
-  
       {
         SMedia.map((item) =><a href={item.url} target="_blank">{item.name}</a>)
       }
-    
   </div>
   <div class="copyright">
     <small>
@@ -19,9 +14,7 @@ import SMedia from "../data/SMedia";
       All rights reserved
     </small>
   </div>
-    
   </footer>
-  
   <style>
     .footer {
         position: relative;

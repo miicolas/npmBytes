@@ -1,7 +1,6 @@
 ---
 import { formatBlogPosts, slugify } from "../js/utils";
 
-
 const allPosts = await Astro.glob("../pages/blog/*.mdx");
 const formattedPosts = formatBlogPosts(allPosts).filter(post => {
   const categories = post.frontmatter.category.split(",");
@@ -47,7 +46,4 @@ const processedCats = allCategories.reduce((acc, category) => {
   margin-right: 10px;
   margin-bottom: 10px;
 }
-
-
-
 </style>

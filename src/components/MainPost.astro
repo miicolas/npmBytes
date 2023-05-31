@@ -1,12 +1,10 @@
 ---
 const { post } = Astro.props;
-
 // utils imports
 import { slugify } from "../js/utils";
 import { getDaysSince } from "../js/utils";
 const { title, image, description, minutesRead, date } = post.frontmatter;
 const postUrl = `/blog/${slugify(title)}`;
-
 const daysSincePublication = getDaysSince(date);
 const isNewPost = daysSincePublication <= 6;
 ---
@@ -37,6 +35,7 @@ const isNewPost = daysSincePublication <= 6;
     <p class="description">{description}</p>
   </div>
 </div>
+
 <style>
 .news-vignette {
   background-color: transparent;

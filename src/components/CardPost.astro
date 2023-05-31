@@ -51,8 +51,9 @@ const isNewPost = daysSincePublication <= 6;
     </div>
   </article>
 </div>
+
 <style>
-.news-vignette {
+  .news-vignette {
   background-color: transparent;
   color: #ffffff;
   padding: 5px 10px;
@@ -66,19 +67,7 @@ const isNewPost = daysSincePublication <= 6;
   left: 1rem;
   z-index: 3;
   animation: blink-border 3s ease-in infinite;
-}
-
-@keyframes blink-border {
-  0% {
-    border-color: rgb(255, 255, 255);
   }
-  50% {
-    border-color: transparent;
-  }
-  100% {
-    border-color: white;
-  }
-}
 
   .post {
     display: flex;
@@ -189,6 +178,18 @@ const isNewPost = daysSincePublication <= 6;
     flex: 1;
     min-width: 0;
   }
+
+  @keyframes blink-border {
+  0% {
+    border-color: rgb(255, 255, 255);
+  }
+  50% {
+    border-color: transparent;
+  }
+  100% {
+    border-color: white;
+  }
+}
 	@media screen and (max-width :1024px){
     .out-card {
       height: 10vh;

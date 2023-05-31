@@ -2,12 +2,10 @@
 // utils imports
 import { slugify, formatDate } from "../js/utils";
 import Separation from "./Separation.astro";
-
 const { category, title, author, date, image } = Astro.props;
 const categories = category.split(",");
 
 ---
-
 <header>
   <div class="container">
     <img src={image.src} alt={image.alt} />
@@ -24,7 +22,6 @@ const categories = category.split(",");
         </small>
       ))
     }
-
     <br /><br />
     <Separation />
     <div class="tools-interaction">
@@ -34,7 +31,6 @@ const categories = category.split(",");
       <div  id="btn" class="like-btn">
         <i class="fa-solid fa-heart like-button"></i>
       </div>
-      
     </div>
     <Separation />
   </div>
@@ -50,7 +46,6 @@ const categories = category.split(",");
     align-items: center;
     margin: 2rem 0;
   }
-
   .share-btn {
     display: flex;
     justify-content: center;
@@ -149,6 +144,7 @@ const categories = category.split(",");
     }
   }
 </style>
+
 <script>
 const shareButton = document.querySelector(".share-btn");
 const pageUrl = window.location.href;
