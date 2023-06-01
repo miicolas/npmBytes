@@ -22,5 +22,5 @@ export const post: APIRoute = async ({ request, redirect }) => {
       status: 500,
     });
   }
-  return redirect("../index");
+  return redirect("/index");
 };
