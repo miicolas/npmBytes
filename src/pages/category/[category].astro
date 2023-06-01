@@ -9,18 +9,22 @@ import { slugify, formatBlogPosts } from "../../js/utils";
 export async function getStaticPaths() {
   return [
     {
+      slug: "announcement",
       params: { category: slugify("Announcement") },
       props: { name: "Announcement" },
     },
     {
+      slug: "game",
       params: { category: slugify("Game") },
       props: { name: "Game" },
     },
     {
+      slug: "ia",
       params: { category: slugify("IA") },
       props: { name: "IA" },
     },
     {
+      slug: "web",
       params: { category: slugify("Web") },
       props: { name: "Web" },
     },
