@@ -6,30 +6,32 @@ import CardPost from "../../components/CardPost.astro";
 // utils
 import { slugify, formatBlogPosts } from "../../js/utils";
 
-export async function getStaticPaths() {
-  return [
+const pages = [
+ 
     {
-      slug: "announcement",
+      slug: "Announcement",
       params: { category: slugify("Announcement") },
       props: { name: "Announcement" },
     },
     {
-      slug: "game",
+      slug: "Game",
       params: { category: slugify("Game") },
       props: { name: "Game" },
     },
     {
-      slug: "ia",
+      slug: "IA",
       params: { category: slugify("IA") },
       props: { name: "IA" },
     },
     {
-      slug: "web",
+      slug: "Web",
       params: { category: slugify("Web") },
       props: { name: "Web" },
     },
-  ];
-}
+];
+const { slug } = Astro.params;
+const page = pages.find((page) => page.slug === slug);
+
 
 const { category } = Astro.params;
 const { name } = Astro.props;
