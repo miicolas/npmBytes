@@ -3,6 +3,7 @@ import { app } from "../../firebase/server";
 import { getFirestore } from "firebase-admin/firestore";
 
 export const post: APIRoute = async ({ request, redirect }) => {
+  console.log(import.meta.env.FIREBASE_PROJECT_ID);
   const formData = await request.formData();
   const email = formData.get("email")?.toString();
 
