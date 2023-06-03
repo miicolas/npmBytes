@@ -20,13 +20,15 @@ import MainLayout from "../layouts/MainLayout.astro";
       <div class="container-form">
         <div class="content-form">
           <form method="post" action="/api/subscribe">
-            <input
-              type="email"
-              placeholder="Email Address"
-              autocomplete="email"
-              id="email"
-              name="email"/>
-            <input type="submit" value="Subscribe!" />
+            <div class="input-wrapper">
+              <input
+                type="email"
+                placeholder="Email Address"
+                autocomplete="email"
+                id="email"
+                name="email"/>
+              <input type="submit" value="Subscribe!" />
+            </div>
           </form>
         </div>
       </div>
@@ -62,10 +64,11 @@ import MainLayout from "../layouts/MainLayout.astro";
     align-items: center;
     transform-origin: center bottom;
     display: flex;
-    justify-content: ;
+    
   }
   .left-content a {
     font-size: 5rem;
+    color : white
   }
 
   .container-right {
@@ -86,7 +89,6 @@ import MainLayout from "../layouts/MainLayout.astro";
 
   p {
     font-size: 1.5em;
-    margin-bottom: 1.5em;
   }
 
   .container-form {
@@ -101,7 +103,6 @@ import MainLayout from "../layouts/MainLayout.astro";
 
   input[type="email"] {
     font-size: 1.2em;
-    font-weight: bold;
     padding: 10px 20px;
     border: none;
     border-radius: 5px 0 0 5px;
@@ -130,6 +131,17 @@ import MainLayout from "../layouts/MainLayout.astro";
     background-color: #3b21a1;
     cursor: pointer;
   }
+  @media only screen and (max-width: 1212px) {
+    input[type="email"],
+    input[type="submit"]{
+      border-radius: 5px;
+    }
+    input[type="submit"] {
+      margin-top: 1vh;
+    }
+    
+
+  }
 
   @media only screen and (max-width: 768px) {
     .container {
@@ -138,6 +150,10 @@ import MainLayout from "../layouts/MainLayout.astro";
     }
     .container-left {
       display: none;
+    }
+    
+    .text-sub {
+      font-size: small;
     }
   }
 </style>
