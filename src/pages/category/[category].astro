@@ -30,6 +30,11 @@ const pages = [
       params: { category: slugify("Web") },
       props: { name: "Web" },
     },
+    {
+      slug : "Security",
+      params : { category : slugify ("Security") },
+      props : { name : "Security"}
+    }
 ];
 const { slug } = Astro.params;
 const page = pages.find((page) => page.slug === slug);
