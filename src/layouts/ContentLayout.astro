@@ -1,0 +1,35 @@
+---
+// component import
+import {formatDate } from "../js/utils";
+import MainLayout from "./MainLayout.astro";
+
+const { frontmatter } = Astro.props;
+const { title, description, date, category, author, image, minutesRead } =
+  frontmatter;
+---
+
+<MainLayout {title}>
+      <slot /> 
+    Last update : {formatDate(date)}
+</MainLayout>
+
+<style>
+
+
+  .post-content {
+    display: flex;
+    justify-content: center;
+  }
+
+  .content {
+    width: 100%;
+    max-width: 150vh;
+    margin: 0 auto;
+    word-wrap: break-word;
+    overflow-x: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+
+</style>
