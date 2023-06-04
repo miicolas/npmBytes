@@ -1,18 +1,16 @@
 ---
 //data imports
 import navData from "../data/navData";
-<<<<<<< Updated upstream
-=======
 import SMedia from "../data/SMedia";
->>>>>>> Stashed changes
 ---
+
 <nav>
   <div class="container">
     <div class="navbar">
       <a href="/" class="text-gradien"
         >npm<span class="magic-text">Bytes</span></a
       >
-      <button id="navBtn" class="bg-neutral-800 rounded-full p-2">
+      <button id="navBtn" class="navBtn">
         <svg
           fill="#ffffff"
           version="1.1"
@@ -48,63 +46,87 @@ import SMedia from "../data/SMedia";
     </div>
   </div>
 </nav>
-
-
-
 <div id="myModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
-    <input
-      id="searchbar"
-      onkeyup="searchAnimal()"
-      type="text"
-      name="search"
-      placeholder="Search animals.."
-    />
-
     <ol id="list">
-      <li class="animal">Cat</li>
-      <li class="animal">Dog</li>
-      <li class="animal">Elephant</li>
-      <li class="animal">Fish</li>
-      <li class="animal">Gorilla</li>
-      <li class="animal">Monkey</li>
-      <li class="animal">Turtle</li>
-      <li class="animal">Whale</li>
-      <li class="animal">Alligator</li>
-      <li class="animal">Donkey</li>
-      <li class="animal">Horse</li>
+      <div class="pages">
+        <li><a href="/">Home</a></li>
+        <li><a href="/posts">Posts</a></li>
+        <li><a href="/subscribe">Subscribe</a></li>
+      </div>
+      <div class="social-media">
+        {
+          SMedia.map((item) => (
+            <li>
+              <a href={item.url} target="_blank">
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </div>
     </ol>
   </div>
 </div>
 
 <style>
-  #searchbar{
-     margin-left: 15%;
-     padding:15px;
-     border-radius: 10px;
-   }
- 
-   input[type=text] {
-      width: 30%;
-      -webkit-transition: width 0.15s ease-in-out;
-      transition: width 0.15s ease-in-out;
-   }
- 
-   /* When the input field gets focus,
-        change its width to 100% */
-   input[type=text]:focus {
-     width: 70%;
-   }
- 
-  #list{
-    font-size:  1.5em;
-    margin-left: 90px;
-   }
- 
-.animals{
-   display: list-item;    
-  } 
+  .navBtn {
+    border-radius: 50%;
+    background-color: rgb(51, 51, 51);
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .navBtn::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+
+  .navBtn:focus::before {
+    transform: translate(-50%, -50%) scale(2);
+    opacity: 1;
+  }
+
+  ol {
+    margin-bottom: 2vh;
+  }
+  li {
+    list-style-type: none;
+    width: fit-content;
+  }
+  li:hover {
+    background-color: white;
+  }
+  input[type="text"] {
+    width: 30%;
+    -webkit-transition: width 0.15s ease-in-out;
+    transition: width 0.15s ease-in-out;
+  }
+  input[type="text"]:focus {
+    width: 70%;
+  }
+
+  #list {
+    font-size: 1.5em;
+  }
+
   .container {
     display: flex;
     flex-direction: row;
@@ -174,7 +196,7 @@ import SMedia from "../data/SMedia";
   .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 5;
     left: 0;
     top: 0;
     width: 100%;
@@ -187,18 +209,9 @@ import SMedia from "../data/SMedia";
   .modal-content {
     background-color: #000000;
     margin: 15% auto;
-    padding: 20px;
+    padding: 30px;
     border: 1px solid #888;
     width: 80%;
-  }
-
-  .modal-content ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  .modal-content ul li {
-    margin-bottom: 10px;
   }
 
   .close {
@@ -207,12 +220,17 @@ import SMedia from "../data/SMedia";
     font-size: 28px;
     font-weight: bold;
   }
-
   .close:hover,
   .close:focus {
-    color: black;
+    
     text-decoration: none;
     cursor: pointer;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .modal-content {
+      margin: 50% auto;
+    }
   }
 </style>
 <script>
