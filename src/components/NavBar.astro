@@ -1,39 +1,142 @@
 ---
 //data imports
 import navData from "../data/navData";
+<<<<<<< Updated upstream
+=======
+import SMedia from "../data/SMedia";
+>>>>>>> Stashed changes
 ---
 <nav>
   <div class="container">
     <div class="navbar">
-      <a href="/">npm<span class="magic-text">Bytes</span></a>
-      {navData.map((item) => <a href={item.path}>{item.name}</a>)}
+      <a href="/" class="text-gradien"
+        >npm<span class="magic-text">Bytes</span></a
+      >
+      <button id="navBtn" class="bg-neutral-800 rounded-full p-2">
+        <svg
+          fill="#ffffff"
+          version="1.1"
+          id="Capa_1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          width="20px"
+          height="20px"
+          viewBox="0 0 80 80"
+          xml:space="preserve"
+        >
+          <g>
+            <path
+              d="M64,48L64,48h-8V32h8c8.836,0,16-7.164,16-16S72.836,0,64,0c-8.837,0-16,7.164-16,16v8H32v-8c0-8.836-7.164-16-16-16
+         S0,7.164,0,16s7.164,16,16,16h8v16h-8l0,0l0,0C7.164,48,0,55.164,0,64s7.164,16,16,16c8.837,0,16-7.164,16-16l0,0v-8h16v7.98
+         c0,0.008-0.001,0.014-0.001,0.02c0,8.836,7.164,16,16,16s16-7.164,16-16S72.836,48.002,64,48z M64,8c4.418,0,8,3.582,8,8
+         s-3.582,8-8,8h-8v-8C56,11.582,59.582,8,64,8z M8,16c0-4.418,3.582-8,8-8s8,3.582,8,8v8h-8C11.582,24,8,20.417,8,16z M16,72
+         c-4.418,0-8-3.582-8-8s3.582-8,8-8l0,0h8v8C24,68.418,20.418,72,16,72z M32,48V32h16v16H32z M64,72c-4.418,0-8-3.582-8-8l0,0v-8
+         h7.999c4.418,0,8,3.582,8,8S68.418,72,64,72z"
+            ></path>
+          </g>
+        </svg>
+      </button>
     </div>
-    <div class="follow-button">
-      <a href="/subscribe"><div class="badge">Subscribe</div></a>
+    <div class="container-right">
+      <div class="nav-container">
+        <div class="follow-button">
+          <a href="/subscribe">
+            <div class="badge">Subscribe</div>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
 
+
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <input
+      id="searchbar"
+      onkeyup="searchAnimal()"
+      type="text"
+      name="search"
+      placeholder="Search animals.."
+    />
+
+    <ol id="list">
+      <li class="animal">Cat</li>
+      <li class="animal">Dog</li>
+      <li class="animal">Elephant</li>
+      <li class="animal">Fish</li>
+      <li class="animal">Gorilla</li>
+      <li class="animal">Monkey</li>
+      <li class="animal">Turtle</li>
+      <li class="animal">Whale</li>
+      <li class="animal">Alligator</li>
+      <li class="animal">Donkey</li>
+      <li class="animal">Horse</li>
+    </ol>
+  </div>
+</div>
+
 <style>
+  #searchbar{
+     margin-left: 15%;
+     padding:15px;
+     border-radius: 10px;
+   }
+ 
+   input[type=text] {
+      width: 30%;
+      -webkit-transition: width 0.15s ease-in-out;
+      transition: width 0.15s ease-in-out;
+   }
+ 
+   /* When the input field gets focus,
+        change its width to 100% */
+   input[type=text]:focus {
+     width: 70%;
+   }
+ 
+  #list{
+    font-size:  1.5em;
+    margin-left: 90px;
+   }
+ 
+.animals{
+   display: list-item;    
+  } 
   .container {
     display: flex;
     flex-direction: row;
     align-items: center;
   }
-  .navbar {
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: larger;
-  padding: 10px;
-  text-align: center;
-  width: 100%;
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: larger;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
   }
+
+  .container-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+  }
+
+  .nav-container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
   .follow-button {
-  margin-right: auto;
-  padding-right: 5vh;
-}
+    padding-right: 5vh;
+  }
+
   .navbar a {
     margin-left: 20px;
     margin-right: 20px;
@@ -42,20 +145,13 @@ import navData from "../data/navData";
     transition: ease-in-out 0.5s;
     border-radius: 10px;
   }
+
   .navbar a:hover {
-    background-color: rgba(255, 255, 255, 0.225);
+    background-color: #ffffff39;
     border-radius: 10px;
     transition: ease-in-out 0.5s;
   }
-  .navbar a.active:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background-color: white;
-  }
+
   .navbar a.active:after {
     content: "";
     position: absolute;
@@ -74,4 +170,76 @@ import navData from "../data/navData";
     -webkit-text-fill-color: transparent;
     text-shadow: 0px 0px 10px rgba(146, 146, 146, 0.467);
   }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: #00000066;
+  }
+
+  .modal-content {
+    background-color: #000000;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+  }
+
+  .modal-content ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .modal-content ul li {
+    margin-bottom: 10px;
+  }
+
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
 </style>
+<script>
+  const modal = document.getElementById("myModal");
+  const btn = document.getElementById("navBtn");
+  const span = document.getElementsByClassName("close")[0];
+
+  const openModal = function () {
+    modal.style.display = "block";
+  };
+
+  const closeModal = function () {
+    modal.style.display = "none";
+  };
+
+  btn.onclick = openModal;
+  span.onclick = closeModal;
+
+  document.addEventListener("keydown", function (event) {
+    if ((event.ctrlKey || event.metaKey) && event.key === "k") {
+      openModal();
+    }
+  });
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      closeModal();
+    }
+  };
+</script>
