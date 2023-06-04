@@ -28,13 +28,10 @@ const { title, description, date, category, author, image, minutesRead } =
 </MainLayout>
 
 <style>
-
-
   .post-content {
     display: flex;
     justify-content: center;
   }
-
   .content {
     width: 100%;
     max-width: 150vh;
@@ -44,6 +41,16 @@ const { title, description, date, category, author, image, minutesRead } =
     padding-left: 20px;
     padding-right: 20px;
   }
+  .images {
+      max-width: 60%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
 
-
+  @media screen and (max-width: 768px) {
+    .images {
+      width: 100%;
+    }
+  }
 </style>
