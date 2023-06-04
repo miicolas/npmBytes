@@ -14,7 +14,7 @@ const formattedPosts = formatBlogPosts(allPosts, {
 ---
 <MainLayout title="posts">
     <section class="page">
-      <div left-container>
+      <div class="left-container">
         <CategoryCloud/>
       </div>
       <div class="container">
@@ -40,5 +40,8 @@ const formattedPosts = formatBlogPosts(allPosts, {
     flex-wrap: wrap;
     max-width: 120vw;
     min-width: 10vw;
+  }
+  .left-container {
+    padding: 5vh;
   }
 </style>
