@@ -9,8 +9,12 @@ const { title, description, date, category, author, image, minutesRead } =
 ---
 
 <MainLayout {title}>
-      <slot /> 
+  <div class="content">
+    <slot /> 
     Last update : {formatDate(date)}
+  </div>
+      
+    
 </MainLayout>
 
 <style>
