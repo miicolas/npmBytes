@@ -129,6 +129,10 @@ a {
   background-color: #260a96a9;
   transition: ease-in-out 0.5s;
 }
+.badge:active {
+  transform: scale(0.95);
+}
+
 .reading-time {
   display: flex;
   align-items: center;
@@ -172,6 +176,5 @@ a {
 }
 
 @media only screen and (min-width: 400px) {
-
   
 }
