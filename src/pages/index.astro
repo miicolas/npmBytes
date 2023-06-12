@@ -16,7 +16,7 @@ const latestPost = formattedPosts[0];
 ---
 <MainLayout title="npmBytes">
   <main>
-    <section class="welcome-bytes">
+    <section class="welcome-bytes flex margin-auto px-4 min-h-[50vh] w-full items-center">
       <div class="welcome">
         <div>
           Stay informed on the news of <span class="magic">
@@ -93,7 +93,7 @@ const latestPost = formattedPosts[0];
 
       </div>
     </section>
-    <section class="container">
+    <section class="container margin-auto">
       <div class="top-post">
         <div class="main-post">
           <MainPost post={latestPost} />
@@ -197,15 +197,9 @@ const latestPost = formattedPosts[0];
     margin-left: 5rem;
   }
   .welcome-bytes {
-    min-height: 50vh;
-    width: 100%;
     background: linear-gradient(90deg, #111111, #552bff, #111111);
     background-size: 500% 500%;
     animation: gradient 60s ease infinite;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: x-large;
   }
   .welcome {
     display: flex;
