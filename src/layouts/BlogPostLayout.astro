@@ -11,8 +11,8 @@ const { title, description, date, category, author, image, minutesRead } =
 
 <MainLayout {title}>
   <PostHeader {title} {description} {date} {category} {image} {author} />
-  <div class="post-content">
-    <div class="content flex justify-center flex-col px-4 lg:px-0">
+  <div class="flex justify-center px-16">
+    <div class="flex justify-center flex-col px-4 lg:px-0">
       <div class="reading-time pb-2">
         <i class="fa-solid fa-book-open-reader" style="color: #ffffff;"></i>
         <p>{minutesRead} minutes read</p>
@@ -20,27 +20,10 @@ const { title, description, date, category, author, image, minutesRead } =
       <div class="prose max-w-none text-white prose-a:text-[#562bff] prose-headings:text-white prose-strong:text-gray-500">
         <slot />
       </div>
-     
     </div>
     <div class="sidebar"></div>
   </div>
   <RecommandationPost/>
- 
   </div>
-  
 </MainLayout>
 
-<style>
-  .post-content {
-    display: flex;
-    justify-content: center;
-  }
-  .content {
-    width: 100%;
-    max-width: 150vh;
-    margin: 0 auto;
-    word-wrap: break-word;
-    overflow-x: auto;
-  }
-
-</style>
