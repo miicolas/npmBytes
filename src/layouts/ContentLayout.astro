@@ -9,7 +9,7 @@ const { title, description, date, category, author, image, minutesRead } =
 ---
 
 <MainLayout {title}>
-  <div class="content">
+  <div class="px-16 prose max-w-none text-white prose-a:text-[#562bff] prose-headings:text-white prose-strong:text-gray-500">
     <slot /> 
     Last update : {formatDate(date)}
   </div>
@@ -31,8 +31,7 @@ const { title, description, date, category, author, image, minutesRead } =
     margin: 0 auto;
     word-wrap: break-word;
     overflow-x: auto;
-    padding-left: 20px;
-    padding-right: 20px;
+
   }
 
 
