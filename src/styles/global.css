@@ -70,42 +70,35 @@ a {
   text-decoration: none;
 }
 
-.magic {
-  display: inline-block;
-  position: relative;
-}
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-.magic-text {
-  animation: background-pan 10s linear;
-  font-weight: bold;
-  background: linear-gradient(to right, #562bff, violet, pink);
-  background-size: 300% ;
-  animation: gradient 30s ease infinite;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  white-space: nowrap;
-}
-.magic-star {
-  --size: clamp(20px, 1.5vw, 30px);
+/* Index */
+  .welcome-bytes {
+    background: linear-gradient(90deg, #111111, #552bff, #111111);
+    background-size: 500% 500%;
+    animation: gradient 60s ease infinite;
+  }
 
-  animation: scale 700ms ease forwards;
-  display: block;
-  height: var(--size);
-  left: var(--star-left);
-  position: absolute;
-  top: var(--star-top);
-  width: var(--size);
-}
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  .magic-text {
+    animation: background-pan 10s linear;
+    font-weight: bold;
+    background: linear-gradient(to right, #562bff, violet, pink);
+    background-size: 300% ;
+    animation: gradient 30s ease infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    white-space: nowrap;
+  }
+
 .title {
   color: white;
   cursor: pointer;

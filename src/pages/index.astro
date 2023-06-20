@@ -16,112 +16,46 @@ const latestPost = formattedPosts[0];
 ---
 <MainLayout title="npmBytes">
   <main>
-    <section class="welcome-bytes flex margin-auto px-4 min-h-[50vh] w-full items-center">
-      <div class="flex flex-col justify-center m-auto max-w-full text-3xl">
+    <section class="welcome-bytes flex margin-auto px-4 min-h-[30vh] w-full items-center lg:min-h-[50vh]">
+      <div class="flex flex-col justify-center m-auto max-w-full text-xl text-[#d3c7ff] lg:text-3xl ">
         <div>
-          Stay informed on the news of <span class="magic">
-            <span class="magic-star">
-              <svg viewBox="0 0 512 512">
-                <path
-                  d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z"
-                ></path>
-              </svg>
-            </span>
-            <span class="magic-star">
-              <svg viewBox="0 0 512 512">
-                <path
-                  d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z"
-                ></path>
-              </svg>
-            </span>
-            <span class="magic-star">
-              <svg viewBox="0 0 512 512">
-                <path
-                  d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z"
-                ></path>
-              </svg>
-            </span>
-            <span class="magic-text">Technology</span>
-          </span>, <span class="magic">
-            <span class="magic-star">
-              <svg viewBox="0 0 512 512">
-                <path
-                  d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z"
-                ></path>
-              </svg>
-            </span>
-            <span class="magic-star">
-              <svg viewBox="0 0 512 512">
-                <path
-                  d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z"
-                ></path>
-              </svg>
-            </span>
-            <span class="magic-star">
-              <svg viewBox="0 0 512 512">
-                <path
-                  d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z"
-                ></path>
-              </svg>
-            </span><span class="magic-text">web development</span></span
-          >, <span class="magic"
-            ><span class="magic-star">
-              <svg viewBox="0 0 512 512">
-                <path
-                  d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z"
-                ></path>
-              </svg>
-            </span>
-            <span class="magic-star">
-              <svg viewBox="0 0 512 512">
-                <path
-                  d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z"
-                ></path>
-              </svg>
-            </span>
-            <span class="magic-star">
-              <svg viewBox="0 0 512 512">
-                <path
-                  d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z"
-                ></path>
-              </svg>
-            </span><span class="magic-text">animation</span></span
-          >, ...
+          Stay informed on the news of 
+            <span class="magic-text">Technology </span>,
+            <span class="magic-text">web development </span>,
+            <span class="magic-text">animation </span>, ...
         </div>
         <div>Discover new articles every Monday, for free.</div>
         <!-- <div>Discover new articles and shows every Monday, for free.</div> -->
-
       </div>
     </section>
-    <section class="container margin-auto">
-      <div class="top-post">
-        <div class="main-post">
+
+    <section class="margin-auto">
+      
+      <div>
           <MainPost post={latestPost} />
-        </div>
       </div>
-      <CarousselAutoplay />
-      <div class="page">
-        <div class="post-container">
-          <div class="posts">
+      <!-- <CarousselAutoplay /> -->
+      <div class="flex flex-col max-w-[90%] m-auto justify-center md:flex-col">
+        <div class="flex flex-col justify-between md:justify-normal">
+          
             {
               formattedPosts
                 .slice(1,9)
                 .map((post) => <CardPost key={post.url} post={post} />)
             }
-          </div>
           <!-- <div class="morepost">
             <a href="/"><div class="badge">More post</div></a>
           </div> -->
-          
         </div>
         
       </div>
     </section>
-    <aside class="container-categories">
-      <h2 class="categories">Blog Categories</h2>
-      <CategoryCloud/>
+    <aside class="flex justify-center">
+      <div class="flex-col ">
+        <h2 class="flex justify-center p-2">Blog Categories</h2>
+        <CategoryCloud/>
+      </div>
     </aside>
-
   </main>
 </MainLayout>
 
@@ -196,11 +130,7 @@ const latestPost = formattedPosts[0];
   .container-categories {
     margin-left: 5rem;
   }
-  .welcome-bytes {
-    background: linear-gradient(90deg, #111111, #552bff, #111111);
-    background-size: 500% 500%;
-    animation: gradient 60s ease infinite;
-  }
+
   .welcome {
     display: flex;
     flex-direction: column;
@@ -208,7 +138,7 @@ const latestPost = formattedPosts[0];
     margin : 0 auto ; 
     max-width: 200rem;
     font-size: 32px;
-    color: rgb(210, 198, 255);
+    color: #d3c7ff;
   }
   @keyframes gradient {
     0% {
@@ -222,22 +152,6 @@ const latestPost = formattedPosts[0];
     }
   }
 
-  /*Responsive */
-  @media screen and (max-width: 768px) {
-    .page {
-      flex-direction: column;
-    }
-
-    .welcome {
-      font-size: 24px;
-    }
-  }
-
-  @media screen and (max-width: 1024px) {
-    .post-container {
-      justify-content: space-between;
-    }
-  }
 </style>
 
 <script>

@@ -6,10 +6,10 @@ import SMedia from "../data/SMedia";
 
 <nav>
   <div class="flex flex-row items-center">
-    <div class="flex justify-between items-center px-8 py-4 text-center w-full navbar">
-      <a href="/" class="text-gradient"
-        >npm<span class="magic-text">Bytes</span></a
-      >
+    <div class="flex justify-between items-center py-4 text-center w-full navbar lg:px-8">
+      <a href="/" class="text-gradient">
+        npm<span class="magic-text">Bytes</span>
+      </a>
       <button
         id="navBtn"
         class="rounded-full bg-gray-700 border-none cursor-pointer h-10 w-10 flex justify-center items-center transition-transform duration-300 ease-in-out relative overflow-hidden navBtn"
@@ -39,7 +39,7 @@ import SMedia from "../data/SMedia";
       </button>
     </div>
     <div class="flex items-center justify-end flex-grow">
-      <div class="px-2">
+      <div class="mr-6 px-2 lg:mr-10">
         <div class="follow-button">
           <a href="/subscribe">
             <div class="badge">Subscribe</div>
@@ -50,10 +50,10 @@ import SMedia from "../data/SMedia";
   </div>
 </nav>
 <div id="myModal" class="hidden fixed z-10 left-0 top-0 w-full h-full overflow-auto bg-black bg-opacity-50">
-  <div class="mx-auto mt-[15%] border-1 bg-black w-[80%] px-28 py-16">
+  <div class="mx-auto mt-[50%] border-1 bg-black w-[80%] px-28 py-16 lg:mt-[10%]">
     <span class="text-gray-500 float-right text-2xl font-bold close">&times;</span>
     <ol id="list">
-      <div class="pages">
+      <div>
         <li><a href="/">Home</a></li>
         <li><a href="/posts">Posts</a></li>
         <li><a href="/subscribe">Subscribe</a></li>

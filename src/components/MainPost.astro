@@ -9,9 +9,9 @@ const daysSincePublication = getDaysSince(date);
 const isNewPost = daysSincePublication <= 6;
 ---
 
-<div class="main-post">
-  <article class="card">
-    <div class="container">
+<div class="flex flex-col m-auto max-w-xs md:max-w-xl lg:max-w-5xl">
+  <article class="rounded w-full my-4 mx-auto p-1 shadow-md transition-all duration-300 ease-in-out hover:shadow-2xl">
+    <div class="flex justify-center items-center relative flex-col overflow-hidden text-center rounded border-[#df75ff] border maw-w-full min-h-[50vh]">
       {
         isNewPost && (
           <div class="news-vignette">
