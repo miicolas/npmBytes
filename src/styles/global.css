@@ -99,6 +99,21 @@ a {
     white-space: nowrap;
   }
 
+/* MainPost */
+  .news-vignette-animation {
+    animation: blink-border 3s ease-in infinite;
+  }
+  @keyframes blink-border {
+    0% {
+      border-color: rgb(255, 255, 255);
+    }
+    50% {
+      border-color: transparent;
+    }
+    100% {
+      border-color: white;
+    }
+  }
 .title {
   color: white;
   cursor: pointer;

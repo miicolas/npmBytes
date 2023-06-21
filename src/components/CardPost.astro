@@ -11,28 +11,28 @@ const daysSincePublication = getDaysSince(date);
 const isNewPost = daysSincePublication <= 6;
 ---
 
-<div class="post">
-  <article class="card">
-    <div class="container">
+<div class="flex flex-row m-auto lg:flex-col">
+  <article class="rounded max-w-[95%] md:max-w-[25vw] mx-auto my-4 min-w-[15vw] py-4">
+    <div class="relative max-h-[50vh] min-h-[30vh] min-w-[40vh] border border-[#552bff] rounded text-center overflow-hidden flex items-center justify-center flex-col  transition-all duration-300 ease-in-out shadow-none hover:shadow-2xl">
       {
         isNewPost && (
-          <div class="news-vignette">
-            <span class="news-vignette-text">New!</span>
+          <div class="text-white px-2 py-1 border border-white text-xs z-10 absolute bottom-4 left-4 rounded news-vignette-animation">
+            <span>New!</span>
           </div>
         )
       }
       <a href={postUrl}>
-        <img class="main-image" src={image.src} alt={image.alt} />
+        <img class="block m-auto max-w-full max-h-full object-contain object-center rounded" src={image.src} alt={image.alt} />
       </a>
     </div>
-    <div class="out-card">
+    <div class="max-w-[50vh] h-[10vh] flex flex-col flex-1 min-h-min lg:h-[20vh] px-2 ">
       <a href={postUrl}
-        ><p class="title">
+        ><p class="text-xl md:text-2xl font-semibold mt-2 mb-4">
           {title.length > 50 ? `${title.slice(0, 50)}...` : title}
         </p></a
       >
 
-      <div class="categories-time">
+      <div class="flex items-center mt-auto">
         {
           categories.map((cat) => (
             <small>
@@ -43,9 +43,9 @@ const isNewPost = daysSincePublication <= 6;
           ))
         }
 
-        <div class="reading-time">
+        <div class="flex items-center ml-auto">
           <i class="fa-solid fa-book-open-reader" style="color: #6c757d;"></i>
-          <p>{minutesRead} min</p>
+          <p class="ml-2">{minutesRead} min</p>
         </div>
       </div>
     </div>
@@ -53,21 +53,7 @@ const isNewPost = daysSincePublication <= 6;
 </div>
 
 <style>
-  .news-vignette {
-  background-color: transparent;
-  color: #ffffff;
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: 1px solid;
-  border-color: white;
-  font-size: 12px;
-  z-index: 3;
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  z-index: 3;
-  animation: blink-border 3s ease-in infinite;
-  }
+
 
   .post {
     display: flex;
@@ -133,11 +119,11 @@ const isNewPost = daysSincePublication <= 6;
     margin-bottom: 8px;
   }
 
-  p {
+  /* p {
     font-size: 15px;
     margin-bottom: 16px;
     color: #6c757d;
-  }
+  } */
 
   .main-image {
     display: block;
