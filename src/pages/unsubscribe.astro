@@ -1,29 +1,37 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 ---
-<MainLayout title="Unsubscribe">
+<MainLayout title="Subscribe">
   <div class="container">
     <div class="container-left">
       <div class="left-content">
         <a href="/">npm<span class="magic-text">Bytes</span></a>
       </div>
     </div>
-    <div>
-      
-          <form class="w-full max-w-md mx-auto" method="post" action="/api/unsubscribe"> 
-            <label for="default-email" class="mb-2 text-sm font-medium sr-only text-white">Email sign-up</label>
-            <div class="relative">
-                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                    <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                    </svg>
-                </div>
-                <input type="email" id="email" name="email" class="block w-full p-4 pl-10 text-sm border rounded-lg bg-gray-800 border-gray-700 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500" placeholder="Enter your email here..." required>
-                <button type="submit" class="text-white absolute right-2.5 bottom-2.5  focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 bg-blue-600 hover:bg-blue-700 focus:ring-blue-800">Unsuscribe</button>
+    <div class="container-right">
+      <div class="text-sub">
+        <p>
+          "Subscribe to our newsletter on tech innovations for the latest
+          trends, expert analysis and insights on emerging technologies like AI,
+          web, cybersecurity and more. Join a passionate community of tech
+          enthusiasts and stay ahead of the curve. Sign up now!"
+        </p>
+      </div>
+      <div class="container-form">
+        <div class="content-form">
+          <form method="post" action="/api/unsubscribe">
+            <div class="input-wrapper">
+              <input
+                type="email"
+                placeholder="Email Address"
+                autocomplete="email"
+                id="email"
+                name="email"/>
+              <input type="submit" value="Subscribe!" />
             </div>
-        </form>
-       
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </MainLayout>
