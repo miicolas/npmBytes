@@ -1,6 +1,6 @@
 ---
 export interface Props {
-	title: string;
+  title: string;
 }
 import "../styles/global.css";
 import NavBar from "../components/NavBar.astro";
@@ -11,78 +11,74 @@ const { title } = Astro.props;
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link
-			rel="icon"
-			type="image/svg+xml"
-			href="/images/useflow-onglet.png"
-		/>
-		<script
-			src="https://kit.fontawesome.com/d67384fb0f.js"
-			crossorigin="anonymous"
-		></script>
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		
-			<NavBar />
-		
-		
-		<button onclick="topFunction()" id="myBtn" title="Top">
-			<i class="fa-solid fa-caret-up" style="color: #ffffff;">
-			</i>
-		</button>
-		<slot />
-		<Footer />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/images/useflow-onglet.png" />
+    <script
+      src="https://kit.fontawesome.com/d67384fb0f.js"
+      crossorigin="anonymous"></script>
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <NavBar />
+    <button onclick="topFunction()" id="myBtn" title="Top">
+      <i class="fa-solid fa-caret-up" style="color: #ffffff;"> </i>
+    </button>
+    <slot />
+    <Footer />
+  </body>
 </html>
 
 <style>
+  #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 5rem;
+    right: 2rem;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #552bff;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 12px;
+    transition: ease-in-out 0.2s;
+  }
 
-	#myBtn {
-		display: none;
-		position: fixed;
-		bottom: 5rem;
-		right: 2rem; 
-		z-index: 99; 
-		border: none; 
-		outline: none; 
-		background-color: #552bff; 
-		color: white;
-		cursor: pointer;
-		padding: 10px;
-		border-radius: 10px;
-		font-size: 12px;
-		transition: ease-in-out .2s;
-	}
-
-	#myBtn:hover {
-		background-color: #341d9074; 
-		transition: ease-in-out .2s;
-	}
+  #myBtn:hover {
+    background-color: #341d9074;
+    transition: ease-in-out 0.2s;
+  }
 </style>
 <script defer>
-	//Scroll Back
-let mybutton = document.getElementById("myBtn");
-window.onscroll = function () { scrollFunction() };
-function scrollFunction() {
-    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        mybutton.style.display = "block";
+  //Scroll Back
+  let mybutton = document.getElementById("myBtn");
+  window.onscroll = function () {
+    scrollFunction();
+  };
+  function scrollFunction() {
+    if (
+      document.body.scrollTop > 300 ||
+      document.documentElement.scrollTop > 300
+    ) {
+      mybutton.style.display = "block";
     } else {
-        mybutton.style.display = "none";
+      mybutton.style.display = "none";
     }
-}
-function topFunction() {
+  }
+  function topFunction() {
     const scrollToTop = () => {
-        const currentPosition = document.documentElement.scrollTop || document.body.scrollTop;
-        if (currentPosition > 0) {
-            window.requestAnimationFrame(scrollToTop);
-            window.scrollTo(0, currentPosition - currentPosition / 8);
-        }
+      const currentPosition =
+        document.documentElement.scrollTop || document.body.scrollTop;
+      if (currentPosition > 0) {
+        window.requestAnimationFrame(scrollToTop);
+        window.scrollTo(0, currentPosition - currentPosition / 8);
+      }
     };
     scrollToTop();
-}
+  }
 </script>

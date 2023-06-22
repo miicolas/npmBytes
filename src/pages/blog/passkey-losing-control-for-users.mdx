@@ -29,7 +29,7 @@ One of the main concerns related to the transition from passwords to security ke
 
 By opting for this approach, you have to trust Apple to store and safeguard your sensitive information. While the company has established a strong reputation for security, some people question this trust. Apple's web services are not scarce, and whenever you activate iCloud, Apple automatically downloads your data, including calendars, contacts, documents, and emails.
 
-<img src="https://developer.apple.com/passkeys/images/screen-hero-large_2x.png" style="max-width: 60%; height: auto; display: block; margin: 0 auto" />
+<img src="https://developer.apple.com/passkeys/images/screen-hero-large_2x.png" class="max-w-full h-auto block m-auto lg:max-w-[60%]" />
 Furthermore, when you install new applications that support iCloud, synchronization is silently enabled, which means your data may be automatically shared without full awareness. This constant connection to Apple can be perceived as a violation of privacy since your personal information remains constantly accessible to the company.
 
 Another concern relates to the management and visibility of iCloud synchronization operations and security keys. For example, if you examine the iCloud Keychain in the Keychain Access app on macOS, you cannot see specific details of synchronization operations or manage them yourself. This raises questions about transparency and user control over their own data.
@@ -44,7 +44,7 @@ In the effort to provide more secure solutions than traditional passwords, compa
 [1Password](https://1password.com/fr), a company specialized in password management, recently announced its intention to support security keys. However, since version 4 of their application, they have discontinued support for the Mac Keychain, which means users now have to manage two separate passwords instead of one.
 
 Another approach is to store access keys on a separate hardware device, such as a [YubiKey](https://www.yubico.com/). Hardware security keys offer an additional level of security as they require physical authentication to access accounts. However, this method can be cumbersome in practice.
-<img  src="https://s3.ap-northeast-1.amazonaws.com/gimg.gateimg.com/learn/36ceb281f893ee6eb443721bbabd40227b23225c.jpg" style="max-width: 60%; height: auto; display: block; margin: 0 auto" />
+<img  src="https://s3.ap-northeast-1.amazonaws.com/gimg.gateimg.com/learn/36ceb281f893ee6eb443721bbabd40227b23225c.jpg" class="max-w-full h-auto block m-auto lg:max-w-[60%]" />
 It is inconvenient to have to carry a physical USB key with you at all times to connect to different devices or services. Additionally, the [YubiKey](https://www.yubico.com/) itself is not linked to the user's biometric data, which means that anyone physically possessing the key could potentially use it to authenticate.
 
 Another drawback of hardware security keys is the lack of copy function. Unlike passwords, passkeys stored in devices like the [YubiKey](https://www.yubico.com/) cannot be copied for backup or use on other devices. This raises concerns about data resilience in case of loss or damage to the security device.
@@ -55,7 +55,7 @@ Another drawback of hardware security keys is the lack of copy function. Unlike 
 At this stage, there is no ideal solution to fully replace passwords with security keys. However, it is possible to make recommendations to improve this transition.
 
 One interesting proposal would be to allow users to store their security keys in a local keychain independent of iCloud on their devices. This would provide an additional level of control over data and alleviate concerns about privacy. Ideally, the export format for security keys should be cross-platform, enabling compatibility with different operating systems and ease of use on various devices.
-<img src="https://www.hellotech.com/blog/wp-content/uploads/2022/09/How-Do-Passkeys-Work-1.jpg" style="max-width: 60%; height: auto; display: block; margin: 0 auto" />
+<img src="https://www.hellotech.com/blog/wp-content/uploads/2022/09/How-Do-Passkeys-Work-1.jpg" class="max-w-full h-auto block m-auto lg:max-w-[60%]"/>
 In this setup, randomly generated web passwords stored in a local keychain would be favored. These complex passwords would not be memorized by the user, enhancing their security. The use of security keys would enable automatic authentication without the need for manual password input.
 
 In conclusion, while transitioning from passwords to security keys has security advantages, it is important to consider concerns regarding privacy and confidentiality within Apple's ecosystem. Hardware security keys offer additional security but can be cumbersome and raise data backup issues. An ideal solution would allow users to store their security keys locally in a cross-platform keychain while prioritizing the use of randomly generated passwords for optimal security.

@@ -6,7 +6,7 @@ import SMedia from "../data/SMedia";
 <nav>
   <div class="flex flex-row items-center z-50 relative bg-[#111111]">
     <div
-      class="flex justify-between items-center py-4 text-center w-full navbar lg:px-8"
+      class="flex justify-between items-center px-4 py-4 text-center w-full navbar lg:px-8"
     >
       <a href="/" class="text-gradient">
         npm<span class="magic-text">Bytes</span>
@@ -78,7 +78,7 @@ import SMedia from "../data/SMedia";
             >Ctrl</kbd
           > + <kbd
             class="px-2 py-1.5 text-xs font-semibold border rounded-lg bg-gray-600 text-gray-100 border-gray-500"
-            >Shift</kbd
+            >Alt</kbd
           > + <kbd
             class="px-2 py-1.5 text-xs font-semibold border rounded-lg bg-gray-600 text-gray-100 border-gray-500"
             >K</kbd
@@ -179,20 +179,21 @@ import SMedia from "../data/SMedia";
               <span class="flex-1 ml-3 whitespace-nowrap">Blog</span>
             </a>
           </li>
+          {
+            SMedia.map((item) => (
+              <li >
+                <a
+                  href={item.url}
+                  class="flex items-center p-3 text-base font-bold rounded-lg  group hover:shadow bg-gray-600 hover:bg-gray-500 text-white"
+                  target="_blank"
+                >
+                  <span class="flex-1 ml-3 whitespace-nowrap">{item.name}</span>
+                </a>
+              </li>
+            ))
+          }
         </ul>
-        {
-          SMedia.map((item) => (
-            <li>
-              <a
-                href={item.url}
-                class="flex items-center p-3 text-base font-bold rounded-lg  group hover:shadow bg-gray-600 hover:bg-gray-500 text-white"
-                target="_blank"
-              >
-                <span class="flex-1 ml-3 whitespace-nowrap">{item.name}</span>
-              </a>
-            </li>
-          ))
-        }
+
       </div>
     </div>
   </div>
@@ -215,7 +216,7 @@ import SMedia from "../data/SMedia";
   span.onclick = closeModal;
 
   document.addEventListener("keydown", function (event) {
-    if ((event.ctrlKey || event.metaKey) && event.key === "k") {
+    if (((event.ctrlKey || event.metaKey) && event.altKey) && event.key === "s") {
       openModal();
     }
   });
