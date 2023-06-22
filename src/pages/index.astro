@@ -14,178 +14,126 @@ const formattedPosts = formatBlogPosts(allPosts, {
 });
 const latestPost = formattedPosts[0];
 ---
+
 <MainLayout title="npmBytes">
   <main>
     <section class="bg-gray-900 bg-[url('/images/hero-pattern-dark.svg')]">
-      <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
-          <a href="#" class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm  rounded-full bg-gray-900 text-violet-300 hover:bg-gray-800">
-              <span class="text-xs bg-violet-600 rounded-full text-white px-4 py-1.5 mr-3">New</span> <span class="text-sm font-medium">Passkey, losing control for users ?</span> 
-              <svg aria-hidden="true" class="ml-2 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-          </a>
-          <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none  md:text-5xl lg:text-6xl text-white">All the digital core in one media</h1>
-          <p class="mb-8 text-lg font-normal  lg:text-xl sm:px-16 lg:px-48 text-gray-200">Stay informed on  the news of Technology, web devvelopment, animation,...</p>
-          <form class="w-full max-w-md mx-auto" method="post" action="/api/subscribe"> 
-              <label for="default-email" class="mb-2 text-sm font-medium sr-only text-white">Email sign-up</label>
-              <div class="relative">
-                  <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                      <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                      <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                      <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                      </svg>
-                  </div>
-                  <input type="email" id="email" name="email" class="block w-full p-4 pl-10 text-sm border rounded-lg bg-gray-800 border-gray-700 placeholder-gray-400 text-white focus:ring-violet-500 focus:border-violet-500" placeholder="Enter your email here..." required>
-                  <button type="submit" class="text-white absolute right-2.5 bottom-2.5  focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 bg-violet-600 hover:bg-violet-700 focus:ring-violet-800">Subscribe</button>
-              </div>
-          </form>
+      <div
+        class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative"
+      >
+        <a
+          href="#"
+          class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm rounded-full bg-gray-900 text-violet-300 hover:bg-gray-800"
+        >
+          <span
+            class="text-xs bg-npm-blue rounded-full text-white px-4 py-1.5 mr-3"
+            >New</span
+          >
+          <span class="text-sm font-medium"
+            >Passkey, losing control for users ?</span
+          >
+          <svg
+            aria-hidden="true"
+            class="ml-2 w-5 h-5"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+            ><path
+              fill-rule="evenodd"
+              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+              clip-rule="evenodd"></path></svg
+          >
+        </a>
+        <h1
+          class="mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl text-white"
+        >
+          All the digital core in one media
+        </h1>
+        <p
+          class="mb-8 text-lg font-normal lg:text-xl sm:px-16 lg:px-48 text-gray-200"
+        >
+          Stay informed on the news of Technology, web devvelopment,
+          animation,...
+        </p>
+        <form
+          class="w-full max-w-md mx-auto"
+          method="post"
+          action="/api/subscribe"
+        >
+          <label
+            for="default-email"
+            class="mb-2 text-sm font-medium sr-only text-white"
+            >Email sign-up</label
+          >
+          <div class="relative">
+            <div
+              class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+            >
+              <svg
+                class="w-5 h-5 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
+                ></path>
+                <path
+                  d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
+                ></path>
+              </svg>
+            </div>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="block w-full p-4 pl-10 text-sm border rounded-lg bg-gray-800 border-gray-700 placeholder-gray-400 text-white focus:ring-violet-500 focus:border-violet-500"
+              placeholder="Enter your email here..."
+              required
+            />
+            <button
+              type="submit"
+              class="text-white absolute right-2.5 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 bg-npm-blue hover:bg-npm-hover-blue focus:ring-violet-800"
+              >Subscribe</button
+            >
+          </div>
+        </form>
       </div>
-      <div class="bg-gradient-to-b from-[#562bff] to-transparent  w-full h-[75%] absolute top-0 left-0 z-0"></div>
+      <div
+        class="bg-gradient-to-b from-[#562bff] to-transparent w-full h-[75%] absolute top-0 left-0 z-0"
+      >
+      </div>
     </section>
     <section class="margin-auto">
-      
       <div>
-          <MainPost post={latestPost} />
+        <MainPost post={latestPost} />
       </div>
       <!-- <CarousselAutoplay /> -->
-      <div class="flex flex-col max-w-[90%] m-auto justify-center py-10 md:flex-row">
+      <div
+        class="flex flex-col max-w-[90%] m-auto justify-center py-10 md:flex-row"
+      >
         <div class="flex flex-col justify-between md:justify-normal">
           <div class="flex flex-col lg:flex-row flex-wrap">
             {
               formattedPosts
-                .slice(1,9)
+                .slice(1, 9)
                 .map((post) => <CardPost key={post.url} post={post} />)
             }
           </div>
-          <div class="morepost">
+          <div class="flex justify-center p-4">
             <a href="/"><div class="badge">More post</div></a>
-          </div> 
+          </div>
         </div>
-        
       </div>
     </section>
     <aside class="flex justify-center">
-      <div class="flex-col ">
+      <div class="flex-col">
         <h2 class="flex justify-center p-2">Blog Categories</h2>
-        <CategoryCloud/>
+        <CategoryCloud />
       </div>
     </aside>
   </main>
 </MainLayout>
 
-<style>
-  @keyframes background-pan {
-    from {
-      background-position: 0% center;
-    }
 
-    to {
-      background-position: -200% center;
-    }
-    animation-iteration-count: infinite;
-  }
-
-  @keyframes scale {
-    from,
-    to {
-      transform: scale(0);
-    }
-
-    50% {
-      transform: scale(1);
-    }
-  }
-
-  @keyframes rotate {
-    from {
-      transform: rotate(0deg);
-    }
-
-    to {
-      transform: rotate(180deg);
-    }
-  }
-
-  svg {
-    animation: rotate 1000ms linear infinite;
-    display: block;
-    opacity: 0.7;
-  }
-  path {
-    fill: violet;
-  }
-
-  .access {
-    padding: 10px;
-    margin-top: 5vh;
-  }
-  .page {
-    display: flex;
-    flex-direction: row;
-    max-width: 90%;
-    margin: 0 auto;
-    justify-content: center;
-  }
-  .post-container {
-    display: flex;
-    flex-direction: column;
-  }
-  .posts{
-    display: flex;
-    flex-direction: row;
-    max-width: 100rem;
-    flex-wrap: wrap;
-  }
-  .morepost{
-    padding:1rem;
-    display: flex;
-    justify-content: center;
-  }
-  .container-categories {
-    margin-left: 5rem;
-  }
-
-  .welcome {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin : 0 auto ; 
-    max-width: 200rem;
-    font-size: 32px;
-    color: #d3c7ff;
-  }
-  @keyframes gradient {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
-</style>
-
-<script>
-  let index = 0,
-    interval = 1000;
-
-  const rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-
-  const animate = (star) => {
-    star.style.setProperty("--star-left", `${rand(-10, 100)}%`);
-    star.style.setProperty("--star-top", `${rand(-40, 80)}%`);
-
-    star.style.animation = "none";
-    star.offsetHeight;
-    star.style.animation = "";
-  };
-
-  for (const star of document.getElementsByClassName("magic-star")) {
-    setTimeout(() => {
-      animate(star);
-
-      setInterval(() => animate(star), 3000);
-    }, index++ * (interval / 3));
-  }
-</script>
