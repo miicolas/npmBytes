@@ -12,26 +12,25 @@ export const post: APIRoute = async ({ request, redirect }) => {
       status: 400,
     });
   }
-  
+
   try {
     const db = getFirestore(app);
     const subscribeRef = db.collection("subscribe");
     const querySnapshot = await subscribeRef.where("email", "==", email).get();
-    
-    if (!querySnapshot.empty) {
-      return new Response("Email already exists", {
-        status: 409,
+
+    if (querySnapshot.empty) {
+      return new Response("Email not found", {
+        status: 404,
       });
     }
-    
-    await subscribeRef.add({
-      email
-    });
+
+    const docId = querySnapshot.docs[0].id;
+    await subscribeRef.doc(docId).delete();
   } catch (error) {
     return new Response("Something went wrong", {
       status: 500,
     });
   }
-  
+
   return redirect("/");
 };
