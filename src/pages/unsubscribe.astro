@@ -1,159 +1,47 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 ---
+
 <MainLayout title="Unsubscribe">
-  <div class="container">
-    <div class="container-left">
-      <div class="left-content">
-        <a href="/">npm<span class="magic-text">Bytes</span></a>
-      </div>
+  <div class="hidden flex-row md:flex w-full">
+    <div class="w-1/2 h-screen">
+      npmBytes
     </div>
-    <div class="container-right">
-      <div class="text-sub">
-        <p>
-          "Subscribe to our newsletter on tech innovations for the latest
-          trends, expert analysis and insights on emerging technologies like AI,
-          web, cybersecurity and more. Join a passionate community of tech
-          enthusiasts and stay ahead of the curve. Sign up now!"
-        </p>
-      </div>
-      <div class="container-form">
-        <div class="content-form">
-          <form method="post" action="/api/unsubscribe">
-            <div class="input-wrapper">
-              <input
-                type="email"
-                placeholder="Email Address"
-                autocomplete="email"
-                id="email"
-                name="email"/>
-              <input type="submit" value="Subscribe!" />
+    <div class="w-1/2 h-screen ">
+      <div class="w-full h-screen absolute top-0 left-0 z-0 -rotate-90"></div>
+      <div>
+        <form class="w-full max-w-md mx-auto" method="post" action="/api/unsubscribe">
+          <label for="default-email" class="mb-2 text-sm font-medium sr-only text-white">Email sign-up</label>
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <svg
+                class="w-5 h-5 text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+              </svg>
             </div>
-          </form>
-        </div>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="block w-full p-4 pl-10 text-sm border rounded-lg bg-gray-800 border-gray-700 placeholder-gray-400 text-white focus:ring-violet-500 focus:border-violet-500"
+              placeholder="Enter your email here..."
+              required
+            />
+            <button
+              type="submit"
+              class="text-white absolute right-2.5 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 bg-npm-blue hover:bg-npm-hover-blue focus:ring-violet-800"
+            >
+              Unsubscribe
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
 </MainLayout>
-<style>
-  .text-sub {
-    background-color: #2e2e2e8d;
-    padding: 1rem;
-    border-radius: 5px;
-  }
-  .container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 80vh;
-  }
-
-  .container-left {
-    max-width: 40%;
-    min-width: 30%;
-    height: 100%;
-    background: linear-gradient(180deg, #111111, #552bff52, #111111);
-    background-size: 100% 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .left-content {
-    transform: rotate(-90deg);
-    align-items: center;
-    transform-origin: center bottom;
-    display: flex;
-    
-  }
-  .left-content a {
-    font-size: 5rem;
-    color : white
-  }
-
-  .container-right {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: auto;
-    text-align: center;
-    width: 100%;
-    padding: 2rem;
-  }
-
-  h1 {
-    font-size: 2em;
-    margin-bottom: 0.5em;
-  }
-
-  p {
-    font-size: 1.5em;
-  }
-
-  .container-form {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    max-width: 50%;
-    height: auto;
-    padding: 1rem;
-  }
-
-  input[type="email"] {
-    font-size: 1.2em;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px 0 0 5px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease-in-out;
-  }
-
-  input[type="email"]:focus {
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    outline: none;
-  }
-
-  input[type="submit"] {
-    background-color: #562bff;
-    color: #fff;
-    font-size: 1.2em;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 0px 5px 5px 0px;
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease-in-out;
-  }
-
-  input[type="submit"]:hover {
-    background-color: #3b21a1;
-    cursor: pointer;
-  }
-  @media only screen and (max-width: 1212px) {
-    input[type="email"],
-    input[type="submit"]{
-      border-radius: 5px;
-    }
-    input[type="submit"] {
-      margin-top: 1vh;
-    }
-    
-
-  }
-
-  @media only screen and (max-width: 768px) {
-    .container {
-      flex-direction: row;
-      padding: 0;
-    }
-    .container-left {
-      display: none;
-    }
-    
-    .text-sub {
-      font-size: small;
-    }
-  }
-</style>
