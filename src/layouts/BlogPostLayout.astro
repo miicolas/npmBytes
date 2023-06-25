@@ -2,7 +2,7 @@
 // component import
 import PostHeader from "../components/PostHeader.astro";
 import MainLayout from "./MainLayout.astro";
-import CategoryCloud from "../components/CategoryCloud.astro";
+import Separation from "../components/Separation.astro";
 import RecommandationPost from "../components/RecommandationPost.astro"
 const { frontmatter } = Astro.props;
 const { title, description, date, category, author, image, minutesRead } =
@@ -20,6 +20,9 @@ const { title, description, date, category, author, image, minutesRead } =
           <slot />
         </div>
     </div>
-    
+    <br>
+    <br>
+    <RecommandationPost />
+
 </MainLayout>
 
