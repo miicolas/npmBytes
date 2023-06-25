@@ -5,20 +5,19 @@ import { slugify } from "../js/utils";
 import { getDaysSince } from "../js/utils";
 const { title, image, description, minutesRead, date } = post.frontmatter;
 const postUrl = `/blog/${slugify(title)}`;
-const daysSincePublication = getDaysSince(date);
-const isNewPost = daysSincePublication <= 6;
+
 ---
 
 <div class="flex flex-col m-auto max-w-xs md:max-w-xs lg:max-w-5xl">
   <article class="rounded w-full my-4 mx-auto p-1 shadow-md transition-all duration-300 ease-in-out hover:shadow-2xl">
-    <div class="flex justify-center items-center relative flex-col overflow-hidden text-center rounded border-[#df75ff] border maw-w-full min-h-[50vh]">
-      {
+    <div class="flex justify-center items-center relative flex-col overflow-hidden text-center rounded border-[#df75ff] border max-w-full min-h-[50vh]">
+      <!-- {
         isNewPost && (
           <div class="text-white px-2 py-1 border border-white text-xs z-10 absolute bottom-4 left-4 rounded news-vignette-animation">
             <span>New!</span>
           </div>
         )
-      }
+      } -->
       <a href={postUrl}>
         <img class="block m-auto max-w-full max-h-full object-contain object-center rounded" src={image.src} alt={image.alt} />
       </a>
