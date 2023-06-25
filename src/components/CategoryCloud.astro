@@ -21,11 +21,11 @@ const processedCats = allCategories.reduce((acc, category) => {
 }, {});
 ---
 
-<ul class="categories">
+<ul class="flex list-none m-0 p-0">
   {
     Object.entries(processedCats).map(([key]) => (
-      <li>
-        <a class="badge" href={`/category/${slugify(key)}/`}>
+      <li px-2>
+        <a class="text-base font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 bg-gray-700 text-gray-400 border border-gray-500" href={`/category/${slugify(key)}/`}>
           {key}
         </a>
       </li>
