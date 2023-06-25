@@ -9,7 +9,7 @@ const { title, description, date, category, author, image, minutesRead } =
 ---
 
 <MainLayout {title}>
-  <div class="px-16 prose max-w-none text-white prose-a:text-[#562bff] prose-headings:text-white prose-strong:text-gray-500">
+  <div class="px-10 lg:px-20 prose max-w-none text-white prose-a:text-[#562bff] prose-headings:text-white prose-strong:text-gray-500">
     <slot /> 
     Last update : {formatDate(date)}
   </div>
