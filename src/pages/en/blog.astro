@@ -1,10 +1,10 @@
 ---
-import MainLayout from "../layouts/MainLayout.astro";
-import CardPost from "../components/CardPost.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+import CardPost from "../../components/CardPost.astro";
 
 const allPosts = await Astro.glob("./blog/*.mdx");
-import CategoryCloud from "../components/CategoryCloud.astro";
-import { formatBlogPosts } from "../js/utils";
+import CategoryCloud from "../../components/CategoryCloud.astro";
+import { formatBlogPosts } from "../../js/utils";
 const formattedPosts = formatBlogPosts(allPosts, {
   filterOutDrafts: true,
   filterOutFuturePosts: true,

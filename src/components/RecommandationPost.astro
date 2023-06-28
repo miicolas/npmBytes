@@ -1,10 +1,12 @@
----
+<!-- ---
 import CardPost from "./CardPost.astro";
 import CategoryCloud from "./CategoryCloud.astro";
 import Separation from "./Separation.astro";
 import { formatBlogPosts } from "../js/utils";
-
-const allPosts = await Astro.glob("../pages/blog/*.mdx");
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const allPosts = await Astro.glob("../pages/en/blog/*.mdx");
 const formattedPosts = formatBlogPosts(allPosts, {
   filterOutDrafts: true,
   filterOutFuturePosts: true,
@@ -30,4 +32,4 @@ const randomPosts = shuffledPosts.slice(0, 3);
   <div class="flex flex-row flex-wrap justify-center">
     <CategoryCloud />
   </div>
-</div>
+</div> -->
