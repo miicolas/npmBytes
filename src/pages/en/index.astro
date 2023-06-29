@@ -4,12 +4,12 @@ import CardPost from "../../components/CardPost.astro";
 import MainPost from "../../components/MainPost.astro";
 import CarousselAutoplay from "../../components/CarousselAutoplay.astro";
 import CategoryCloud from "../../components/CategoryCloud.astro";
-import { formatBlogPosts } from "../../js/utils";
-import { slugify} from "../../js/utils";
+import { formatBlogPosts, slugify } from "../../js/utils";
+
+
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
 const allPosts = await Astro.glob("./blog/*.mdx");
 const formattedPosts = formatBlogPosts(allPosts, {
   filterOutDrafts: true,
@@ -21,7 +21,7 @@ const formattedPosts = formatBlogPosts(allPosts, {
 const latestPost = formattedPosts[0];
 const { frontmatter } = Astro.props;
 const { title } = latestPost.frontmatter;
-const postUrl = `/blog/${slugify(title)}`;
+const postUrl = `/${lang}/blog/${slugify(title)}`;
 
 ---
 
@@ -37,7 +37,7 @@ const postUrl = `/blog/${slugify(title)}`;
         >
           <span
             class="text-xs bg-npm-blue rounded-full text-white px-4 py-1.5 mr-3 animate-pulse"
-            >New</span
+            >{t('home.new')}</span
           >
           <span class="text-sm font-medium"
             >{title}</span
@@ -57,13 +57,12 @@ const postUrl = `/blog/${slugify(title)}`;
         <h1
           class="mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl text-white"
         >
-          {t('home.slogan')}
+            {t('home.slogan')}
         </h1>
         <p
           class="mb-8 text-lg font-normal lg:text-xl sm:px-16 lg:px-48 text-gray-200"
         >
-          Stay informed on the news of Technology, web development,
-          animation,...
+          {t('home.newsletter')}
         </p>
         <form
           class="w-full max-w-md mx-auto"
@@ -73,7 +72,7 @@ const postUrl = `/blog/${slugify(title)}`;
           <label
             for="default-email"
             class="mb-2 text-sm font-medium sr-only text-white"
-            >Email subscribe</label
+            >{t('home.label-form')}</label
           >
           <div class="relative">
             <div
@@ -99,13 +98,13 @@ const postUrl = `/blog/${slugify(title)}`;
               id="email"
               name="email"
               class="block w-full p-4 pl-10 text-sm border rounded-lg bg-gray-900 border-gray-800 placeholder-gray-400 text-white focus:bg-black focus:border-gray-900"
-              placeholder="Enter your email here..."
+              placeholder={t('home.placeholder-form')}
               required
             />
             <button
               type="submit"
               class="text-white absolute right-2.5 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 bg-npm-blue hover:bg-npm-hover-blue"
-              >Subscribe</button
+              >{t('home.button-form')}</button
             >
           </div>
         </form>
@@ -132,7 +131,7 @@ const postUrl = `/blog/${slugify(title)}`;
             }
           </div>
           <div class="flex justify-center p-4">
-              <a href="/blog"><div class="rounded-lg text-sm px-4 py-2 bg-npm-blue hover:bg-npm-hover-blue focus:ring-4 focus:outline-none font-medium ">More post</div></a>
+              <a href=`/${lang}/blog`><div class="rounded-lg text-sm px-4 py-2 bg-npm-blue hover:bg-npm-hover-blue focus:ring-4 focus:outline-none font-medium ">{t("home.button-more")}</div></a>
           </div>
         </div>
       </div>

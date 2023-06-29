@@ -1,6 +1,9 @@
 ---
 import SMedia from "../data/SMedia";
 import LanguagePicker from "./LanguagePicker.astro";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <footer class="shadow m-4">
@@ -26,60 +29,17 @@ import LanguagePicker from "./LanguagePicker.astro";
         }
       </ul>
     </div>
-
-    <!-- Language option  -->
-    <!-- <div> 
-      <div class="relative inline-block text-left">
-        <button id="dropdownButton" class="inline-flex justify-center w-full rounded-lg shadow-sm px-4 py-2 text-sm font-medium text-white hover:bg-gray-50 hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-npm-blue">
-          Sélectionner une option
-          <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-            <path fill-rule="evenodd" d="M10 12l-6-6h12l-6 6z" />
-          </svg>
-        </button>
-        <div id="dropdownMenu" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden">
-          <div role="menu" aria-orientation="vertical" aria-labelledby="dropdownButton">
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">Français</a>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900" role="menuitem">English</a>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    
     <div>
       <span class="text-sm sm:text-center text-gray-400"
         >&copy; <span id="copyright"></span>
-        <a href="https://npmbytes.com/" class="hover:underline">npmBytes™</a>. All
-        Rights Reserved.
+        <a href="https://npmbytes.com/" class="hover:underline">npmBytes</a>. {t('footer.rights')}
       </span>
     </div>
   </div>
   <LanguagePicker />
 </footer>
 
-<style>
-  .footer {
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    height: 50px;
-    background-color: #f2f2f200;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  .social-media {
-    padding-top: 3rem;
-    padding-bottom: 1rem;
-  }
-  .social-media a {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-  .copyright {
-    padding-bottom: 1rem;
-  }
-</style>
+
 
 <script>
   document.querySelector("#copyright").textContent = new Date()

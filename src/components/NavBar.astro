@@ -1,6 +1,6 @@
 ---
 //data imports
-import navData from "../data/navData";
+import contentData from "../data/contentData";
 import SMedia from "../data/SMedia";
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
@@ -10,7 +10,7 @@ const t = useTranslations(lang);
 <nav>
   <div class="flex flex-row items-center z-50 relative bg-[#111111]">
     <div class="flex justify-between items-center py-4 text-center w-full navbar px-4 lg:px-8">
-      <a href="/" class="text-gradient">
+      <a href=`/${lang}/` class="text-gradient">
         npm<span class="magic-text">Bytes</span>
       </a>
       <button
@@ -62,7 +62,7 @@ const t = useTranslations(lang);
           </p>
               <ul class="my-4 space-y-3">
                   <li>
-                      <a href="/" class="flex items-center p-3 text-base font-bold rounded-lg group hover:shadow bg-[#4a4a4a] hover:bg-[#5d5d5d] text-white">
+                      <a href=`/${lang}/` class="flex items-center p-3 text-base font-bold rounded-lg group hover:shadow bg-[#4a4a4a] hover:bg-[#5d5d5d] text-white">
                         <svg class="w-[16px] h-[16px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
                           <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
                         </svg>
@@ -71,19 +71,26 @@ const t = useTranslations(lang);
                       </a>
                   </li>
                   <li>
-                      <a href="/blog" class="flex items-center p-3 text-base font-bold rounded-lg bg-[#4a4a4a] hover:bg-[#5d5d5d] group hover:shadow text-white">
+                      <a href=`/${lang}/blog/` class="flex items-center p-3 text-base font-bold rounded-lg bg-[#4a4a4a] hover:bg-[#5d5d5d] group hover:shadow text-white">
                         <svg class="w-[16px] h-[16px] text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
                           <path d="M16 14V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 0 0 0-2h-1v-2a2 2 0 0 0 2-2ZM4 2h2v12H4V2Zm8 16H3a1 1 0 0 1 0-2h9v2Z"/>
                         </svg>
                           <span class="flex-1 ml-3 whitespace-nowrap">Blog</span>
                       </a>
                   </li>
-                  
-                  </li>
                   {
                     SMedia.map((item) => (
                       <li>
-                        <a href={item.url} class="flex items-center p-3 text-base font-bold  bg-[#4a4a4a] hover:bg-[#5d5d5d] rounded-lg  group hover:shadow text-white" target="_blank">
+                        <a href= {item.url} class="flex items-center p-3 text-base font-bold  bg-[#4a4a4a] hover:bg-[#5d5d5d] rounded-lg  group hover:shadow text-white" target="_blank">
+                          <span class="flex-1 ml-3 whitespace-nowrap">{item.name}</span>
+                        </a>
+                      </li>
+                    ))
+                  }
+                  {
+                    contentData.map((item) => (
+                      <li>
+                        <a href= `/${lang}/${item.url}` class="flex items-center p-3 text-base font-bold  bg-[#4a4a4a] hover:bg-[#5d5d5d] rounded-lg  group hover:shadow text-white" target="_blank">
                           <span class="flex-1 ml-3 whitespace-nowrap">{item.name}</span>
                         </a>
                       </li>

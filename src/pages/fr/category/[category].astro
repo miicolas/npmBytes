@@ -1,11 +1,10 @@
-
 ---
 // component imports
-import MainLayout from "../../layouts/MainLayout.astro";
-import CardPost from "../../components/CardPost.astro";
+import MainLayout from "../../../layouts/MainLayout.astro"; 
+import CardPost from "../../../components/CardPost.astro";
 
 // utils
-import { slugify, formatBlogPosts } from "../../js/utils";
+import { slugify, formatBlogPosts } from "../../../js/utils";
 
 
 const pages = [
@@ -33,7 +32,7 @@ const pages = [
     {
       slug : "Security",
       params : { category : slugify ("Security") },
-      props : { name : "Security"}
+      props : { name : "Sécurité"}
     }
 ];
 const { slug } = Astro.params;
@@ -53,7 +52,7 @@ const catPosts = formattedPosts.filter(
 
 <MainLayout title={name}>
   <section class="container" aria-label={`Posts about ${name}`}>
-    <h1 class="h1">Posts about <span>{name}</span></h1>
+    <h1 class="text-white">Posts about<span class="text-white">{name}</span></h1>
     <div class="post-container">
       {catPosts.map((post) => <CardPost url={post.url} post={post} />)}
     </div>

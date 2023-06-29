@@ -1,0 +1,60 @@
+---
+// component imports
+import MainLayout from "../../../layouts/MainLayout.astro"; 
+import CardPost from "../../../components/CardPost.astro";
+
+// utils
+import { slugify, formatBlogPosts } from "../../../js/utils";
+
+
+const pages = [
+ 
+    {
+      slug: "Announcement",
+      params: { category: slugify("Announcement") },
+      props: { name: "Announcement" },
+    },
+    {
+      slug: "Game",
+      params: { category: slugify("Game") },
+      props: { name: "Game" },
+    },
+    {
+      slug: "IA",
+      params: { category: slugify("IA") },
+      props: { name: "IA" },
+    },
+    {
+      slug: "Web",
+      params: { category: slugify("Web") },
+      props: { name: "Web" },
+    },
+    {
+      slug : "Security",
+      params : { category : slugify ("Security") },
+      props : { name : "Security"}
+    }
+];
+const { slug } = Astro.params;
+const page = pages.find((page) => page.slug === slug);
+
+
+const { category } = Astro.params;
+const { name } = Astro.props;
+
+const allPosts = await Astro.glob("../..blog/*.mdx");
+const formattedPosts = formatBlogPosts(allPosts);
+
+const catPosts = formattedPosts.filter(
+  (post) => slugify(post.frontmatter.category) === category
+);
+---
+
+<MainLayout title={name}>
+  <section class="container" aria-label={`Posts about ${name}`}>
+    <h1 class="h1">Posts about<span>{name}</span></h1>
+    <div class="post-container">
+      {catPosts.map((post) => <CardPost url={post.url} post={post} />)}
+    </div>
+  </section>
+</MainLayout>

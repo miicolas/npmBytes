@@ -1,7 +1,9 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import CardPost from "../../components/CardPost.astro";
-
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const allPosts = await Astro.glob("./blog/*.mdx");
 import CategoryCloud from "../../components/CategoryCloud.astro";
 import { formatBlogPosts } from "../../js/utils";
@@ -20,23 +22,22 @@ const formattedPosts = formatBlogPosts(allPosts, {
         <h1
           class="mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl text-white"
         >
-          Unlock a treasure trove of knowledge
+          {t('blog.slogan')}
         </h1>
         <p
           class="mb-8 text-lg font-normal lg:text-xl sm:px-16 lg:px-48 text-gray-200"
         >
-          Stay informed on the news of Technology, web devvelopment,
-          animation,...
+          {t("home.newsletter")}
         </p>
         <form
           class="w-full max-w-md mx-auto"
           method="post"
-          action="/api/subscribe"
+          action="../api/subscribe"
         >
           <label
             for="default-email"
             class="mb-2 text-sm font-medium sr-only text-white"
-            >Email sign-up</label
+            >{t('home.label-form')}</label
           >
           <div class="relative">
             <div
@@ -62,13 +63,13 @@ const formattedPosts = formatBlogPosts(allPosts, {
               id="email"
               name="email"
               class="block w-full p-4 pl-10 text-sm border rounded-lg bg-gray-900 border-gray-800 placeholder-gray-400 text-white focus:bg-black focus:border-gray-900"
-              placeholder="Enter your email here..."
+              placeholder={t('home.placeholder-form')}
               required
             />
             <button
               type="submit"
               class="text-white absolute right-2.5 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 bg-npm-blue hover:bg-npm-hover-blue"
-              >Subscribe</button
+              >{t('home.button-form')}</button
             >
           </div>
         </form>
@@ -79,9 +80,9 @@ const formattedPosts = formatBlogPosts(allPosts, {
       </div>
     </section>
     <section class="flex flex-col md:flex-row">
-      <div class="md:w-1/6 text-center mt-4 px-2">
+      <!-- <div class="md:w-1/6 text-center mt-4 px-2">
         <CategoryCloud/>
-      </div>
+      </div> -->
       <div class=" md:w-5/6 py-4 px-2">
         <div class="flex flex-col justify-center lg:flex-row flex-wrap md:gap-2">
           {

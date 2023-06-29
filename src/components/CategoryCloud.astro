@@ -1,7 +1,9 @@
 ---
 import { formatBlogPosts, slugify } from "../js/utils";
-
-const allPosts = await Astro.glob("../pages/blog/*.mdx");
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const allPosts = await Astro.glob("../pages/en/blog/*.mdx");
 const formattedPosts = formatBlogPosts(allPosts).filter(post => {
   const categories = post.frontmatter.category.split(",");
   return !categories.includes("Announcment");
@@ -25,7 +27,7 @@ const processedCats = allCategories.reduce((acc, category) => {
   {
     Object.entries(processedCats).map(([key]) => (
       <li px-2>
-        <a class="text-base font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 bg-gray-700 text-gray-400 border border-gray-500" href={`/category/${slugify(key)}/`}>
+        <a class="text-base font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 bg-gray-700 text-gray-400 border border-gray-500" href={`/${lang}/category/${slugify(key)}/`}>
           {key}
         </a>
       </li>
