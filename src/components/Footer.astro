@@ -29,6 +29,7 @@ const t = useTranslations(lang);
         }
       </ul>
     </div>
+    <LanguagePicker />
     <div>
       <span class="text-sm sm:text-center text-gray-400"
         >&copy; <span id="copyright"></span>
@@ -36,7 +37,6 @@ const t = useTranslations(lang);
       </span>
     </div>
   </div>
-  <LanguagePicker />
 </footer>
 
 
@@ -45,15 +45,4 @@ const t = useTranslations(lang);
   document.querySelector("#copyright").textContent = new Date()
     .getFullYear()
     .toString();
-
-
-const dropdownButton = document.getElementById('dropdownButton');
-const dropdownMenu = document.getElementById('dropdownMenu');
-
-dropdownButton.addEventListener('click', function() {
-  dropdownMenu.classList.toggle('hidden');
-});
-
-
-
 </script>

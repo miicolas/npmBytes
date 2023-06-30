@@ -2,7 +2,9 @@
 // component import
 import {formatDate } from "../js/utils";
 import MainLayout from "./MainLayout.astro";
-
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const { frontmatter } = Astro.props;
 const { title, description, date, category, author, image, minutesRead } =
   frontmatter;
@@ -11,7 +13,7 @@ const { title, description, date, category, author, image, minutesRead } =
 <MainLayout {title}>
   <div class="px-10 lg:px-20 prose max-w-none text-white prose-a:text-[#562bff] prose-headings:text-white prose-strong:text-gray-500">
     <slot /> 
-    Last update : {formatDate(date)}
+    {t('content.layout-update')} : {formatDate(date)}
   </div>
       
     
