@@ -2,13 +2,16 @@
 //data imports
 import SMedia from "../data/SMedia";
 import LanguagePicker from "./LanguagePicker.astro";
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
+
 <nav>
   <div class="flex flex-row items-center z-50 relative bg-[#111111]">
-    <div class="flex justify-between items-center py-4 text-center w-full navbar px-4 lg:px-8">
+    <div
+      class="flex justify-between items-center py-4 text-center w-full navbar px-4 lg:px-8"
+    >
       <a href=`/${lang}/` class="text-gradient">
         npm<span class="magic-text">Bytes</span>
       </a>
@@ -40,65 +43,117 @@ const t = useTranslations(lang);
         </svg>
       </button>
     </div>
-    
   </div>
 </nav>
+
 <div id="myModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full bg-black bg-opacity-10">
-  <div class="relative w-full max-w-md my-auto mx-auto lg:mt-[2%]">
-      <div class="relative rounded-lg shadow bg-[#181818]">
-          <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent rounded-lg text-sm p-1.5 ml-auto inline-flex items-center hover:bg-[#5d5d5d] hover:text-white close">
-              <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
-              <span class="sr-only">Close modal</span>
-          </button>
-          <div class="px-6 py-4 border-b rounded-t border-gray-600">
-              <h3 class="text-base font-semibold text-gray-900 lg:text-xl dark:text-white">
-                  Navigation
-              </h3>
-          </div>
-          <div class="px-6 mt-4">
-            <LanguagePicker />
-          </div>
-          <div class="px-6 pt-4 pb-6 hidden md:block">
-            <p class="text-gray-400">
-               {t('nav.instruction')} <kbd class="px-2 py-1.5 text-xs font-semibold border rounded-lg bg-gray-600 text-gray-100 border-gray-500">Ctrl</kbd> + <kbd class="px-2 py-1.5 text-xs font-semibold  border  rounded-lg bg-gray-600 text-gray-100 border-gray-500">Shift</kbd> + <kbd class="px-2 py-1.5 text-xs font-semibold   border rounded-lg bg-gray-600 text-gray-100 border-gray-500">S</kbd> 
-          </p>
-              <ul class="my-4 space-y-3">
-                  <li>
-                      <a href=`/${lang}/` class="flex items-center p-3 text-base font-bold rounded-lg group hover:shadow bg-[#4a4a4a] hover:bg-[#5d5d5d] text-white">
-                        <svg class="w-[16px] h-[16px] text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
-                        </svg>
-                          <span class="flex-1 ml-3 whitespace-nowrap">{t('nav.home')}</span>
-                          
-                      </a>
-                  </li>
-                  <li>
-                      <a href=`/${lang}/blog/` class="flex items-center p-3 text-base font-bold rounded-lg bg-[#4a4a4a] hover:bg-[#5d5d5d] group hover:shadow text-white">
-                        <svg class="w-[16px] h-[16px] text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 20">
-                          <path d="M16 14V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 0 0 0-2h-1v-2a2 2 0 0 0 2-2ZM4 2h2v12H4V2Zm8 16H3a1 1 0 0 1 0-2h9v2Z"/>
-                        </svg>
-                          <span class="flex-1 ml-3 whitespace-nowrap">Blog</span>
-                      </a>
-                  </li>
-                  {
-                    SMedia.map((item) => (
-                      <li>
-                        <a href= {item.url} class="flex items-center p-3 text-base font-bold  bg-[#4a4a4a] hover:bg-[#5d5d5d] rounded-lg  group hover:shadow text-white" target="_blank">
-                          <span class="flex-1 ml-3 whitespace-nowrap">{item.name}</span>
-                        </a>
-                      </li>
-                    ))
-                  }
-                  
-                      <li>
-                        <a href={`/${lang}/content/privacy-policy`} class="flex items-center p-3 text-base font-bold bg-[#4a4a4a] hover:bg-[#5d5d5d] rounded-lg group hover:shadow text-white" target="_blank">
-                          <span class="flex-1 ml-3 whitespace-nowrap">{t('content.privacy')}</span>
-                        </a>
-                      </li>
-                   
-              </ul>
-          </div>
+  <div class="mx-auto relative w-full max-w-md max-h-full lg:mt-[2%]">
+    <div class="relative rounded-lg shadow bg-[#181818]">
+      <button
+        type="button"
+        class="absolute top-3 right-2.5 text-gray-400 bg-transparent rounded-lg text-sm p-1.5 ml-auto inline-flex items-center hover:bg-[#5d5d5d] hover:text-white close"
+      >
+        <svg
+          aria-hidden="true"
+          class="w-5 h-5"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+          ><path
+            fill-rule="evenodd"
+            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+            clip-rule="evenodd"></path></svg
+        >
+        <span class="sr-only">Close modal</span>
+      </button>
+      <div class="px-6 py-4 border-b rounded-t border-gray-600">
+        <h3 class="text-base font-semibold lg:text-xl text-white">
+          Navigation
+        </h3>
       </div>
+      <div class="p-6">
+        <p class="text-gray-400">
+          {t("nav.instruction")}
+          <kbd
+            class="px-2 py-1.5 text-xs font-semibold border rounded-lg bg-gray-600 text-gray-100 border-gray-500"
+            >Ctrl</kbd
+          > + <kbd
+            class="px-2 py-1.5 text-xs font-semibold border rounded-lg bg-gray-600 text-gray-100 border-gray-500"
+            >Shift</kbd
+          > + <kbd
+            class="px-2 py-1.5 text-xs font-semibold border rounded-lg bg-gray-600 text-gray-100 border-gray-500"
+            >S</kbd
+          >
+        </p>
+        <ul class="my-4 space-y-3">
+          <li>
+            <a
+              href=`/${lang}/`
+              class="flex items-center p-3 text-base font-bold rounded-lg group hover:shadow bg-[#4a4a4a] hover:bg-[#5d5d5d] text-white"
+            >
+              <svg
+                class="w-[16px] h-[16px] text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"
+                ></path>
+              </svg>
+              <span class="flex-1 ml-3 whitespace-nowrap">{t("nav.home")}</span>
+            </a>
+          </li>
+          <li>
+            <a
+              href=`/${lang}/blog/`
+              class="flex items-center p-3 text-base font-bold rounded-lg bg-[#4a4a4a] hover:bg-[#5d5d5d] group hover:shadow text-white"
+            >
+              <svg
+                class="w-[16px] h-[16px] text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 16 20"
+              >
+                <path
+                  d="M16 14V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v15a3 3 0 0 0 3 3h12a1 1 0 0 0 0-2h-1v-2a2 2 0 0 0 2-2ZM4 2h2v12H4V2Zm8 16H3a1 1 0 0 1 0-2h9v2Z"
+                ></path>
+              </svg>
+              <span class="flex-1 ml-3 whitespace-nowrap">Blog</span>
+            </a>
+          </li>
+          {
+            SMedia.map((item) => (
+              <li>
+                <a
+                  href={item.url}
+                  class="flex items-center p-3 text-base font-bold  bg-[#4a4a4a] hover:bg-[#5d5d5d] rounded-lg  group hover:shadow text-white"
+                  target="_blank"
+                >
+                  <span class="flex-1 ml-3 whitespace-nowrap">{item.name}</span>
+                </a>
+              </li>
+            ))
+          }
+          <li>
+            <a
+              href={`/${lang}/content/privacy-policy`}
+              class="flex items-center p-3 text-base font-bold bg-[#4a4a4a] hover:bg-[#5d5d5d] rounded-lg group hover:shadow text-white"
+              target="_blank"
+            >
+              <span class="flex-1 ml-3 whitespace-nowrap"
+                >{t("content.privacy")}</span
+              >
+            </a>
+          </li>
+        </ul>
+        <div>
+          <LanguagePicker/>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <script>
