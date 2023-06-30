@@ -1,0 +1,69 @@
+---
+layout: "../../../layouts/BlogPostLayout.astro"
+title: Microsoft Designer - Avec quelles technologies fonctionne le nouvel outil de Microsoft ?
+date: 2023-05-03
+author: Nicolas Becharat
+image:
+  src: "/images/microsoftdesigner-030523.png"
+  alt: "microsoftdesigner-logo"
+description: Microsoft vient de sortir son nouvel outil de conception graphique pour concurrencer DALL-E, Canvas. Mais avant tout, comment fonctionne la génération d'images ?
+draft: false
+category: IA
+minutesRead: 4
+---
+
+## Table des matières
+
+* [Comment fonctionne la génération d'images artificielles ?](#comment-fonctionne-la-génération-dimages-artificielles)
+
+* [Microsoft Designer maintenant accessible au public](#microsoft-designer-maintenant-accessible-au-public)
+
+* [Quelles sont les différences entre Dall-E, Canvas et Microsoft Designer ?](#quelles-sont-les-différences-entre-dall-e-canvas-et-microsoft-designer)
+
+<br/>
+
+## Comment fonctionne la génération d'images artificielles ?
+
+L'apprentissage automatique, une méthode d'analyse de données, a de nombreuses applications, notamment la reconnaissance d'images, la prédiction de comportements, l'analyse de données, et bien d'autres. Parmi les outils les plus populaires de l'apprentissage automatique se trouvent les **modèles génératifs**.
+
+> **Un modèle génératif** est une méthode d'apprentissage automatique qui génère de nouvelles données à partir de données existantes. Cette méthode est souvent utilisée dans la synthèse d'images, de sons et de textes. Les modèles génératifs sont des outils puissants pour créer des données de haute qualité pour de nombreuses applications.
+
+Il existe différents types de modèles génératifs, parmi lesquels les plus populaires sont les **réseaux génératifs adversaires** (GAN), les **auto-encodeurs variationnels** (VAE) et les **modèles de diffusion**.
+
+- **Réseaux génératifs adversaires** (GAN)
+
+Les GAN utilisent deux réseaux neuronaux, le générateur et le discriminateur, pour générer de nouvelles images. Le générateur vise à créer de nouvelles images qui ressemblent aux images originales, tandis que le discriminateur les classe comme "vraies" ou "fausses". L'algorithme sélectionne ensuite les images qui semblent plus "réelles", c'est-à-dire plus proches des données originales. Ce processus permet de générer de nouvelles images de haute qualité qui semblent réelles.
+
+<img src="https://assets.website-files.com/637be5d0f2736f32b8ad98cd/638f92ae6484d7cd279898e3_aRLcuhOExj2sHW66VqLpidsjm0d9rtiDFQuZnjm44pWMhdmMPZXPUHNdMAG4GzLdCcsKvhVfbRcBiWoZWybV902Neom4fduIho8N_3yPie_3LP3PS4jUS3vd00U3gqP_s_8NMfgl.png" class="max-w-full h-auto block m-auto lg:max-w-[60%]" />
+
+- **Auto-encodeurs variationnels** (VAE)
+
+Les VAE sont également des modèles génératifs qui utilisent un réseau neuronal pour compresser les données et les reconstruire à partir de cette représentation compressée. Les VAE se distinguent des autres auto-encodeurs en utilisant une distribution latente multivariée pour la compression des données. Cette méthode permet de générer de nouvelles images similaires aux images originales tout en offrant des variations intéressantes. Dans l'image suivante, la section 'code' fait référence à la méthode utilisée pour la compression.
+
+<img src= "https://assets.website-files.com/637be5d0f2736f32b8ad98cd/638f92ae6484d71aa09898e2_okJaN6yWnS_w7tk-MJecIln7qJm1xZxh3yK2Zk6-0_C5MIG_Nt6fsmYxxZemCaJROOUPRfR9XB9Gbqqx7p_j1F2G2G9fIFxLRhHTb5_3EAwGdvrDKfCvD6A_j49kPE2zcNtcjPWG.png" class="max-w-full h-auto block m-auto lg:max-w-[60%]" />
+
+- **Modèles de diffusion**
+
+Les modèles de diffusion ajoutent du bruit aux données et éliminent progressivement les détails avant que le réseau neuronal ne tente de débruiter les données. Cette méthode génère des images de haute qualité tout en éliminant les bruits indésirables.
+
+<img src="https://developer-blogs.nvidia.com/wp-content/uploads/2022/04/Generation-with-Diffusion-Models.png"  class="max-w-full h-auto block m-auto lg:max-w-[60%]"/>
+
+Il existe donc différents algorithmes qui peuvent être utilisés, ainsi que de nombreux outils open source. Nous allons en examiner certains et montrer quelques exemples générés à l'aide de ces outils.
+
+## Microsoft Designer maintenant accessible au public
+
+Aujourd'hui, Microsoft a lancé [Microsoft Designer](https://designer.microsoft.com/), le nouvel outil de conception graphique destiné au grand public. Comme rappel, cette plateforme permet aux utilisateurs de générer une image à partir d'une instruction.
+
+<img src="https://designer.microsoft.com/designer-social.png"  class="max-w-full h-auto block m-auto lg:max-w-[60%]"/>
+
+Depuis son annonce lors de l'[événement Surface](https://news.microsoft.com/october-2022-news-event/) en octobre 2022, les utilisateurs de Canvas étaient curieux de voir les résultats de [Microsoft Designer](https://designer.microsoft.com/), qui vient d'être lancé aujourd'hui.
+
+Cette nouvelle application est basée sur une intelligence artificielle de génération artistique, similaire à celle de [DALL-E](https://openai.com/product/dall-e-2), qui est un concurrent direct. Pour le moment, le public a accès à une version limitée, mais dans un très court laps de temps, les utilisateurs ayant accès à [Microsoft 365](https://www.microsoft.com/fr-fr/microsoft-365?rtc=1) auront accès à une version plus riche.
+
+## Quelles sont les différences entre Dall-E, Canvas et Microsoft Designer ?
+
+Cet outil de conception graphique vous permettra de créer des créations graphiques pour du contenu principalement. Mais aujourd'hui, Microsoft propose de nouveaux outils permettant une assistance avec les réseaux sociaux. Nous vivons à une époque où les médias sociaux (comme UseFlow) sont de plus en plus présents et cherchent un meilleur référencement (SEO), et Microsoft l'a bien compris. C'est pourquoi le nouvel outil accompagne la création graphique avec une nouvelle fonction de génération de texte pour créer des légendes et des hashtags accompagnant les visuels. Une fonction d'animation permet également de créer des visuels animés, en appliquant automatiquement des arrière-plans et des transitions de texte dynamiques grâce à l'intelligence artificielle.
+
+<img src="https://www.warketingdigital.net/wp-content/uploads/2022/10/Microsoft-lance-Designer.gif"  class="max-w-full h-auto block m-auto lg:max-w-[60%]"/>
+
+Sur ce point, [DALL-E](https://openai.com/product/dall-e-2) est dépassé, mais [Designer](https://designer.microsoft.com/) doit encore se battre pour attirer les utilisateurs de [Canvas](https://www.canva.com/fr_fr/), qui domine le marché, car l'entreprise vient de lancer une série de nouveaux outils de création alimentés par l'IA. Microsoft a encore du travail à faire, car de nombreuses grandes entreprises sont sur le marché et se battront pour garder leur place.

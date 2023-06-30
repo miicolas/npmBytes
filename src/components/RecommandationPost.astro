@@ -3,8 +3,14 @@ import CardPost from "./CardPost.astro";
 import CategoryCloud from "./CategoryCloud.astro";
 import Separation from "./Separation.astro";
 import { formatBlogPosts } from "../js/utils";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const postsPromise = lang === 'fr'
+  ? Astro.glob("../pages/fr/blog/*.mdx")
+  : Astro.glob("../pages/en/blog/*.mdx");
 
-const allPosts = await Astro.glob("../pages/blog/*.mdx");
+  const allPosts = await postsPromise;
 const formattedPosts = formatBlogPosts(allPosts, {
   filterOutDrafts: true,
   filterOutFuturePosts: true,
@@ -18,7 +24,7 @@ const randomPosts = shuffledPosts.slice(0, 3);
 <div class= "px-4 py-10 md:px-20">
   <Separation/>
   <div class= "py-2 font-semibold text-xl md:text-2xl">
-    Explore these recommended articles to dive deeper into your reading!
+    {t('recommandation.title')}
   </div>
   <div class="flex justify-center flex-col md:flex-row">
     <ul>

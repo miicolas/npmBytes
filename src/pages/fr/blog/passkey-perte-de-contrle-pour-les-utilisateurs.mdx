@@ -1,0 +1,63 @@
+---
+layout: "../../../layouts/BlogPostLayout.astro"
+title: Passkey, perte de contrôle pour les utilisateurs ?
+date: 2023-06-03
+author: Nicolas Becharat
+image:
+  src: "/images/passkey-post-030623.png"
+  alt: "microsoftdesigner-logo"
+description: Dites au revoir aux mots de passe et bonjour à un avenir plus sécurisé avec l'émergence des clés de sécurité - la volonté d'Apple de créer une ère sans mot de passe et les défis que cela représente.
+draft: false
+category: Sécurité
+minutesRead: 6
+---
+
+## Sommaire
+
+*   [Écosystème Apple et préoccupations concernant la vie privée](#ecosysteme-apple-et-preoccupations-concernant-la-vie-privee)
+
+*   [Alternatives pour stocker les clés de sécurité](#alternatives-pour-stocker-les-cles-de-securite)
+
+*   [Vers une solution idéale : un trousseau de clés local multiplateforme](#vers-une-solution-ideale-un-trousseau-de-cles-local-multiplateforme)
+
+<br/>
+**Dites au revoir aux mots de passe et bonjour à un avenir plus sécurisé avec l'émergence des clés de sécurité - la volonté d'Apple de créer une ère sans mot de passe et les défis que cela représente.**
+
+## Écosystème Apple et préoccupations concernant la vie privée
+
+L'une des principales préoccupations liées à la transition des mots de passe vers les clés de sécurité concerne l'écosystème Apple. Lorsque vous utilisez des appareils Apple, l'entreprise vous encourage à activer iCloud et iCloud Keychain pour stocker et gérer vos mots de passe. Cependant, cela soulève des questions concernant la vie privée et la protection des données.
+
+En optant pour cette approche, vous devez faire confiance à Apple pour stocker et protéger vos informations sensibles. Bien que l'entreprise ait une solide réputation en matière de sécurité, certaines personnes remettent en question cette confiance. Les services web d'Apple ne sont pas rares, et chaque fois que vous activez iCloud, Apple télécharge automatiquement vos données, y compris les calendriers, les contacts, les documents et les e-mails.
+
+<img src="https://developer.apple.com/passkeys/images/screen-hero-large_2x.png" class="max-w-full h-auto block m-auto lg:max-w-[60%]" />
+
+De plus, lorsque vous installez de nouvelles applications prenant en charge iCloud, la synchronisation est activée silencieusement, ce qui signifie que vos données peuvent être partagées automatiquement sans une conscience complète. Cette connexion constante à Apple peut être perçue comme une violation de la vie privée, car vos informations personnelles restent constamment accessibles à l'entreprise.
+
+Une autre préoccupation concerne la gestion et la visibilité des opérations de synchronisation iCloud et des clés de sécurité. Par exemple, si vous examinez le trousseau iCloud dans l'application Keychain Access sur macOS, vous ne pouvez pas voir les détails spécifiques des opérations de synchronisation ni les gérer vous-même. Cela soulève des questions concernant la transparence et le contrôle de l'utilisateur sur ses propres données.
+
+Dans l'ensemble, bien qu'utiliser iCloud et iCloud Keychain facilite la gestion des mots de passe et renforce la sécurité, il est crucial de prendre en compte les implications en termes de vie privée et de protection des données. Certains utilisateurs peuvent souhaiter limiter le partage de données avec Apple et chercher des alternatives offrant un niveau de contrôle plus élevé sur leurs informations personnelles.
+
+<br/>
+## Alternatives pour stocker les clés de sécurité
+
+Dans l'effort de fournir des solutions plus sécurisées que les mots de passe traditionnels, des entreprises comme [1Password](https://1password.com/fr) proposent des options de gestion des mots de passe basées sur les clés de sécurité. Cependant, il existe certaines limitations et considérations lors de l'utilisation de ces alternatives.
+
+[1Password](https://1password.com/fr), une entreprise spécialisée dans la gestion des mots de passe, a récemment annoncé son intention de prendre en charge les clés de sécurité. Cependant, depuis la version 4 de leur application, ils ont abandonné la prise en charge du trousseau Mac, ce qui signifie que les utilisateurs doivent maintenant gérer deux mots de passe distincts au lieu d'un.
+
+Une autre approche consiste à stocker les clés d'accès sur un périphérique matériel séparé, tel qu'une [YubiKey](https://www.yubico.com/). Les clés de sécurité matérielles offrent un niveau de sécurité supplémentaire car elles nécessitent une authentification physique pour accéder aux comptes. Cependant, cette méthode peut être fastidieuse en pratique.
+<img  src="https://s3.ap-northeast-1.amazonaws.com/gimg.gateimg.com/learn/36ceb281f893ee6eb443721bbabd40227b23225c.jpg" class="max-w-full h-auto block m-auto lg:max-w-[60%]" />
+Il est contraignant de devoir toujours avoir une clé USB physique avec soi pour se connecter à différents appareils ou services. De plus, la [YubiKey](https://www.yubico.com/) elle-même n'est pas liée aux données biométriques de l'utilisateur, ce qui signifie que quiconque possède physiquement la clé pourrait potentiellement l'utiliser pour s'authentifier.
+
+Un autre inconvénient des clés de sécurité matérielles est l'absence de fonction de copie. Contrairement aux mots de passe, les passkeys stockés sur des appareils tels que la [YubiKey](https://www.yubico.com/) ne peuvent pas être copiés pour être sauvegardés ou utilisés sur d'autres appareils. Cela soulève des préoccupations concernant la résilience des données en cas de perte ou de dommage du dispositif de sécurité.
+
+<br/>
+## Vers une solution idéale : un trousseau de clés local multiplateforme
+
+À ce stade, il n'existe pas de solution idéale pour remplacer entièrement les mots de passe par des clés de sécurité. Cependant, il est possible de formuler des recommandations pour améliorer cette transition.
+
+Une proposition intéressante consisterait à permettre aux utilisateurs de stocker leurs clés de sécurité dans un trousseau local indépendant d'iCloud sur leurs appareils. Cela fournirait un niveau de contrôle supplémentaire sur les données et atténuerait les inquiétudes concernant la vie privée. Idéalement, le format d'exportation des clés de sécurité devrait être multiplateforme, ce qui permettrait une compatibilité avec différents systèmes d'exploitation et une facilité d'utilisation sur différents appareils.
+<img src="https://www.hellotech.com/blog/wp-content/uploads/2022/09/How-Do-Passkeys-Work-1.jpg" class="max-w-full h-auto block m-auto lg:max-w-[60%]"/>
+
+Dans cette configuration, les mots de passe Web générés de manière aléatoire stockés dans un trousseau local seraient privilégiés. Ces mots de passe complexes ne seraient pas mémorisés par l'utilisateur, ce qui renforcerait leur sécurité. L'utilisation de clés de sécurité permettrait une authentification automatique sans avoir besoin de saisir manuellement un mot de passe.
+
+En conclusion, bien que la transition des mots de passe vers les clés de sécurité présente des avantages en termes de sécurité, il est important de prendre en compte les préoccupations concernant la vie privée et la confidentialité au sein de l'écosystème Apple. Les clés de sécurité matérielles offrent une sécurité supplémentaire, mais elles peuvent être fastidieuses et posent des problèmes de sauvegarde des données. Une solution idéale permettrait aux utilisateurs de stocker leurs clés de sécurité localement dans un trousseau multiplateforme tout en privilégiant l'utilisation de mots de passe générés de manière aléatoire pour une sécurité optimale.

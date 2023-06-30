@@ -1,11 +1,10 @@
-
 ---
 // component imports
-import MainLayout from "../../layouts/MainLayout.astro";
-import CardPost from "../../components/CardPost.astro";
+import MainLayout from "../../../layouts/MainLayout.astro"; 
+import CardPost from "../../../components/CardPost.astro";
 
 // utils
-import { slugify, formatBlogPosts } from "../../js/utils";
+import { slugify, formatBlogPosts } from "../../../js/utils";
 
 
 const pages = [
@@ -21,9 +20,9 @@ const pages = [
       props: { name: "Game" },
     },
     {
-      slug: "IA",
-      params: { category: slugify("IA") },
-      props: { name: "IA" },
+      slug: "AI",
+      params: { category: slugify("AI") },
+      props: { name: "AI" },
     },
     {
       slug: "Web",
@@ -43,7 +42,7 @@ const page = pages.find((page) => page.slug === slug);
 const { category } = Astro.params;
 const { name } = Astro.props;
 
-const allPosts = await Astro.glob("../blog/*.mdx");
+const allPosts = await Astro.glob("../..blog/*.mdx");
 const formattedPosts = formatBlogPosts(allPosts);
 
 const catPosts = formattedPosts.filter(
@@ -53,7 +52,7 @@ const catPosts = formattedPosts.filter(
 
 <MainLayout title={name}>
   <section class="container" aria-label={`Posts about ${name}`}>
-    <h1 class="h1">Posts about <span>{name}</span></h1>
+    <h1 class="h1">Posts about<span>{name}</span></h1>
     <div class="post-container">
       {catPosts.map((post) => <CardPost url={post.url} post={post} />)}
     </div>

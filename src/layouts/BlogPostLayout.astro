@@ -7,6 +7,9 @@ import RecommandationPost from "../components/RecommandationPost.astro"
 const { frontmatter } = Astro.props;
 const { title, description, date, category, author, image, minutesRead } =
   frontmatter;
+  import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <MainLayout {title}>
@@ -14,9 +17,9 @@ const { title, description, date, category, author, image, minutesRead } =
     <div class="flex flex-col justify-center px-10 lg:px-20">
         <div class="reading-time pb-2">
           <i class="fa-solid fa-book-open-reader" style="color: #ffffff;"></i>
-          <p>{minutesRead} minutes read</p>
+          <p>{minutesRead} {t('blog.readtime')}</p>
         </div>
-        <div class="prose max-w-none text-white prose-a:text-[#562bff] prose-headings:text-white prose-strong:text-gray-500">
+        <div class="prose max-w-none text-white prose-a:text-[#562bff] prose-headings:text-white prose-strong:text-gray-500 prose-blockquote:text-gray-500">
           <slot />
         </div>
     </div>
