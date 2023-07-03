@@ -75,14 +75,17 @@ const formattedPosts = formatBlogPosts(allPosts, {
         </form>
       </div>
       <div
-        class="bg-gradient-to-b from-npm-blue to-transparent w-full h-[55%] absolute top-0 left-0 z-0 md:h-[75%]"
+      class="bg-gradient-to-b from-npm-blue to-transparent w-full h-3/4 absolute top-0 left-0 z-0 md:h-1/3 lg:h-1/2"
       >
       </div>
     </section>
     <section class="flex flex-col md:flex-row">
-      <!-- <div class="md:w-1/6 text-center mt-4 px-2">
-        <CategoryCloud/>
-      </div> -->
+      <div class="md:w-1/6 text-center mt-4 px-2">
+        <div class="mt-6">
+          <CategoryCloud/>
+        </div>
+        
+      </div> 
       <div class=" md:w-5/6 py-4 px-2">
         <div class="flex flex-col justify-center lg:flex-row flex-wrap md:gap-2">
           {
@@ -90,7 +93,6 @@ const formattedPosts = formatBlogPosts(allPosts, {
             .map((post) => <CardPost key={post.url} post={post} />)
           }
         </div>            
-          
       </div>
     </section>
 </MainLayout>

@@ -27,10 +27,10 @@ const processedCats = allCategories.reduce((acc, category) => {
 }, {});
 ---
 
-<ul class="flex list-none m-0 p-0">
+<ul class="flex list-none m-0 p-0 flex-wrap">
   {
     Object.entries(processedCats).map(([key]) => (
-      <li px-2>
+      <li class="p-2">
         <a class="text-base font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 bg-gray-700 text-gray-400 border border-gray-500" href={`/${lang}/category/${slugify(key)}/`}>
           {key}
         </a>
@@ -38,18 +38,3 @@ const processedCats = allCategories.reduce((acc, category) => {
     ))
   }
 </ul>
-
-<style> 
-.categories {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.categories li {
-  margin-right: 10px;
-  margin-bottom: 10px;
-}
-</style>
