@@ -15,11 +15,11 @@ const categories = category.split(",");
 
 <div class="flex flex-row m-auto lg:flex-col">
   <article class="rounded max-w-[95%] md:max-w-[25vw] mx-auto my-4 min-w-[15vw] py-4">
-    <div class="relative max-h-[50vh] min-h-[30vh] min-w-[40vh] border border-[#552bff] rounded text-center overflow-hidden flex items-center justify-center flex-col  transition-all duration-300 ease-in-out shadow-none hover:shadow-2xl">
-      <a href={postUrl}>
-        <img class="block m-auto max-w-full max-h-full object-contain object-center rounded" src={image.src} alt={image.alt} />
-      </a>
-    </div>
+    <a href={postUrl}>
+      <div class="relative max-h-[50vh] min-h-[30vh] min-w-[40vh] border border-[#552bff] rounded text-center overflow-hidden flex items-center justify-center flex-col  transition-all duration-300 ease-in-out shadow-none hover:shadow-2xl">
+          <img class="block m-auto max-w-full max-h-full object-contain object-center rounded" src={image.src} alt={image.alt} />
+      </div>
+    </a>
     <div class="max-w-[50vh] h-32 flex flex-col flex-1 min-h-min px-2 ">
       <a href={postUrl}
         ><p class="text-xl md:text-2xl font-semibold mt-2 mb-4 hover:text-[#c5c5c5] ease-in-out duration-200">

@@ -33,7 +33,7 @@ const postUrl = `/${lang}/blog/${slugify(title)}`;
       >
         <a
           href={postUrl}
-          class="inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm rounded-full bg-gray-900 text-violet-300 hover:bg-gray-800"
+          class="group inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm rounded-full bg-gray-900 text-violet-300 hover:bg-gray-800"
         >
           <span
             class="text-xs bg-npm-blue rounded-full text-white px-4 py-1.5 mr-3 animate-pulse"
@@ -44,7 +44,7 @@ const postUrl = `/${lang}/blog/${slugify(title)}`;
           >
           <svg
             aria-hidden="true"
-            class="ml-2 w-5 h-5"
+            class="ml-2 w-5 h-5 group-hover:rotate-90 ease-in duration-200"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -135,12 +135,6 @@ const postUrl = `/${lang}/blog/${slugify(title)}`;
         </div>
       </div>
     </section>
-    <!-- <aside class="flex justify-center">
-      <div class="flex-col">
-        <h2 class="flex justify-center p-2">Blog Categories</h2>
-        <CategoryCloud />
-      </div>
-    </aside> -->
   </main>
 </MainLayout>
 
