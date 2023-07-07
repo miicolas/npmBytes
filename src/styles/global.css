@@ -65,10 +65,10 @@ code {
     Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
-a {
+/* a {
   color: #562bff;
   text-decoration: none;
-}
+} */
 
 /* Index */
   .welcome-bytes {

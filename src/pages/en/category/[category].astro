@@ -42,7 +42,7 @@ const page = pages.find((page) => page.slug === slug);
 const { category } = Astro.params;
 const { name } = Astro.props;
 
-const allPosts = await Astro.glob("../..blog/*.mdx");
+const allPosts = await Astro.glob("../blog/*.mdx");
 const formattedPosts = formatBlogPosts(allPosts);
 
 const catPosts = formattedPosts.filter(
