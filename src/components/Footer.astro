@@ -7,30 +7,45 @@ const t = useTranslations(lang);
 ---
 
 <hr>
-<footer class="w-full justify-center">
+<footer class="w-full">
   <div class="flex flex-col md:flex-row ">
-    <div class="px-32 py-6 lg:py-8  items-center justify-center ml-10 hidden lg:flex ">
+    <div class="px-20 py-6 lg:py-8  items-center justify-center ml-10 hidden lg:flex ">
       <img src="/images/npmbytes.png" class="w-40 h-40" />
     </div>
-    <div class="items-center justify-center grid grid-cols-1 gap-10 px-4 py-6 lg:py-8 md:grid-cols-3 lg:gap-40">
-      <!-- <div class="flex flex-col">
+    <div class="m-auto grid grid-cols-2 gap-10 px-4 py-6 lg:py-8 md:grid-cols-3 lg:gap-40">
+      <div class="flex flex-col">
         <h2 class="uppercase font-bold text-lg">Compagny</h2>
         <ul
           class="flex flex-col flex-wrap mt-3 text-sm font-medium text-gray-400 justify-center md:justify-normal sm:mt-0"
         >
-          {
-            SMedia.map((item) => (
               <li>
                 <a
-                  href={item.url}
+                  href=`/${lang}/`
                   class="mr-4 hover:underline md:mr-6"
                   target="_blank"
                 >
-                  <span class="flex-1 whitespace-nowrap">{item.name}</span>
+                  <span class="flex-1 whitespace-nowrap">{t("nav.home")}</span>
                 </a>
               </li>
-            ))
-          }
+              <li>
+                <a
+                  href=`/${lang}/blog`
+                  class="mr-4 hover:underline md:mr-6"
+                  target="_blank"
+                >
+                  <span class="flex-1 whitespace-nowrap">Blog</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href=`/${lang}/privacy-policy`
+                  class="mr-4 hover:underline md:mr-6"
+                  target="_blank"
+                >
+                  <span class="flex-1 whitespace-nowrap">{t('content.privacy')}</span>
+                </a>
+              </li>
+              
         </ul>
       </div>
       <div class="flex flex-col">
@@ -38,21 +53,26 @@ const t = useTranslations(lang);
         <ul
           class="flex flex-col flex-wrap mt-3 text-sm font-medium text-gray-400 justify-center md:justify-normal sm:mt-0"
         >
-          {
-            SMedia.map((item) => (
               <li>
                 <a
-                  href={item.url}
+                  href="https://discord.gg/3DcDJSN82h"
                   class="mr-4 hover:underline md:mr-6"
                   target="_blank"
                 >
-                  <span class="flex-1 whitespace-nowrap">{item.name}</span>
+                  <span class="flex-1 whitespace-nowrap">Discord Helper</span>
                 </a>
               </li>
-            ))
-          }
+              <li>
+                <a
+                  href="mailto:contact.npmbytes@gmail.com"
+                  class="mr-4 hover:underline md:mr-6"
+                  target="_blank"
+                >
+                  <span class="flex-1 whitespace-nowrap">Mail Support</span>
+                </a>
+              </li>
         </ul>
-      </div> -->
+      </div>
       <div class="flex flex-col">
         <h2 class="uppercase font-bold text-lg">Social Media</h2>
         <ul

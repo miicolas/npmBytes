@@ -6,45 +6,29 @@ import CardPost from "../../../components/CardPost.astro";
 // utils
 import { slugify, formatBlogPosts } from "../../../js/utils";
 
-
 const pages = [
- 
-    {
-      slug: "Annonce",
-      params: { category: slugify("Annonce") },
-      props: { name: "Annonce" },
-    },
-    {
-      slug: "JV",
-      params: { category: slugify("JV") },
-      props: { name: "JV" },
-    },
-    {
-      slug: "IA",
-      params: { category: slugify("IA") },
-      props: { name: "IA" },
-    },
-    {
-      slug: "Web",
-      params: { category: slugify("Web") },
-      props: { name: "Web" },
-    },
-    {
-      slug : "Securite",
-      params : { category : slugify ("Securite") },
-      props : { name : "Securite"}
-    }
+  {
+    slug: "annonce",
+    props: { name: "Annonce" },
+  },
+  {
+    slug: "ia",
+    props: { name: "IA" },
+  },
+  {
+    slug: "web",
+    props: { name: "Web" },
+  },
+  {
+    slug: "securite",
+    props: { name: "Securité" },
+  },
 ];
-const { slug } = Astro.params;
-const page = pages.find((page) => page.slug === slug);
-
 
 const { category } = Astro.params;
-const { name } = Astro.props;
-
+const { name } = pages.find((page) => page.slug === category).props;
 const allPosts = await Astro.glob("../blog/*.mdx");
 const formattedPosts = formatBlogPosts(allPosts);
-
 const catPosts = formattedPosts.filter(
   (post) => slugify(post.frontmatter.category) === category
 );
@@ -52,9 +36,15 @@ const catPosts = formattedPosts.filter(
 
 <MainLayout title={name}>
   <section class="container" aria-label={`Posts about ${name}`}>
-    <h1 class="text-white">Posts about<span class="text-white">{name}</span></h1>
+    <h1 class="h1">Posts about <span>{name}</span></h1>
     <div class="post-container">
-      {catPosts.map((post) => <CardPost url={post.url} post={post} />)}
+      {
+        catPosts.map((post) => (
+          <CardPost
+            key={post.url} post={post}
+          />
+        ))
+      }
     </div>
   </section>
 </MainLayout>
