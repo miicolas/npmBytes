@@ -7,11 +7,24 @@ const categories = category.split(",");
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
 ---
 <header>
-  <div class="w-full px-4 md:px-16">
-    <img src={image.src} alt={image.alt} />
+  <div id="alert-c" class="relative hidden ease-in-out duration-300 mx-auto bg-gray-500 bg-opacity-60 text-black top-0 left-0 1/2 lg:w-1/3 px-6 rounded">
+    <div class="flex flex-row gap-5 py-2">
+      <div class="bg-gray-900 flex items-center bg-opacity-60 p-2 rounded">
+        <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9h2v5m-2 0h4M9.408 5.5h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+        </svg>
+      </div>
+      <div>
+        Vous avez copié le lien de la page et il est prêt à être partagé
+      </div>
+    </div>
+  </div>
+  <div class="w-full px-4 mt-2 md:px-16">
+    <div class="flex justify-center">
+      <img class="max-w-full object-cover object-center rounded block my-0" src={image.src} alt={image.alt} />
+    </div>
     <p class="text-xl md:text-2xl font-semibold cursor-pointer text-white ease-in-out duration-500 hover:text-[#c5c5c5]">{title}</p>
     <p class="text-xs md:text-base">
       by <span class="text-npm-blue">{author}</span> • {formatDate(date)}
@@ -28,133 +41,45 @@ const t = useTranslations(lang);
       }
     </div>
     <br /><br />
-    <Separation />
-    <div class="flex justify-center items-center mx-8 my-0">
-      <div class="share-btn">
-        <i class="fa-solid fa-share" style="color: #ffffff;"></i>
+    <div class="flex justify-center items-center flex-col">
+      <Separation />
+      <div class="py-5">
+        <div id="share-button"class="bg-npm-blue rounded-full p-2.5 hover:bg-npm-hover-blue ease-in-out duration-200 cursor-pointer">
+          <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1.248 15C.22 11.77 2.275 4.232 9.466 4.232V2.079a1.025 1.025 0 0 1 1.644-.862l5.479 4.307a1.108 1.108 0 0 1 0 1.723l-5.48 4.307a1.026 1.026 0 0 1-1.643-.861V8.539C2.275 9.616 1.248 15 1.248 15Z"/>
+          </svg>
+        </div>
       </div>
-      <div  id="btn" class="like-btn">
-        <i class="fa-solid fa-heart like-button"></i>
-    </div>
-    <Separation />
+      <Separation />
   </div>
+  
 </header>
 
-<style>
-  .fa-solid {
-    color : white
-  }
-  .tools-interaction {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2rem 0;
-  }
-  .share-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    width: 2.5rem;
-    height: 2.5rem;
-    background-color: #562bff;
-    cursor: pointer;
-    transition: ease-in-out 0.3s;
-  }
-  .share-btn:hover {
-    background-color: #260a96a9;
-    transition: ease-in-out 0.3s;
-  }
-  .share-btn:active {
-    background-color: #444444;
-    transition: ease-in-out 0.3s;
-  }
-  .share-button i {
-    font-size: 1.2rem;
-  }
-  .like-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    width: 2.5rem;
-    height: 2.5rem;
-    background-color: #562bff;
-    cursor: pointer;
-    transition: ease-in-out 0.3s;
-  }
-  .like-btn:hover {
-    background-color: #260a96a9;
-    transition: ease-in-out 0.3s;
-  }
-  .like-btn:active {
-    background-color: #444444;
-    transition: ease-in-out 0.3s;
-  }
-  .like-button i {
-    font-size: 1.2rem;
-  }
-  .share-btn, .like-btn {
-  margin: 0 0.5rem;
-}
-  header {
-    padding: 20px;
-  }
-
-  .container {
-    max-width: 150vh;
-    margin: 0 auto;
-  }
-
-  .small {
-    font-size: 80%;
-  }
-
-  h1 {
-    font-size: 36px;
-  }
-
-  p {
-    font-size: 18px;
-  }
-
-  a {
-    color: #007bff;
-    text-decoration: none;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-  img {
-    max-width: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 5px;
-    display: block;
-    margin: 0 auto;
-  }
-  .share-button {
-    background-color: gray;
-  }
-  .liked {
-   color: #bb2626; 
-  }
-  /*Responsive*/
-
-  @media screen and (max-width: 768px) {
-    .author-date {
-      font-size: 12px;
-    }
-  }
-</style>
-
 <script>
-const shareButton = document.querySelector(".share-btn");
+const shareButton = document.getElementById('share-button');
 const pageUrl = window.location.href;
+const alertc = document.getElementById('alert-c')
 
 shareButton.addEventListener("click", () => {
   navigator.clipboard.writeText(pageUrl);
+  alertc.classList.remove("hidden");
+  alertc.classList.add("opacity-0");
+
+  setTimeout(() => {
+    alertc.classList.remove("opacity-0");
+    alertc.classList.add("opacity-100");
+  }, 100);
+
+  setTimeout(() => {
+    alertc.classList.remove("opacity-100");
+    alertc.classList.add("opacity-0");
+  }, 5500);
+
+  setTimeout(() => {
+    alertc.classList.remove("opacity-0");
+    alertc.classList.add("hidden");
+  }, 7000);
+
 });
 
 const likeButton = document.querySelector(".like-btn");

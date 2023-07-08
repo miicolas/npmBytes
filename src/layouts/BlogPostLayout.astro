@@ -14,12 +14,13 @@ const t = useTranslations(lang);
 
 <MainLayout {title}>
     <PostHeader {title} {description} {date} {category} {image} {author} />
-    <div class="flex flex-col justify-center px-10 lg:px-20">
+    <br />
+    <div class="flex flex-col max-w-none mx-auto px-10 lg:px-20 lg:max-w-5xl">
         <div class="reading-time pb-2">
           <i class="fa-solid fa-book-open-reader" style="color: #ffffff;"></i>
           <p>{minutesRead} {t('blog.readtime')}</p>
         </div>
-        <div class="prose max-w-none text-white prose-a:text-[#562bff] prose-headings:text-white prose-strong:text-gray-500 prose-blockquote:text-gray-500">
+        <div class="prose max-w-none text-white prose-a:text-[#562bff] prose-headings:text-white prose-strong:text-gray-500 prose-blockquote:text-gray-500 lg:max-w-5xl">
           <slot />
         </div>
     </div>
