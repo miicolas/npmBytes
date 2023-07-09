@@ -1,0 +1,24 @@
+---
+const { post } = Astro.props;
+
+// utils imports
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+import { slugify, formatDate } from "../js/utils";
+import { getDaysSince } from "../js/utils";
+
+const { title, description, minutesRead } = post.frontmatter;
+const postUrl = `/${lang}/blog/${slugify(title)}`;
+---
+
+<div class = "py-4" >
+    <p>{title}</p>
+    <p>{description}</p>
+    <a href= {postUrl}> 
+        <div class="">
+            <p>Read More</p>
+        </div>
+    </a>
+</div>
+

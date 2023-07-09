@@ -4,6 +4,7 @@ import MainPost from "../../components/MainPost.astro";
 import CardPost from "../../components/CardPost.astro";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import { formatBlogPosts } from "../../js/utils";
+import MiniPost from "../../components/MiniPost.astro";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const allPosts = await Astro.glob("./blog/*.mdx");
@@ -92,22 +93,18 @@ const latestPost = formattedPosts[0];
                    
       </div> -->
     <div class="flex flex-col justify-center md:gap-10 md:flex-row">
-      <div class="flex items-center">
+      <div class="flex w-3/4 items-center">
         <MainPost post={latestPost} />
       </div>
-      <div class="flex flex-col">
-        {
-          formattedPosts
-            .slice(1, 3)
-            .map((post) => <CardPost key={post.url} post={post} />)
-        }
+      <div class="flex w-1/4 flex-col border border-pink-200">
+        <MiniPost post={latestPost}/>
       </div>
     </div>
 
     <div class="flex flex-col justify-center lg:flex-row flex-wrap md:gap-2">
       {
         formattedPosts
-          .slice(3)
+          .slice(1)
           .map((post) => <CardPost key={post.url} post={post} />)
       }
     </div>
