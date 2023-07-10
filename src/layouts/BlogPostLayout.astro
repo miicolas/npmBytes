@@ -2,7 +2,6 @@
 // component import
 import PostHeader from "../components/PostHeader.astro";
 import MainLayout from "./MainLayout.astro";
-import Separation from "../components/Separation.astro";
 import RecommandationPost from "../components/RecommandationPost.astro"
 const { frontmatter } = Astro.props;
 const { title, description, date, category, author, image, minutesRead } =
@@ -20,6 +19,7 @@ const t = useTranslations(lang);
           <i class="fa-solid fa-book-open-reader" style="color: #ffffff;"></i>
           <p>{minutesRead} {t('blog.readtime')}</p>
         </div>
+       
         <div class="prose max-w-none text-white prose-a:text-[#562bff] prose-headings:text-white prose-strong:text-gray-500 prose-blockquote:text-gray-500 lg:max-w-5xl">
           <slot />
         </div>

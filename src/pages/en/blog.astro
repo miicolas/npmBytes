@@ -82,26 +82,17 @@ const latestPost = formattedPosts[0];
     >
     </div>
   </section>
-  <section class="">
-    <!-- <div class="md:w-1/6 text-center mt-4 px-2">
-        <div class="mt-6">
-          <CategoryCloud/>
-        </div>
-        
-      </div>  -->
-    <!-- <div class=" md:w-5/6 py-4 px-2">
-                   
-      </div> -->
-    <div class="flex flex-col justify-center md:gap-10 md:flex-row">
-      <div class="flex w-3/4 items-center">
+  <section class="lg:px-20">
+    <div class="flex flex-col justify-center md:flex-row gap-5">
+      <div class="flex lg:w-4/6 items-center">
         <MainPost post={latestPost} />
       </div>
-      <div class="flex w-1/4 flex-col border border-pink-200">
+      <div class="flex lg:w-2/6 m-auto max-w-xs md:max-w-sm flex-col ">
         <MiniPost post={latestPost}/>
       </div>
     </div>
 
-    <div class="flex flex-col justify-center lg:flex-row flex-wrap md:gap-2">
+    <div class="flex flex-col justify-center lg:flex-row flex-wrap md:gap-2 py-10">
       {
         formattedPosts
           .slice(1)

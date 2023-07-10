@@ -7,6 +7,7 @@ const categories = category.split(",");
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+import LikeBtn from "./LikeBtn.jsx"
 ---
 <header>
   <div id="alert-c" class="relative hidden ease-in-out duration-300 mx-auto bg-gray-500 bg-opacity-60 text-black top-0 left-0 1/2 lg:w-1/3 px-6 rounded">
@@ -43,12 +44,13 @@ const t = useTranslations(lang);
     <br /><br />
     <div class="flex justify-center items-center flex-col">
       <Separation />
-      <div class="py-5">
-        <div id="share-button"class="bg-npm-blue rounded-full p-2.5 hover:bg-npm-hover-blue ease-in-out duration-200 cursor-pointer">
+      <div class="py-5 flex flex-row">
+        <div id="share-button" class="bg-npm-blue rounded-full p-2.5 hover:bg-npm-hover-blue ease-in-out duration-200 cursor-pointer">
           <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 16">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1.248 15C.22 11.77 2.275 4.232 9.466 4.232V2.079a1.025 1.025 0 0 1 1.644-.862l5.479 4.307a1.108 1.108 0 0 1 0 1.723l-5.48 4.307a1.026 1.026 0 0 1-1.643-.861V8.539C2.275 9.616 1.248 15 1.248 15Z"/>
           </svg>
         </div>
+        <LikeBtn client:load/>
       </div>
       <Separation />
   </div>
