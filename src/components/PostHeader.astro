@@ -9,8 +9,8 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 import LikeBtn from "./LikeBtn.jsx"
 ---
-<header>
-  <div id="alert-c" class="relative hidden ease-in-out duration-300 mx-auto bg-gray-500 bg-opacity-60 text-black top-0 left-0 1/2 lg:w-1/3 px-6 rounded">
+<header class="relative">
+  <div id="alert-c" class="absolute z-30 hidden ease-in-out duration-300 mx-auto bg-gray-500 bg-opacity-90 text-black top-0 left-1/3 lg:w-1/3 px-6 rounded">
     <div class="flex flex-row gap-5 py-2">
       <div class="bg-gray-900 flex items-center bg-opacity-60 p-2 rounded">
         <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
@@ -60,29 +60,25 @@ import LikeBtn from "./LikeBtn.jsx"
 <script>
 const shareButton = document.getElementById('share-button');
 const pageUrl = window.location.href;
-const alertc = document.getElementById('alert-c')
+const alertc = document.getElementById('alert-c');
 
 shareButton.addEventListener("click", () => {
   navigator.clipboard.writeText(pageUrl);
-  alertc.classList.remove("hidden");
-  alertc.classList.add("opacity-0");
-
-  setTimeout(() => {
-    alertc.classList.remove("opacity-0");
-    alertc.classList.add("opacity-100");
-  }, 100);
-
-  setTimeout(() => {
-    alertc.classList.remove("opacity-100");
-    alertc.classList.add("opacity-0");
-  }, 5500);
-
-  setTimeout(() => {
-    alertc.classList.remove("opacity-0");
-    alertc.classList.add("hidden");
-  }, 7000);
-
+  showAndHideAlert();
 });
+
+function showAndHideAlert() {
+  alertc.style.display = "block";
+  alertc.style.opacity = "1";
+
+  setTimeout(() => {
+    alertc.style.opacity = "0";
+  }, 3000);
+
+  setTimeout(() => {
+    alertc.style.display = "none";
+  }, 3500);
+}
 
 const likeButton = document.querySelector(".like-btn");
 likeButton.addEventListener('click', () => {
