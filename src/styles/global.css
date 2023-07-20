@@ -190,3 +190,17 @@ code {
 @media only screen and (min-width: 400px) {
   
 }
+
+.rotating {
+  animation: rotating 2s linear infinite;
+  animation-duration: 20s;
+}
+
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
