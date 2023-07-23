@@ -1,13 +1,11 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
-import CardPost from "../../components/CardPost.astro";
-import MainPost from "../../components/MainPost.astro";
-import CarousselAutoplay from "../../components/CarousselAutoplay.astro";
-import CategoryCloud from "../../components/CategoryCloud.astro";
+import CardPost from "../../components/Card/CardPost.astro";
+import MainPost from "../../components/Card/MainPost.astro";
 import { formatBlogPosts, slugify } from "../../js/utils";
-
-
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const allPosts = await Astro.glob("./blog/*.mdx");
@@ -22,105 +20,54 @@ const latestPost = formattedPosts[0];
 const { frontmatter } = Astro.props;
 const { title } = latestPost.frontmatter;
 const postUrl = `/${lang}/blog/${slugify(title)}`;
-
 ---
 
 <MainLayout title="npmBytes">
   <main>
     <section class="bg-gray-900 bg-[url('/images/hero-pattern-dark.svg')] relative">
-      <div
-        class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative"
-      >
-        <a
-          href={postUrl}
-          class="group inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm rounded-full bg-gray-900 text-violet-300 hover:bg-gray-800"
-        >
-          <span
-            class="text-xs bg-npm-blue rounded-full text-white px-4 py-1.5 mr-3 animate-pulse"
-            >{t('home.new')}</span
-          >
-          <span class="text-sm font-medium"
-            >{title}</span
-          >
-          <svg
-            aria-hidden="true"
-            class="ml-2 w-5 h-5 group-hover:rotate-90 ease-in duration-200"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-            ><path
-              fill-rule="evenodd"
-              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-              clip-rule="evenodd"></path></svg
-          >
+      <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
+        <a href={postUrl} class="group inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm rounded-full bg-gray-900 text-violet-300 hover:bg-gray-800">
+          <span class="text-xs bg-npm-blue rounded-full text-white px-4 py-1.5 mr-3 animate-pulse">
+            {t('home.new')}
+          </span>
+          <span class="text-sm font-medium">
+            {title}
+          </span>
+          <svg aria-hidden="true" class="ml-2 w-5 h-5 group-hover:rotate-90 ease-in duration-200" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"clip-rule="evenodd"></path>
+          </svg>
         </a>
-        <h1
-          class="mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl text-white"
-        >
-            {t('home.slogan')}
+        <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl text-white">
+          {t('home.slogan')}
         </h1>
-        <p
-          class="mb-8 text-lg font-normal lg:text-xl sm:px-16 lg:px-48 text-gray-200"
-        >
+        <p class="mb-8 text-lg font-normal lg:text-xl sm:px-16 lg:px-48 text-gray-200">
           {t('home.newsletter')}
         </p>
-        <form
-          class="w-full max-w-md mx-auto"
-          method="post"
-          action="/api/subscribe"
-        >
-          <label
-            for="default-email"
-            class="mb-2 text-sm font-medium sr-only text-white"
-            >{t('home.label-form')}</label
-          >
+        <form class="w-full max-w-md mx-auto" method="post" action="/api/subscribe">
+          <label for="default-email" class="mb-2 text-sm font-medium sr-only text-white">
+            {t('home.label-form')}
+          </label>
           <div class="relative">
-            <div
-              class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
-            >
-              <svg
-                class="w-5 h-5 text-gray-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"
-                ></path>
-                <path
-                  d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"
-                ></path>
+            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
               </svg>
             </div>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="block w-full p-4 pl-10 text-sm border rounded-lg bg-gray-900 border-gray-800 placeholder-gray-400 text-white focus:bg-black focus:border-gray-900"
-              placeholder={t('home.placeholder-form')}
-              required
-            />
-            <button
-              type="submit"
-              class="text-white absolute right-2.5 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 bg-npm-blue hover:bg-npm-hover-blue"
-              >{t('home.button-form')}</button
-            >
+            <input type="email" id="email" name="email" class="block w-full p-4 pl-10 text-sm border rounded-lg bg-gray-900 border-gray-800 placeholder-gray-400 text-white focus:bg-black focus:border-gray-900" placeholder={t('home.placeholder-form')} required/>
+            <button type="submit" class="text-white absolute right-2.5 bottom-2.5 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 bg-npm-blue hover:bg-npm-hover-blue">   
+              {t('home.button-form')}
+            </button>
           </div>
         </form>
       </div>
-      <div
-        class="bg-gradient-to-b from-npm-blue to-transparent w-full h-full absolute top-0 left-0 z-0"
-      >
-      </div>
+      <div class="bg-gradient-to-b from-npm-blue to-transparent w-full h-full absolute top-0 left-0 z-0"></div>
     </section>
     <section class="m-auto">
       <div>
         <MainPost post={latestPost} />
       </div>
-      <div
-        class="flex flex-col max-w-[90%] m-auto justify-center mt-16 md:flex-row"
-      >
+      <div class="flex flex-col max-w-[90%] m-auto justify-center mt-10 md:flex-row">
         <div class="flex flex-col gap-y-10 justify-between md:justify-normal">
           <div class="flex flex-col lg:flex-row flex-wrap md:gap-20">
             {
