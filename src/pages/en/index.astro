@@ -63,9 +63,20 @@ const postUrl = `/${lang}/blog/${slugify(title)}`;
       <div class="bg-gradient-to-b from-npm-blue to-transparent w-full h-full absolute top-0 left-0 z-0"></div>
     </section>
     <section class="m-auto">
-      <div>
-        <MainPost post={latestPost} />
+      <h1 class="flex px-5">Lastest Posts</h1>
+      <div class="m-auto grid grid-cols-1 md:grid-cols-2 md:gap-10 max-w-4xl">
+        {
+          formattedPosts
+            .slice(0,4)
+            .map((post) => (
+              <MainPost key={postUrl} post={post} />
+            ))
+        }
+        
       </div>
+      <div class="flex justify-center p-4">
+        <a href=`/${lang}/blog`><div class="rounded-lg text-sm px-4 py-2 bg-npm-blue hover:bg-npm-hover-blue focus:ring-4 focus:outline-none font-medium ease-in-out duration-300">{t("home.button-more")}</div></a>
+    </div>
       
     </section>
   </main>

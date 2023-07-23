@@ -10,23 +10,26 @@ const postUrl = `/${lang}/blog/${slugify(title)}`;
 
 ---
 
-<div class="flex flex-col m-auto max-w-xs md:max-w-xs lg:max-w-2xl">
-  <article class="rounded w-full my-4 mx-auto p-1 shadow-md transition-all duration-300 ease-in-out hover:shadow-2xl">
-    <a href={postUrl}>
-      <div class="flex justify-center items-center relative flex-col overflow-hidden text-center rounded border-[#df75ff] border max-w-full min-h-[50vh]">
-        <img class="block m-auto max-w-full max-h-full object-contain object-center rounded" src={image.src} alt={image.alt} /> 
-      </div>
-    </a>
-  </article>
+
+<article class= "flex flex-col m-auto bg-white/20 hover:bg-white/10 bg-opacity-10 w-full my-4 transition-all duration-500 ease-in-out rounded-lg hover:scale-95 py-4 px-4" >
+  <a href={postUrl}>
+    <img class="block m-auto max-w-full max-h-full object-contain object-center py-2" src={image.src} alt={image.alt} /> 
+  </a>
   <div class="max-w-full px-2">
     <div class="flex flex-col">
-        <a href={postUrl}><p class="text-white cursor-pointer text-2xl font-semibold ease-in-out duration-700 hover:text-[#c5c5c5]">{title}</p></a>
-        <div class="flex items-center py-2">
-          <i class="fa-solid fa-book-open-reader" style="color: #6c757d;"></i>
-          <p class="text-xs ml-2 md:text-sm text-[#6c757d]">{minutesRead} {t('blog.readtime')}</p>
-        </div>
+      <a href={postUrl}>
+        <p class="text-white cursor-pointer text-xl font-semibold ease-in-out duration-700 hover:text-[#c5c5c5]">
+        {title}
+        </p>
+      </a>
+      <div class="flex items-center py-2">
+        <i class="fa-solid fa-book-open-reader" style="color: #c7c7c7;"></i>
+        <p class=" ml-2 md:text-sm lg:text-xs text-[#c7c7c7]">{minutesRead} {t('blog.readtime')}</p>
+      </div>
     </div>
-    <p class="text-[#6c757d] text-sm">{description}</p>
+    <p class="text-[#c7c7c7] text-sm lg:text-xs ">{description}</p>
   </div>
-</div>
+</article>
+  
+
 
