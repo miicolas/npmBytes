@@ -28,17 +28,19 @@ const LanguagePicker = () => {
         </svg>
       </button>
       {isOpen && (
-        <div className="text-gray-700 -pt-10 absolute">
-          {Object.entries(languages).map(([lang, label]) => (
-            <li key={lang} className="mt-1">
-              <a
-                className="rounded font-thin bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                href={`/${lang}/`}
-              >
-                {label}
-              </a>
-            </li>
+        <div className="text-gray-700 bottom-10 absolute">
+          <ul>
+            {Object.entries(languages).map(([lang, label]) => (
+              <li key={lang} className="mt-1">
+                <a
+                  className="rounded font-thin bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                  href={`/${lang}/`}
+                >
+                  {label}
+                </a>
+              </li>
           ))}
+          </ul>
         </div>
       )}
     </div>

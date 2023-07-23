@@ -1,7 +1,7 @@
 ---
 //data imports
 import SMedia from "../data/SMedia";
-import LanguagePicker from "./LanguagePicker.astro";
+import LanguagePicker from "./LanguagePicker.jsx";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
