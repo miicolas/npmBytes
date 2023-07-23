@@ -10,8 +10,6 @@ const LanguagePicker = () => {
       return !prev;
     });
   };
-
-  console.log("Current state:", isOpen);
   return (
     <div className="relative flex flex-col">
       <button
