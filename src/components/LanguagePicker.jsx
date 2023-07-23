@@ -5,7 +5,6 @@ const LanguagePicker = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleButtonClick = () => {
-    console.log("Button Clicked!");
     setIsOpen((prev) => {
       console.log("Previous state:", prev);
       return !prev;
