@@ -62,8 +62,8 @@ const postUrl = `/${lang}/blog/${slugify(title)}`;
       </div>
       <div class="bg-gradient-to-b from-npm-blue to-transparent w-full h-full absolute top-0 left-0 z-0"></div>
     </section>
-    <section class="m-auto">
-      <h1 class="flex px-5">Lastest Posts</h1>
+    <section class="m-auto px-10 lg:px-20">
+      <h1 class="flex font-extrabold text-4xl p-10">{t('home.new-moment')}</h1>
       <div class="m-auto grid grid-cols-1 md:grid-cols-2 md:gap-10 max-w-4xl px-5">
         {
           formattedPosts
@@ -72,12 +72,10 @@ const postUrl = `/${lang}/blog/${slugify(title)}`;
               <MainPost key={postUrl} post={post} />
             ))
         }
-        
       </div>
       <div class="flex justify-center p-4">
         <a href=`/${lang}/blog`><div class="rounded-lg text-sm px-4 py-2 bg-npm-blue hover:bg-npm-hover-blue focus:ring-4 focus:outline-none font-medium ease-in-out duration-300">{t("home.button-more")}</div></a>
     </div>
-      
     </section>
   </main>
 </MainLayout>
