@@ -138,15 +138,13 @@ code {
   background: grey;
 }
 
-
-/*Responsive */ 
-@media only screen and (max-width: 900px) {
-  .title {
-    font-size: 18px;
-  }
-  
+/* Animations */
+.animate-fade-in {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
 }
 
-@media only screen and (min-width: 400px) {
-  
+.animate-fade-out {
+  opacity: 0;
+  transition: opacity 0.7s ease-in-out;
 }
