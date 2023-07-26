@@ -1,7 +1,7 @@
 ---
 // component imports
 import MainLayout from "../../../layouts/MainLayout.astro";
-import CardPost from "../../../components/CardPost.astro";
+import CardPost from "../../../components/Card/CardPost.astro";
 
 // utils
 import { slugify, formatBlogPosts } from "../../../js/utils";
@@ -36,10 +36,15 @@ const catPosts = formattedPosts.filter(
 ---
 
 <MainLayout title={name}>
-  <section class="w-full" aria-label={`Posts about ${name}`}>
-    <div class="bg-gradient-to-b from-npm-blue to-transparent ">
-      <p class="font-bold text-lg py-20 text-center ">{t('category.title')} <span>{name}</span></p>
+  <section class="bg-gray-900 bg-[url('/images/hero-pattern-dark.svg')] relative">
+    <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
+      <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl text-white">
+        {t('category.title')} <span>{name}</span>
+      </h1>
     </div>
+    <div class="bg-gradient-to-b from-npm-blue to-transparent w-full h-full absolute top-0 left-0 z-0"></div>
+  </section>
+  <section class="w-full" aria-label={`Posts about ${name}`}>
     <div class="post-container">
       {
         catPosts.map((post) => (

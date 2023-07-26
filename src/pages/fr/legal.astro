@@ -1,0 +1,43 @@
+---
+import {formatBlogPosts,slugify} from "../../js/utils";
+import Accordeon from '../../components/Accordeon.jsx'
+import {getLangFromUrl, useTranslations} from "../../i18n/utils";
+import MainLayout from "../../layouts/MainLayout.astro";
+import MiniPost from "../../components/Card/MiniPost.astro";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const allPosts = await Astro.glob("./blog/*.mdx");
+const formattedPosts = formatBlogPosts(allPosts, {
+    filterOutDrafts: true,
+    filterOutFuturePosts: true,
+    sortByDate: true,
+    limit: null,
+});
+---
+<MainLayout title={t('legal.title')} description="Legal">
+    <section class="bg-gray-900 bg-[url('/images/hero-pattern-dark.svg')] relative">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
+            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl lg:text-6xl text-white">
+                {t('legal.title')}
+            </h1>
+        </div>
+        <div class="bg-gradient-to-b from-npm-blue to-transparent w-full h-full absolute top-0 left-0 z-0"></div>
+    </section>
+    <section>
+        <div class="flex flex-col lg:flex-row" >
+            <div class="flex flex-col gap-2 lg:max-w-3xl p-5 rounded-lg lg:w-3/4">
+                <Accordeon client:load title={t('legal.privacy')} text={t("legal.privacy-content")} url = {'../content/privacy-policy'} btntext = {t('legal.privacy-btn')}/>
+                <Accordeon client:load title={t('legal.unsubscribe-newsletter')} text={t('legal.unsubscribe-newsletter-content')} url = {'../unsubscribe'} btntext = {t('legal.unsubscribe-newsletter-btn')}/>
+            </div>
+            <div class="flex-1 p-5">
+                <h1 class="text-white font-extrabold text-4xl pb-4">{t('legal.post-title')}</h1>
+                {
+                    formattedPosts
+                        .slice(1,2)
+                        .map((post) => <MiniPost key={post.url} post={post}  />)
+                }
+                <hr class="mt-2 bg-npm-blue h-[1px] border-none ">
+            </div>
+        </div>
+    </section>
+</MainLayout>

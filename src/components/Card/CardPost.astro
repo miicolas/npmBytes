@@ -1,0 +1,42 @@
+---
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { slugify, formatDate } from "../../js/utils";
+import { getDaysSince } from "../../js/utils";
+
+const { post } = Astro.props;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { category, title, date, image, minutesRead } = post.frontmatter;
+const postUrl = `/${lang}/blog/${slugify(title)}`;
+const categories = category.split(",");
+---
+
+<article class= "flex flex-col max-w-sm m-auto bg-white/20 hover:bg-white/10 bg-opacity-10 w-full my-4 transition-all duration-500 ease-in-out rounded-lg hover:scale-95 py-4 px-4" >
+  <a href={postUrl}>
+    <img class="block m-auto max-w-full max-h-full object-contain object-center py-2" src={image.src} alt={image.alt} />
+  </a>
+  <div class="max-w-full px-2">
+    <div class="flex flex-col">
+      <a href={postUrl}
+      ><p class="text-xl md:text-2xl font-semibold mt-2 mb-4 hover:text-[#c5c5c5] ease-in-out duration-200">
+        {title.length > 50 ? `${title.slice(0, 50)}...` : title}
+      </p>
+      </a>
+      <div class="flex items-center py-2">
+        <i class="fa-solid fa-book-open-reader" style="color: #c7c7c7;"></i>
+        <p class=" ml-2 md:text-sm lg:text-xs text-[#c7c7c7]">{minutesRead} {t('blog.readtime')}</p>
+      </div>
+    </div>
+    <div class="flex items-center mt-auto">
+      {
+        categories.map((cat) => (
+            <small>
+              <a href={`/${lang}/category/${slugify(cat)}/`} class="text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 bg-gray-700 text-gray-400 border border-gray-500">
+                {cat.trim()}
+              </a>
+            </small>
+            
+        ))
+      }
+  </div>
+</article>
