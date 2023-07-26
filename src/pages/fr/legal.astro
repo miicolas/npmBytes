@@ -27,7 +27,7 @@ const formattedPosts = formatBlogPosts(allPosts, {
         <div class="flex flex-col lg:flex-row" >
             <div class="flex flex-col gap-2 lg:max-w-3xl p-5 rounded-lg lg:w-3/4">
                 <Accordeon client:load title={t('legal.privacy')} text={t("legal.privacy-content")} url = {'../content/privacy-policy'} btntext = {t('legal.privacy-btn')}/>
-                <Accordeon client:load title={t('legal.unsubscribe-newsletter')} text={t('legal.unsubscribe-newsletter-content')} url = {'./unsubscribe'} btntext = {t('legal.unsubscribe-newsletter-btn')}/>
+                <Accordeon client:load title={t('legal.unsubscribe-newsletter')} text={t('legal.unsubscribe-newsletter-content')} url = {'../unsubscribe'} btntext = {t('legal.unsubscribe-newsletter-btn')}/>
             </div>
             <div class="flex-1 p-5">
                 <h1 class="text-white font-extrabold text-4xl pb-4">{t('legal.post-title')}</h1>

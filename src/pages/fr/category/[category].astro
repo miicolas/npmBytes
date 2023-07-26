@@ -1,11 +1,13 @@
 ---
 // component imports
-import MainLayout from "../../../layouts/MainLayout.astro"; 
+import MainLayout from "../../../layouts/MainLayout.astro";
 import CardPost from "../../../components/Card/CardPost.astro";
 
 // utils
 import { slugify, formatBlogPosts } from "../../../js/utils";
-
+import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const pages = [
   {
     slug: "annonce",
@@ -20,61 +22,18 @@ const pages = [
     props: { name: "Web" },
   },
   {
-    slug: "securite",
-    props: { name: "Securité" },
+    slug: "cyber",
+    props: { name: "Cyber" },
   },
 ];
-
 const { category } = Astro.params;
 const { name } = pages.find((page) => page.slug === category).props;
 const allPosts = await Astro.glob("../blog/*.mdx");
 const formattedPosts = formatBlogPosts(allPosts);
 const catPosts = formattedPosts.filter(
-  (post) => slugify(post.frontmatter.category) === category
-);
-import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
----
-
----
-// component imports
-import MainLayout from "../../../layouts/MainLayout.astro";
-import CardPost from "../../../components/Card/CardPost.astro";
-
-// utils
-import { slugify, formatBlogPosts } from "../../../js/utils";
-import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const pages = [
-{
-    slug: "annoncement",
-    props: { name: "Annoncement" },
-    },
-{
-    slug: "ai",
-    props: { name: "AI" },
-    },
-{
-    slug: "web",
-    props: { name: "Web" },
-    },
-{
-    slug: "security",
-    props: { name: "Security" },
-    },
-];
-const { category } = Astro.params;
-const { name } = pages.find((page) => page.slug === category).props;
-const allPosts = await Astro.glob("../blog/*.mdx");
-const formattedPosts = formatBlogPosts(allPosts);
-const catPosts = formattedPosts.filter(
-(post) => slugify(post.frontmatter.category) === category
+    (post) => slugify(post.frontmatter.category) === category
 );
 ---
-
 <MainLayout title={name}>
   <section class="bg-gray-900 bg-[url('/images/hero-pattern-dark.svg')] relative">
     <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
@@ -83,5 +42,16 @@ const catPosts = formattedPosts.filter(
       </h1>
     </div>
     <div class="bg-gradient-to-b from-npm-blue to-transparent w-full h-full absolute top-0 left-0 z-0"></div>
+  </section>
+  <section class="w-full" aria-label={`Posts about ${name}`}>
+    <div class="post-container">
+      {
+        catPosts.map((post) => (
+            <CardPost
+                key={post.url} post={post}
+            />
+        ))
+      }
+    </div>
   </section>
 </MainLayout>

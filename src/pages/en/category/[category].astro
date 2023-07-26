@@ -31,7 +31,7 @@ const { name } = pages.find((page) => page.slug === category).props;
 const allPosts = await Astro.glob("../blog/*.mdx");
 const formattedPosts = formatBlogPosts(allPosts);
 const catPosts = formattedPosts.filter(
-    (post) => slugify(post.frontmatter.category) === category
+  (post) => slugify(post.frontmatter.category) === category
 );
 ---
 
@@ -43,5 +43,16 @@ const catPosts = formattedPosts.filter(
       </h1>
     </div>
     <div class="bg-gradient-to-b from-npm-blue to-transparent w-full h-full absolute top-0 left-0 z-0"></div>
+  </section>
+  <section class="w-full" aria-label={`Posts about ${name}`}>
+    <div class="post-container">
+      {
+        catPosts.map((post) => (
+          <CardPost
+            key={post.url} post={post}
+          />
+        ))
+      }
+    </div>
   </section>
 </MainLayout>
