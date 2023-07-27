@@ -1,0 +1,54 @@
+---
+layout: "../../../layouts/BlogPostLayout.astro"
+title: De GPT-3.5 à GPT-4 - L'évolution de ChatGPT décortiquée
+date: 2023-07-27
+author: Nicolas Becharat
+image:
+  src: "/images/gpt-post-310723.png"
+  alt: "gpt-logo"
+description: ChatGPT, développé par OpenAI, est l'un des modèles de langage (LLM) les plus avancés qui a fait débat au cours de l’année 2023. Au fil du temps, ce système a été constamment amélioré grâce aux données collectées auprès des utilisateurs et aux avancées en matière de recherche et de conception. Cependant, malgré les progrès réalisés, certaines questions demeurent concernant les mises à jour de GPT-3.5 et GPT-4, leur fréquence et leur impact sur les performances globales des modèles.
+draft: false
+category: IA
+minutesRead: 7
+---
+
+## Table des matières
+
+* [Les progrès de ChatGPT au fil du temps](#les-progrès-de-chatgpt-au-fil-du-temps)
+
+* [La dérive des effets de la chaîne de pensées](#la-dérive-des-effets-de-la-chaîne-de-pensées)
+
+
+<br/>
+
+**ChatGPT, développé par OpenAI, est l'un des modèles de langage (LLM) les plus avancés qui a fait débat au cours de l’année 2023. Au fil du temps, ce système a été constamment amélioré grâce aux données collectées auprès des utilisateurs et aux avancées en matière de recherche et de conception. Cependant, malgré les progrès réalisés, certaines questions demeurent concernant les mises à jour de GPT-3.5 et GPT-4, leur fréquence et leur impact sur les performances globales des modèles.**
+> Un LLM est un système d'apprentissage automatique qui a été formé sur de vastes ensembles de données textuelles pour comprendre et générer des textes humains. Ces modèles ont la capacité de saisir le contexte, le ton, les subtilités et les aspects culturels du langage, ce qui leur permet d'être polyvalents dans une grande variété de tâches liées au langage naturel.
+
+## Les progrès de ChatGPT au fil du temps
+
+L'importance de ces mises à jour réside dans le fait que les **LLM** sont devenus une source majeure d'information et d'apprentissage pour de nombreuses personnes. En tant que tels, **leur fiabilité**, **leur cohérence** sont essentielles pour éviter tout préjudice potentiel causé par des réponses incorrectes ou trompeuses.
+
+L'examen des différences entre **GPT-3.5** et **GPT-4** au fil des mois met en évidence certaines nuances. Par exemple, en posant une question sur les nombres premiers, on observe **des variations significatives de précision**. En mars, GPT-4 affichait une précision de **97,6 %**, tandis qu'en juin, cette précision était drastiquement réduite à seulement **2,4 %**. En revanche, la version de GPT-3.5 a montré une amélioration spectaculaire, passant de **7,4 %** de précision à un impressionnant taux de **86,8 %** . De plus, les réponses fournies par GPT-4 sont devenues beaucoup **plus concises**, avec une verbosité moyenne passant de 821,2 en mars à 3,8 en juin. Ces différences suscitent des interrogations quant à ce qui peut influencer la performance des **LLM** au fil des mises à jour.
+<img src="https://lh3.googleusercontent.com/drive-viewer/AITFw-wXbdSRe0Isrh9WuSfDK7jDfzrRF1jvqLYvoYgWq8gCqr3eQRJWKmSo8GLnY2tNSWuncHd4pZJq-4KON2bp_lao37qBSg=s1600" class="max-w-full h-auto block m-auto" />
+
+## La dérive des effets de la chaîne de pensées
+
+Pourquoi il y a une aussi grosse différence ?
+
+La dérive des effets de la **chaîne de pensées** (CoT) semble jouer un rôle crucial dans ces variations de performances.
+>La chaîne de pensées (CoT) est une méthode traditionnelle utilisée par les modèles de langage artificiel, où chaque nouvelle pensée ou décision est basée sur la précédente, formant ainsi un raisonnement linéaire. Cette approche, bien qu'efficace pour de nombreuses tâches, montre ses limites lorsqu'il s'agit de résoudre des problèmes complexes nécessitant un raisonnement plus complexe et non linéaire.
+
+
+Dans le cas de la détermination des nombres premiers, la version de GPT-4 de mars a suivi **la méthode de la chaîne de pensées**, **décomposant la tâche en plusieurs étapes** : tout d'abord, elle vérifie si le nombre est pair, puis elle examine la racine carrée du nombre pour obtenir tous les nombres premiers inférieurs à lui. Enfin, GPT-4 vérifie si le nombre est divisible par l'un de ces nombres premiers inférieurs. **En effectuant ces étapes de manière séquentielle, le modèle parvient à fournir la réponse correcte**. Cependant, la version de juin n'a pas généré d'étapes intermédiaires et a simplement produit un résultat incorrect ("non").
+<img src='https://lh3.googleusercontent.com/drive-viewer/AITFw-zoU67ZM5kIzUS-JaZvAq8jSggHfLQy6fHm3TcXDiUNlLrjOJydflwDI3i65epBQLoFQopnoCgxLRAIC6ZtkvtJHWH25A=s1600' class="max-w-[60%] h-auto block m-auto"/>
+
+
+Pour améliorer ce processus de pensée, des approches telles que **le prompting CoT** ont été explorées. **Le prompting CoT** permet de générer des **phrases plus longues et d'inclure davantage de tokens** intermédiaires pour les problèmes nécessitant des étapes de raisonnement plus élaborées. **Cela permet d'allouer davantage de puissance de calcul pour résoudre des problèmes complexes** et offre une meilleure compréhension du raisonnement derrière les réponses fournies par le modèle. En cas de réponses incorrectes, **la chaîne de pensées peut être analysée pour identifier les erreurs dans le raisonnement**.
+
+<img src='https://lh3.googleusercontent.com/drive-viewer/AITFw-yPC5XzHvaVNe1Y6gINLLH_Ll5e_N2o0BPxtDnjjRG3t6davhwCxvUHgjx9b282YfCXNcoEiO6Ssc9QH27OEDtdsxUg=s1600' class="max-w-full h-auto block m-auto"/>
+Le CoT est applicable à une variété de tâches résolues par le langage naturel et peut être utilisé avec n'importe quel modèle de langue, en incluant simplement la chaîne de pensée en entrée du modèle au moment de la prédiction. Cette approche offre ainsi un moyen de garantir la transparence et la fiabilité des modèles de langage, tout en continuant à les améliorer de manière itérative.
+
+
+## Conclusion
+
+En conclusion, l'évolution de ChatGPT est un processus complexe et continu, avec pour objectif principal d'améliorer la qualité et la pertinence des réponses fournies par les LLM. Les mises à jour régulières, basées sur les retours des utilisateurs et les avancées en recherche, permettent de progresser vers des modèles de langage de plus en plus puissants, fiables et transparents, ouvrant ainsi de nouvelles perspectives pour l'intelligence artificielle et son interaction avec les êtres humains.
