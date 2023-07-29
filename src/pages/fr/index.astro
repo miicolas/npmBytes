@@ -22,7 +22,7 @@ const postUrl = `/${lang}/blog/${slugify(title)}`;
 ---
 
 <MainLayout title="npmBytes">
-  <main>
+  <main class="font">
     <section class="bg-gray-900 bg-[url('/images/hero-pattern-dark.svg')] relative">
       <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 z-10 relative">
         <a href={postUrl} class="group inline-flex justify-between items-center py-1 px-1 pr-4 mb-7 text-sm rounded-full bg-gray-900 text-violet-300 hover:bg-gray-800">
@@ -78,18 +78,18 @@ const postUrl = `/${lang}/blog/${slugify(title)}`;
       </div>
     </section>
     <section class="m-auto py-10">
-      <div class="group bg-black max-w-3xl m-auto rounded-lg relative" id="screen">
-        <img src="/images/twitchshow.png" alt="npmBytes Twitch Show" class="relative w-full"/>
+      <div class="group max-w-3xl m-auto rounded-lg relative" id="screen">
+        <img src="/images/twitchshow.png" alt="npmBytes Twitch Show" class="relative w-full rounded-lg" />
         <div class="hidden bottom-0 text-white z-10 bg-white/10 w-full ease-in-out duration-300 rounded-bl-lg rounded-br-lg" id="player">
           <div class="relative flex flex-row gap-x-2 p-1">
             <div class="p-2 hover:bg-gray-400 ease-in duration-300">
-              <svg class="w-3 h-3 text-gray-800 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 16">
-                <path d="M0 .984v14.032a1 1 0 0 0 1.506.845l12.006-7.016a.974.974 0 0 0 0-1.69L1.506.139A1 1 0 0 0 0 .984Z"/>
+              <svg class="w-3 h-3 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 16">
+                <path d="M0 .984v14.032a1 1 0 0 0 1.506.845l12.006-7.016a.974.974 0 0 0 0-1.69L1.506.139A1 1 0 0 0 0 .984Z" />
               </svg>
             </div>
             <div class="p-2 hover:bg-gray-400 ease-in duration-300">
-              <svg class="w-3 h-3 text-gray-800 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 16">
-                <path d="M0 .984v14.032a1 1 0 0 0 1.506.845l12.006-7.016a.974.974 0 0 0 0-1.69L1.506.139A1 1 0 0 0 0 .984Z"/>
+              <svg class="w-3 h-3 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 14 16">
+                <path d="M0 .984v14.032a1 1 0 0 0 1.506.845l12.006-7.016a.974.974 0 0 0 0-1.69L1.506.139A1 1 0 0 0 0 .984Z" />
               </svg>
             </div>
           </div>
@@ -99,16 +99,48 @@ const postUrl = `/${lang}/blog/${slugify(title)}`;
   </main>
 </MainLayout>
 
+<style>
+  /* Définition des animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+  /* Application des animations */
+  .fade-in {
+    animation: fadeIn 0.5s ease-in;
+  }
+
+  .fade-out {
+    animation: fadeOut 0.5s ease-out;
+  }
+</style>
+
 <script>
   const player = document.getElementById('player');
-    const screen = document.getElementById('screen');
-    screen.addEventListener('mouseover', () => {
-      player.classList.remove('hidden');
-      player.classList.add('absolute');
-    });
+  const screen = document.getElementById('screen');
+  screen.addEventListener('mouseover', () => {
+    if (player.classList.contains('fade-out')) {
+      player.classList.remove('fade-out')};
+    player.classList.remove('hidden');
+    player.classList.add('absolute');
+    player.classList.add('fade-in');
 
-    screen.addEventListener('mouseout', () => {
-      player.classList.add('hidden');
-      player.classList.remove('absolute');
-    });
+  });
+
+  screen.addEventListener('mouseout', () => {
+    player.classList.remove('fade-in');
+    player.classList.add('fade-out');
+    player.classList.remove('absolute');
+    player.classList.add('hidden');
+  });
+
+
+
 </script>
+
