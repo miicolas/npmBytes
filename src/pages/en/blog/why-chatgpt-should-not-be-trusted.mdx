@@ -1,15 +1,15 @@
 ---
 layout: "../../../layouts/BlogPostLayout.astro"
-title: From GPT-3.5 to GPT-4 - The evolution of ChatGPT explained
-date: 2023-07-27
+title: Why ChatGPT should not be trusted
+date: 2023-07-30
 author: Nicolas Becharat
 image:
   src: "/images/gpt-post-310723.png"
   alt: "gpt-logo"
 description: ChatGPT, developed by OpenAI, is one of the most advanced language models (LLM) that has been debated in the year 2023. Over time, this system has been constantly improved thanks to data collected from users and advances in research and design. However, despite the progress made, some questions remain regarding GPT-3.5 and GPT-4 updates, their frequency, and their impact on overall model performance.
 draft: false
-category: IA
-minutesRead: 7
+category: AI
+minutesRead: 4
 ---
 
 ## Table of contents
@@ -29,7 +29,7 @@ minutesRead: 7
 The significance of these updates is that **LLMs** have become a major source of information and learning for many people. As such, **their reliability**, **their consistency** are essential to avoid any potential harm caused by incorrect or misleading answers.
 
 Examining the differences between **GPT-3.5** and **GPT-4** over the months highlights some nuances. For example, when asking a question about prime numbers, we observe **significant variations in precision**. In March, GPT-4 showed an accuracy of **97.6%**, while in June, this accuracy was drastically reduced to only **2.4%**. In contrast, the GPT-3.5 version showed a dramatic improvement, going from **7.4%** accuracy to an impressive **86.8%**. Additionally, the responses provided by GPT-4 have become much **more concise**, with average verbosity dropping from 821.2 in March to 3.8 in June. These differences raise questions about what might influence the performance of **LLMs** over updates.
-<img src="https://lh3.googleusercontent.com/drive-viewer/AITFw-wXbdSRe0Isrh9WuSfDK7jDfzrRF1jvqLYvoYgWq8gCqr3eQRJWKmSo8GLnY2tNSWuncHd4pZJq-4KON2bp_lao37qBSg=s1600" class="max-w-full h-auto block m-auto" />
+<img src="https://lh3.googleusercontent.com/drive-viewer/AITFw-wXbdSRe0Isrh9WuSfDK7jDfzrRF1jvqLYvoYgWq8gCqr3eQRJWKmSo8GLnY2tNSWuncHd4pZJq-4KON2bp_lao37qBSg=s1600" class="max-w-full h-auto block m-auto" alt="ChatGPT"/>
 
 ## The Drift of Thought Chain Effects
 
@@ -40,15 +40,15 @@ The drift of **chain of thoughts** (CoT) effects seems to play a crucial role in
 
 
 In the case of determining prime numbers, the March version of GPT-4 followed **the chain of thoughts method**, **breaking down the task into several steps**: first, it checks if the number is even, then it examines the square root of the number to get all the primes less than it. Finally, GPT-4 checks if the number is divisible by one of these lower primes. **By performing these steps sequentially, the model manages to provide the correct answer**. However, the June version did not generate intermediate steps and simply produced an incorrect result ("no").
-<img src='https://lh3.googleusercontent.com/drive-viewer/AITFw-zoU67ZM5kIzUS-JaZvAq8jSggHfLQy6fHm3TcXDiUNlLrjOJydflwDI3i65epBQLoFQopnoCgxLRAIC6ZtkvtJHWH25A=s1600' class="max-w-[60 %] h-auto block m-auto"/>
+<img src='https://lh3.googleusercontent.com/drive-viewer/AITFw-zoU67ZM5kIzUS-JaZvAq8jSggHfLQy6fHm3TcXDiUNlLrjOJydflwDI3i65epBQLoFQopnoCgxLRAIC6ZtkvtJHWH25A=s1600' class="max-w-[60 %] h-auto block m-auto" alt="CoT"/>
 
 
 To improve this thought process, approaches such as **CoT prompting** have been explored. **CoT prompting** allows generating **longer sentences and including more intermediate tokens** for problems requiring more elaborate reasoning steps. **This allows to allocate more computing power to solve complex problems** and provides a better understanding of the reasoning behind the answers provided by the model. In case of incorrect answers, **the chain of thoughts can be analyzed to identify errors in reasoning**.
 
-<img src='https://lh3.googleusercontent.com/drive-viewer/AITFw-yPC5XzHvaVNe1Y6gINLLH_Ll5e_N2o0BPxtDnjjRG3t6davhwCxvUHgjx9b282YfCXNcoEiO6Ssc9QH27OEDtdsxUg=s1600' class="max-w- full h-auto block m-auto"/>
+<img src='https://lh3.googleusercontent.com/drive-viewer/AITFw-yPC5XzHvaVNe1Y6gINLLH_Ll5e_N2o0BPxtDnjjRG3t6davhwCxvUHgjx9b282YfCXNcoEiO6Ssc9QH27OEDtdsxUg=s1600' class="max-w- full h-auto block m-auto" alt="CoT"/>
 CoT is applicable to a variety of tasks solved by natural language and can be used with any language model, by simply including the chain of thought as input to the model at prediction time. This approach thus offers a way to ensure the transparency and reliability of language models, while continuing to improve them iteratively.
 
 
 ## Conclusion
 
-In conclusion, the evolution of ChatGPT is a complex and continuous process, with the main objective of improving the quality and relevance of the answers provided by LLMs. Regular updates, based on user feedback and advances in research, allow progress towards increasingly powerful, reliable and transparent language models, thus opening up new perspectives for artificial intelligence and its interaction with human beings.
+In conclusion, the evolution of ChatGPT is a complex and continuous process, with the main objective of improving the quality and relevance of the answers provided by LLMs. Regular updates, based on user feedback and advances in research,**allow progress towards increasingly powerful, reliable and transparent language models**, thus opening up new perspectives for artificial intelligence and its interaction with human beings.
