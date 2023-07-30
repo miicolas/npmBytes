@@ -31,7 +31,7 @@ const processedCats = allCategories.reduce((acc, category) => {
   {
     Object.entries(processedCats).map(([key]) => (
       <li class="p-2">
-        <a class="text-base font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 bg-gray-700 text-gray-400 border border-gray-500" href={`/${lang}/category/${slugify(key)}/`}>
+        <a class="text-sm font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 bg-white/30  border border-gray-500" href={`/${lang}/category/${slugify(key)}/`}>
           {key}
         </a>
       </li>
