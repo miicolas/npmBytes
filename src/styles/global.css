@@ -227,23 +227,21 @@ body {
   transition: opacity 0.7s ease-in-out;
 }
 
-@media only screen and (min-width: 400px) {
-  
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-.rotating {
-  animation: rotating 2s linear infinite;
-  animation-duration: 20s;
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
-@keyframes rotating {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
 }
 
-
-
+.fade-out {
+  animation: fadeOut 0.5s ease-out;
+}
