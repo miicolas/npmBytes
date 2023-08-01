@@ -2,8 +2,11 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import MainPost from "../../components/Card/MainPost.astro";
 import TwitchShowCard from "../../components/TwitchShowCard.jsx";
+import SocialCard from "../../components/SocialCard.jsx";
 import { formatBlogPosts, slugify } from "../../js/utils";
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import ButtonSocial from "../../components/ButtonSocial";
+
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -108,9 +111,24 @@ const postUrl = `/${lang}/blog/${slugify(title)}`;
             </a>
           </p>
         </div>
-
       </div>
       <TwitchShowCard client:load />
+    </section>
+    <section >
+      <div class="py-10">
+        <div class="flex flex-col lg:flex-row justify-center items-center lg:gap-x-72 gap-10 lg:gap-0">
+          <SocialCard client:load/>
+          <div class="max-w-lg px-10 pb-10 lg:pb-0 flex flex-col justify-center lg:justify-normal">
+            <p class="font-bold text-3xl">Nous sommes partout ! </p>
+            <p class="mt-2">
+              Nous mettons tous les articles sur nos réseaux sociaux de manière condensée afin d'expliquer chaque sujet aussi précisément et rapidement que possible.<br/>
+            </p>
+            <ButtonSocial client:load/>
+        </div>
+        </div>
+        
+      </div>
+      
     </section>
   </main>
 </MainLayout>

@@ -44,6 +44,7 @@ export const languages = {
       'legal.unsubscribe-newsletter-content' : 'We keep your email address in our database as long as you are subscribed to our newsletter, unless you choose to unsubscribe. If you wish to unsubscribe, please complete the unsubscribe form, which you can find at the bottom of one of the newsletter emails. We will then securely delete your information from our database.',
       'legal.unsubscribe-newsletter-btn' : 'Form to unsubscribe',
         'legal.post-title' : 'Our latest posts',
+        'alert.copy' : 'Our link has been copied to your cliboaard, you can now share it with your friends !',
     },
     fr: {
       'nav.home': 'Accueil',
@@ -83,5 +84,6 @@ export const languages = {
       'legal.unsubscribe-newsletter-content' : 'Nous conservons votre adresse e-mail dans notre base de données aussi longtemps que vous êtes abonné à notre newsletter, sauf si vous choisissez de vous désabonner. Si vous souhaitez vous désabonner, veuillez compléter le formulaire de désabonnement, que vous trouvez en bas d’un des mails de la newsletter. Nous supprimerons alors en toute sécurité vos informations de notre base de données.',
       'legal.unsubscribe-newsletter-btn' : 'Formulaire de désabonnement',
       'legal.post-title' : 'Nos derniers articles',
+      'alert.copy' : 'Vous avez copié le lien de la page et il est prêt à être partagé',
     },
   } as const;
