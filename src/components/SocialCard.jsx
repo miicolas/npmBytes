@@ -19,7 +19,7 @@ const SocialCard = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 7500);
+    }, 5000);
 
     return () => {
       clearInterval(interval);
@@ -40,6 +40,12 @@ const SocialCard = () => {
   ];
 
   return (
+    <div>
+    <div class="relative h-full w-full bg-slate-950">
+        <div class="absolute -left-44 top-0 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,255,255,0.2),rgba(255,255,255,0))]">
+
+        </div>
+      </div>
     <div
       className="relative border-white/10 bg-white/10 border-[14px] rounded-[3rem] drop-shadow-2xl"
     >
@@ -73,6 +79,7 @@ const SocialCard = () => {
           &gt;
         </button>
       </div> */}
+    </div>
     </div>
   );
 };

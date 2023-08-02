@@ -12,7 +12,7 @@ const ButtonSocial = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 7500);
+    }, 5000);
 
     return () => {
       clearInterval(interval);
