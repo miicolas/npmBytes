@@ -65,7 +65,7 @@ const postUrl = `/${lang}/blog/${slugify(title)}`;
       </div>
       <div class="bg-gradient-to-b from-npm-blue to-transparent w-full h-full absolute top-0 left-0 z-0"></div>
     </section>
-    <section class="m-auto px-10 lg:px-20 py-10">
+    <section class="m-auto px-5 lg:px-20 py-10">
       <h1 class="flex font-extrabold text-4xl p-10">{t('home.new-moment')}</h1>
       <div class="m-auto grid grid-cols-1 md:grid-cols-2 md:gap-10 max-w-4xl px-5">
         {
@@ -112,7 +112,10 @@ const postUrl = `/${lang}/blog/${slugify(title)}`;
           </p>
         </div>
       </div>
-      <TwitchShowCard client:load />
+      <div class="lg:px-0 px-5">
+        <TwitchShowCard client:load />
+      </div>
+      
     </section>
     <section >
       <div class="py-10">
