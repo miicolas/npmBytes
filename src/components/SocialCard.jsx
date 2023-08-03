@@ -42,7 +42,7 @@ const SocialCard = () => {
   return (
     <div>
     <div class="relative h-full w-full bg-slate-950">
-        <div class="absolute -left-44 top-0 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,255,255,0.2),rgba(255,255,255,0))]">
+        <div class="absolute -left-44 top-0 h-[100px] w-[100px] lg:h-[600px] lg:w-[600px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,255,255,0.2),rgba(255,255,255,0))]">
 
         </div>
       </div>
