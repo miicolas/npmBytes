@@ -41,45 +41,40 @@ const SocialCard = () => {
 
   return (
     <div>
-    <div class="relative h-full w-full bg-slate-950">
-        <div class="absolute -left-44 top-0 h-[100px] w-[100px] lg:h-[600px] lg:w-[600px] rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,255,255,0.2),rgba(255,255,255,0))]">
-
+      <div
+        className="relative border-white/10 bg-white/10 border-[14px] rounded-[3rem] drop-shadow-2xl"
+      >
+        <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-gray-800">
+          {slides.map((slide, index) => (
+            <div
+              key={slide.id}
+              className={`absolute top-0 left-0 w-full h-full ${
+                index === currentIndex ? "opacity-100" : "opacity-0"
+              } transition-opacity duration-500`}
+            >
+              <img src={slide.image} alt={slide.alt} className="w-full h-full rounded-[2rem]" />
+            </div>
+          ))}
         </div>
-      </div>
-    <div
-      className="relative border-white/10 bg-white/10 border-[14px] rounded-[3rem] drop-shadow-2xl"
-    >
-      <div className="rounded-[2rem] overflow-hidden w-[272px] h-[572px] bg-gray-800">
-        {slides.map((slide, index) => (
-          <div
-            key={slide.id}
-            className={`absolute top-0 left-0 w-full h-full ${
-              index === currentIndex ? "opacity-100" : "opacity-0"
-            } transition-opacity duration-500`}
+        {/* <div className="absolute inset-y-0 left-0 flex items-center justify-center w-12">
+          <button
+            onClick={prevSlide}
+            className="text-white hover:text-gray-400"
+            aria-label="Previous Slide"
           >
-            <img src={slide.image} alt={slide.alt} className="w-full h-full rounded-[2rem]" />
-          </div>
-        ))}
+            &lt;
+          </button>
+        </div>
+        <div className="absolute inset-y-0 right-0 flex items-center justify-center w-12">
+          <button
+            onClick={nextSlide}
+            className="text-white hover:text-gray-400"
+            aria-label="Next Slide"
+          >
+            &gt;
+          </button>
+        </div> */}
       </div>
-      {/* <div className="absolute inset-y-0 left-0 flex items-center justify-center w-12">
-        <button
-          onClick={prevSlide}
-          className="text-white hover:text-gray-400"
-          aria-label="Previous Slide"
-        >
-          &lt;
-        </button>
-      </div>
-      <div className="absolute inset-y-0 right-0 flex items-center justify-center w-12">
-        <button
-          onClick={nextSlide}
-          className="text-white hover:text-gray-400"
-          aria-label="Next Slide"
-        >
-          &gt;
-        </button>
-      </div> */}
-    </div>
     </div>
   );
 };
