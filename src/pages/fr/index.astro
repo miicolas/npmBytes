@@ -2,8 +2,11 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import MainPost from "../../components/Card/MainPost.astro";
 import TwitchShowCard from "../../components/TwitchShowCard.jsx";
+import SocialCard from "../../components/SocialCard.jsx";
 import { formatBlogPosts, slugify } from "../../js/utils";
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import ButtonSocial from "../../components/ButtonSocial";
+
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -62,7 +65,7 @@ const postUrl = `/${lang}/blog/${slugify(title)}`;
       </div>
       <div class="bg-gradient-to-b from-npm-blue to-transparent w-full h-full absolute top-0 left-0 z-0"></div>
     </section>
-    <section class="m-auto px-10 lg:px-20 py-10">
+    <section class="m-auto px-5 lg:px-20 py-10">
       <h1 class="flex font-extrabold text-4xl p-10">{t('home.new-moment')}</h1>
       <div class="m-auto grid grid-cols-1 md:grid-cols-2 md:gap-10 max-w-4xl px-5">
         {
@@ -77,13 +80,13 @@ const postUrl = `/${lang}/blog/${slugify(title)}`;
         <a href=`/${lang}/blog`><div class="rounded-lg text-sm px-4 py-2 bg-npm-blue hover:bg-npm-hover-blue focus:ring-4 focus:outline-none font-medium ease-in-out duration-300">{t("home.button-more")}</div></a>
       </div>
     </section>
-    <section class="m-auto py-10 bg-white/10 flex flex-col lg:flex-row justify-center gap-x-5">
+    <section class="m-auto py-20 bg-white/10 flex flex-col lg:flex-row justify-center gap-x-5">
       <div class="flex justify-center items-center p-10 max-w-lg">
         <div>
-          <p class="font-bold text-3xl">Emission Twitch</p>
+          <p class="font-bold text-3xl">{t('twitch.title')}</p>
           <p class="mt-2">
-            Faire découvrir le monde de la tech à travers des interviews, des lives et des débats sur Twitch, cela vous tente ?<br/>
-            C'est ce que nous voulons faire à partir de la rentrée ! <br/>
+            {t('twitch.description')}<br/>
+            {t('twitch.date')} <br/>
             <a href="https://www.twitch.tv/npmbytes">
               <div class="rounded-lg text-sm px-4 py-2 bg-npm-blue hover:bg-npm-hover-blue focus:ring-4 focus:outline-none font-medium ease-in-out duration-300 w-fit mt-4">
                 <div class="flex items-center justify-center gap-x-2">
@@ -101,16 +104,35 @@ const postUrl = `/${lang}/blog/${slugify(title)}`;
                     </g>
                   </svg>
                   <p>
-                    Rejoignez-nous sur Twitch
+                    {t('twitch.button')}
                   </p>
                 </div>
               </div>
             </a>
           </p>
         </div>
-
+        <div class="px-10 lg:px-0">
+          <TwitchShowCard client:load />
+        </div>
+        
       </div>
-      <TwitchShowCard client:load />
+      
+    </section>
+    <section  class="py-20">
+      
+        <div class="flex flex-col lg:flex-row justify-center items-center lg:gap-x-72 gap-10 lg:gap-0">
+          <SocialCard client:load/>
+          <div class="max-w-lg px-10 pb-10 lg:pb-0 flex flex-col justify-center lg:justify-normal">
+            <p class="font-bold text-3xl">{t('socials.title')}</p>
+            <p class="mt-2">
+              {t('socials.description')}<br/>
+            </p>
+            <ButtonSocial client:load/>
+        </div>
+        </div>
+        
+      
+      
     </section>
   </main>
 </MainLayout>
