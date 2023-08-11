@@ -245,3 +245,12 @@ body {
 .fade-out {
   animation: fadeOut 0.5s ease-out;
 }
+
+.custom-overflow {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-width: none; /* Masque la barre de défilement pour Firefox */
+}
+.custom-overflow::-webkit-scrollbar {
+  display: none; /* Masque la barre de défilement pour les navigateurs basés sur WebKit (Safari) */
+}

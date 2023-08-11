@@ -2,6 +2,7 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import MainPost from "../../components/Card/MainPost.astro";
 import TwitchShowCard from "../../components/TwitchShowCard.jsx";
+import Staff from "../../components/Staff.jsx";
 import SocialCard from "../../components/SocialCard.jsx";
 import { formatBlogPosts, slugify } from "../../js/utils";
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
@@ -130,10 +131,15 @@ const postUrl = `/${lang}/blog/${slugify(title)}`;
             <ButtonSocial client:load/>
         </div>
         </div>
-        
-      
-      
     </section>
+    <!-- <section class="bg-white/10 py-20 flex">
+      <div class="w-1/2 flex-none flex justify-center items-center">
+        <p>Who we are ?</p>
+      </div>
+      <div class="flex-1 custom-overflow">
+        <Staff client:load />
+      </div>
+    </section> -->
   </main>
 </MainLayout>
 
