@@ -8,10 +8,14 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
+  experimental: {
+    viewTransitions: true
+   },
   output: 'server',
   integrations: [mdx({
     drafts: true
   }), image(), tailwind(), react()],
   remarkPlugins: [remarkReadingTime],
   adapter: netlify()
+  
 });
