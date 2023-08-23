@@ -35,10 +35,10 @@ Explain how your project is organized:
 
 - `src/`: Contains the source files of the Astro application.
   - `components/`: Reusable React components.
+  - `i18n/`: Internationalization
   - `layouts/`: Layout components for different sections of the blog.
   - `pages/`: Individual pages and blog posts written in MDX.
-  - `static/`: Static assets such as images and CSS files.
-- `content/`: Contains the MDX content for your blog posts.
+- `public/`: Contains images/fonts.
 
 ## Contribution
 
