@@ -4,7 +4,7 @@ import { remarkReadingTime } from './src/js/remark-reading-time.mjs';
 import image from "@astrojs/image";
 import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
-import vercel from "@astrojs/vercel/serverless";
+import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,5 +16,5 @@ export default defineConfig({
     drafts: true
   }), image(), tailwind(), react()],
   remarkPlugins: [remarkReadingTime],
-  adapter: vercel()
+  adapter: netlify()
 });
