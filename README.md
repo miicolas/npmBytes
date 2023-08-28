@@ -5,7 +5,8 @@ Welcome to npmBytes ! This project was created using Astro, React, and MDX to pr
 ## Preview
 
 home page : 
-<img width="1501" alt="Sans titre" src="https://github.com/justniicolas/npmBytes/assets/78233186/d3f217b3-a737-4e68-8fed-6030d55106f6">
+![CleanShot 2023-08-28 at 15 12 05@2x](https://github.com/miicolas/npmBytes/assets/78233186/80e8980c-56d6-49ec-bdbd-491429d2dc4b)
+
 
 article : 
 <img width="1499" alt="Capture d’écran 2023-08-24 à 00 58 28" src="https://github.com/justniicolas/npmBytes/assets/78233186/ce46841d-3e11-42b5-9068-83d7fa6a56dc">
